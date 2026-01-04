@@ -1,0 +1,20 @@
+{
+  "name": "senior-developer-portfolio",
+  "version": "1.0.0",
+  "description": "Professional portfolio for senior developers",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm start",
+    "build": "cd client && npm run build",
+    "start": "cd server && npm start",
+    "install-deps": "npm install && cd server && npm install && cd ../client && npm install"
+  },
+  "keywords": ["portfolio", "react", "nodejs", "express"],
+  "author": "Rupesh Kumar",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
