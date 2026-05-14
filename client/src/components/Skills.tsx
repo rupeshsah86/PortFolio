@@ -1,93 +1,99 @@
 import React from 'react';
 import './Skills.css';
 
-const Skills: React.FC = () => {
-  const skillCategories = [
-    {
-      title: 'Programming Languages',
-      skills: [
-        { name: 'C', icon: 'fas fa-code' },
-        { name: 'C++', icon: 'fas fa-code' },
-        { name: 'Java', icon: 'fab fa-java' },
-        { name: 'Python', icon: 'fab fa-python' },
-        { name: 'JavaScript', icon: 'fab fa-js' }
-      ]
-    },
-    {
-      title: 'Web Development',
-      skills: [
-        { name: 'HTML5', icon: 'fab fa-html5' },
-        { name: 'CSS3', icon: 'fab fa-css3' },
-        { name: 'JavaScript (ES6+)', icon: 'fab fa-js' },
-        { name: 'Responsive Design', icon: 'fas fa-mobile-alt' }
-      ]
-    },
-    {
-      title: 'Backend & Frameworks',
-      skills: [
-        { name: 'Django (Basic)', icon: 'fas fa-server' },
-        { name: 'Node.js (Basic)', icon: 'fab fa-node-js' }
-      ]
-    },
-    {
-      title: 'Databases',
-      skills: [
-        { name: 'MySQL', icon: 'fas fa-database' },
-        { name: 'MongoDB', icon: 'fas fa-leaf' }
-      ]
-    },
-    {
-      title: 'Machine Learning (Basic)',
-      skills: [
-        { name: 'Supervised Learning', icon: 'fas fa-brain' },
-        { name: 'Data Preprocessing', icon: 'fas fa-chart-bar' },
-        { name: 'Model Evaluation', icon: 'fas fa-chart-line' }
-      ]
-    },
-    {
-      title: 'Core Computer Science',
-      skills: [
-        { name: 'Data Structures & Algorithms', icon: 'fas fa-sitemap' },
-        { name: 'OOP', icon: 'fas fa-cube' },
-        { name: 'DBMS', icon: 'fas fa-database' }
-      ]
-    },
-    {
-      title: 'Tools & Platforms',
-      skills: [
-        { name: 'Git', icon: 'fab fa-git-alt' },
-        { name: 'GitHub', icon: 'fab fa-github' },
-        { name: 'VS Code', icon: 'fas fa-code' },
-        { name: 'LeetCode', icon: 'fas fa-laptop-code' },
-        { name: 'CodeChef', icon: 'fas fa-trophy' },
-        { name: 'HackerRank', icon: 'fas fa-medal' },
-        { name: 'SkillRack', icon: 'fas fa-graduation-cap' }
-      ]
-    }
-  ];
+const skillCategories = [
+  {
+    title: 'Languages',
+    skills: [
+      { name: 'Python', primary: true },
+      { name: 'JavaScript', primary: true },
+      { name: 'TypeScript', primary: true },
+      { name: 'Java', primary: false },
+      { name: 'C / C++', primary: false },
+    ],
+  },
+  {
+    title: 'Frontend',
+    skills: [
+      { name: 'React', primary: true },
+      { name: 'HTML5', primary: true },
+      { name: 'CSS3', primary: true },
+      { name: 'Responsive Design', primary: false },
+    ],
+  },
+  {
+    title: 'Backend',
+    skills: [
+      { name: 'Node.js', primary: true },
+      { name: 'Express.js', primary: true },
+      { name: 'Django', primary: false },
+      { name: 'REST APIs', primary: false },
+    ],
+  },
+  {
+    title: 'Databases',
+    skills: [
+      { name: 'MySQL', primary: true },
+      { name: 'MongoDB', primary: true },
+      { name: 'Database Design', primary: false },
+      { name: 'Query Optimization', primary: false },
+    ],
+  },
+  {
+    title: 'CS Fundamentals',
+    skills: [
+      { name: 'Data Structures', primary: true },
+      { name: 'Algorithms', primary: true },
+      { name: 'OOP', primary: true },
+      { name: 'DBMS', primary: false },
+      { name: 'OS Concepts', primary: false },
+    ],
+  },
+  {
+    title: 'Tools & Platforms',
+    skills: [
+      { name: 'Git & GitHub', primary: true },
+      { name: 'VS Code', primary: false },
+      { name: 'Linux', primary: false },
+      { name: 'Postman', primary: false },
+    ],
+  },
+];
 
-  return (
-    <section id="skills" className="skills section">
-      <div className="container">
-        <h2 className="section-title">Skills & Technologies</h2>
-        <div className="skills-grid">
-          {skillCategories.map((category, index) => (
-            <div key={index} className="skill-category">
-              <h3>{category.title}</h3>
-              <div className="skill-items">
-                {category.skills.map((skill, skillIndex) => (
-                  <span key={skillIndex} className="skill-tag">
-                    <i className={skill.icon}></i>
-                    {skill.name}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
+const Skills: React.FC = () => (
+  <section id="skills" className="skills section">
+    <div className="container">
+      <div className="skills-header">
+        <span className="section-label">Skills & Expertise</span>
+        <h2 className="section-title">What I work with</h2>
+        <p className="section-subtitle">
+          A curated set of tools and technologies I use to build reliable, scalable software.
+        </p>
       </div>
-    </section>
-  );
-};
+
+      <div className="skills-grid">
+        {skillCategories.map((cat, i) => (
+          <div className="skill-category" key={i}>
+            <div className="skill-category-title">{cat.title}</div>
+            <div className="skill-tags">
+              {cat.skills.map((skill, j) => (
+                <span
+                  key={j}
+                  className={`skill-tag ${skill.primary ? 'primary' : ''}`}
+                >
+                  {skill.name}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <p className="skills-note">
+        "I pick up new tools fast. The stack is secondary to the thinking."
+      </p>
+    </div>
+  </section>
+);
 
 export default Skills;

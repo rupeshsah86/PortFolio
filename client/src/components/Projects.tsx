@@ -1,128 +1,178 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './Projects.css';
 
 interface Project {
   id: number;
+  initials: string;
   title: string;
   description: string;
+  problem: string;
   solution: string;
   tech: string[];
   github: string;
   demo: string;
 }
 
+const projects: Project[] = [
+  {
+    id: 1,
+    initials: 'SC',
+    title: 'Smart Campus Service Request System',
+    description: 'Architected a full-stack platform to digitize and streamline campus service operations for students and staff.',
+    problem: 'Campus service requests were handled manually via paper forms, causing delays, lost requests, and zero visibility into resolution status.',
+    solution: 'Designed a structured workflow engine with role-based access — students submit requests, admins assign and track them, and all parties get real-time status updates. Built the database schema from scratch with normalized tables for requests, users, and assignments.',
+    tech: ['Node.js', 'MySQL', 'Backend Architecture', 'Database Design', 'REST API'],
+    github: 'https://github.com/rupeshsah86',
+    demo: '#',
+  },
+  {
+    id: 2,
+    initials: 'RR',
+    title: 'Return & Refund Management System',
+    description: 'Built a business-logic-heavy system handling return requests, approval workflows, and refund status tracking.',
+    problem: 'E-commerce return processes involve complex state machines — request submission, validation, approval, rejection, and refund issuance — all of which needed to be modeled accurately.',
+    solution: 'Implemented a multi-stage approval workflow with state transitions, audit logging, and role-based permissions. Applied ACID-compliant transaction handling to ensure refund integrity across concurrent operations.',
+    tech: ['DBMS', 'MySQL', 'Workflow Design', 'Backend Logic', 'Transaction Management'],
+    github: 'https://github.com/rupeshsah86/ReturnRefundManager.git',
+    demo: '#',
+  },
+  {
+    id: 3,
+    initials: 'BB',
+    title: 'Blood Bank Management System',
+    description: 'Developed a donor and inventory management system with efficient blood availability tracking.',
+    problem: 'Blood banks struggle with real-time inventory visibility, donor record management, and matching blood types to urgent requests.',
+    solution: 'Designed a normalized relational schema supporting donor registration, blood type inventory, and request matching. Optimized queries for fast availability lookups across blood type and location filters.',
+    tech: ['MySQL', 'Database Design', 'Query Optimization', 'DBMS'],
+    github: 'https://github.com/rupeshsah86/blood-bank-system.git',
+    demo: '#',
+  },
+  {
+    id: 4,
+    initials: 'ML',
+    title: 'Military Vehicle Predictive Maintenance (ML)',
+    description: 'Applied supervised machine learning to predict vehicle maintenance needs and reduce unplanned downtime.',
+    problem: 'Reactive maintenance of military vehicles leads to costly breakdowns and operational disruptions. The goal was to shift from reactive to predictive maintenance using historical sensor data.',
+    solution: 'Preprocessed and engineered features from vehicle sensor datasets, trained and evaluated multiple classification models, and selected the best-performing model based on precision and recall. Reduced false negatives to minimize missed maintenance events.',
+    tech: ['Python', 'Scikit-learn', 'Pandas', 'Machine Learning', 'Data Preprocessing'],
+    github: 'https://github.com/rupeshsah86/predictivemaintainancemilitarryvehicle-Aiml.git',
+    demo: '#',
+  },
+  {
+    id: 5,
+    initials: 'HF',
+    title: 'Hamro Food — Online Food Ordering UI',
+    description: 'Designed and built a fully responsive food ordering frontend with clean UI and intuitive navigation.',
+    problem: 'Needed to build a production-quality frontend from scratch with zero frameworks — pure HTML, CSS, and JavaScript — while maintaining mobile responsiveness and accessibility.',
+    solution: 'Implemented a mobile-first responsive layout with CSS Grid and Flexbox, smooth scroll navigation, and interactive menu components. Achieved clean visual hierarchy and fast load times with no external dependencies.',
+    tech: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design', 'UI/UX'],
+    github: 'https://github.com/rupeshsah86/Hamro_Food.git',
+    demo: 'https://rupeshsah86.github.io/Hamro_Food/',
+  },
+];
+
 const Projects: React.FC = () => {
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetchProjects();
-  }, []);
-
-  const fetchProjects = async () => {
-    // Use fallback data directly
-    setProjects([
-      {
-        id: 1,
-        title: 'Smart Campus Service Request System',
-        description: 'Developing a Smart Campus Service Request System to digitize and streamline campus service requests',
-        solution: 'Enables students and staff to submit, track, and manage service requests such as maintenance, IT, and facilities with structured workflows.',
-        tech: ['Backend Logic', 'Database Management', 'System Architecture'],
-        github: 'https://github.com/rupeshsah86',
-        demo: 'https://demo.example.com'
-      },
-      {
-        id: 2,
-        title: 'Return & Refund Management System',
-        description: 'Designed and developed a Return & Refund Management System',
-        solution: 'Implemented return request handling, approval workflow, and refund status tracking with real-world business logic.',
-        tech: ['DBMS', 'Backend Logic', 'Workflow Management'],
-        github: 'https://github.com/rupeshsah86/ReturnRefundManager.git',
-        demo: 'https://demo.example.com'
-      },
-      {
-        id: 3,
-        title: 'Blood Bank Management System',
-        description: 'Developed Blood Bank Management System for managing donors and blood inventory',
-        solution: 'Implemented donor registration and blood availability modules with efficient inventory tracking and database design.',
-        tech: ['MySQL', 'Database Design', 'DBMS'],
-        github: 'https://github.com/rupeshsah86/blood-bank-system.git',
-        demo: 'https://demo.example.com'
-      },
-      {
-        id: 4,
-        title: 'Military Vehicle Maintenance System (ML)',
-        description: 'Built Machine Learning-based system to support vehicle maintenance planning',
-        solution: 'Applied ML concepts to improve vehicle readiness and maintenance efficiency with data-driven decision-making.',
-        tech: ['Python', 'Machine Learning', 'Data Analysis'],
-        github: 'https://github.com/rupeshsah86/predictivemaintainancemilitarryvehicle-Aiml.git',
-        demo: 'https://demo.example.com.'
-      },
-      {
-        id: 5,
-        title: 'Hamro Food – Online Food Ordering Website',
-        description: 'Developed responsive online food ordering website using HTML, CSS, and JavaScript',
-        solution: 'Focused on UI/UX, mobile responsiveness, and frontend best practices with clean design and intuitive navigation.',
-        tech: ['HTML5', 'CSS3', 'JavaScript'],
-        github: 'https://github.com/rupeshsah86/Hamro_Food.git',
-        demo: 'https://rupeshsah86.github.io/Hamro_Food/'
-      }
-    ]);
-    setLoading(false);
-  };
-
-  const getProjectIcon = (title: string) => {
-    if (title.includes('Smart Campus')) return 'fas fa-building';
-    if (title.includes('Return & Refund')) return 'fas fa-undo';
-    if (title.includes('Blood Bank')) return 'fas fa-heartbeat';
-    if (title.includes('Military Vehicle')) return 'fas fa-cogs';
-    if (title.includes('Hamro Food')) return 'fas fa-utensils';
-    return 'fas fa-code';
-  };
-
-  if (loading) {
-    return (
-      <section id="projects" className="projects section">
-        <div className="container">
-          <h2 className="section-title">Featured Projects</h2>
-          <div className="loading">Loading projects...</div>
-        </div>
-      </section>
-    );
-  }
+  const [selected, setSelected] = useState<Project | null>(null);
 
   return (
     <section id="projects" className="projects section">
       <div className="container">
-        <h2 className="section-title">Featured Projects</h2>
+        <div className="projects-header">
+          <span className="section-label">Featured Projects</span>
+          <h2 className="section-title">Things I've built</h2>
+          <p className="section-subtitle">
+            A selection of projects where I owned the architecture, implementation, and delivery.
+          </p>
+        </div>
+
         <div className="projects-grid">
-          {projects.map((project) => (
-            <div key={project.id} className="project-card">
-              <div className="project-image">
-                <i className={getProjectIcon(project.title)}></i>
+          {projects.map((p) => (
+            <div
+              key={p.id}
+              className="project-card"
+              onClick={() => setSelected(p)}
+            >
+              <div className="project-thumb">
+                <span className="project-thumb-text">{p.initials}</span>
+                <div className="project-thumb-overlay">
+                  View Details →
+                </div>
               </div>
-              <div className="project-content">
-                <h3>{project.title}</h3>
-                <p className="project-problem">{project.description}</p>
-                <p className="project-solution">{project.solution}</p>
+              <div className="project-body">
+                <h3 className="project-title">{p.title}</h3>
+                <p className="project-desc">{p.description}</p>
                 <div className="project-tech">
-                  {project.tech.map((tech, index) => (
-                    <span key={index}>{tech}</span>
+                  {p.tech.slice(0, 4).map((t, i) => (
+                    <span key={i} className="badge">{t}</span>
                   ))}
                 </div>
                 <div className="project-links">
-                  <a href={project.demo} className="project-link" target="_blank" rel="noopener noreferrer">
-                    <i className="fas fa-external-link-alt"></i> Live Demo
+                  <a
+                    href={p.github}
+                    className="project-link-btn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <i className="fab fa-github" /> GitHub
                   </a>
-                  <a href={project.github} className="project-link" target="_blank" rel="noopener noreferrer">
-                    <i className="fab fa-github"></i> GitHub
-                  </a>
+                  {p.demo !== '#' && (
+                    <a
+                      href={p.demo}
+                      className="project-link-btn"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <i className="fas fa-external-link-alt" /> Live
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
           ))}
         </div>
       </div>
+
+      {/* Modal */}
+      {selected && (
+        <div className="modal-overlay" onClick={() => setSelected(null)}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h3 className="modal-title">{selected.title}</h3>
+              <button className="modal-close" onClick={() => setSelected(null)}>×</button>
+            </div>
+            <div className="modal-body">
+              <div className="modal-section">
+                <div className="modal-section-label">Problem</div>
+                <p>{selected.problem}</p>
+              </div>
+              <div className="modal-section">
+                <div className="modal-section-label">Solution & Approach</div>
+                <p>{selected.solution}</p>
+              </div>
+              <div className="modal-section">
+                <div className="modal-section-label">Tech Stack</div>
+                <div className="modal-tech">
+                  {selected.tech.map((t, i) => (
+                    <span key={i} className="badge">{t}</span>
+                  ))}
+                </div>
+              </div>
+              <div className="modal-links">
+                <a href={selected.github} className="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                  <i className="fab fa-github" /> View Code
+                </a>
+                {selected.demo !== '#' && (
+                  <a href={selected.demo} className="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                    <i className="fas fa-external-link-alt" /> Live Demo
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

@@ -6,39 +6,49 @@ const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsOpen(false);
-    }
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    setIsOpen(false);
   };
+
+  const navLinks = ['about', 'skills', 'projects', 'experience', 'contact'];
 
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="nav-container">
         <div className="nav-logo">
-          <span onClick={() => scrollToSection('home')}>RK</span>
+          <span onClick={() => scrollToSection('home')}>RK.</span>
         </div>
-        <ul className={`nav-menu ${isOpen ? 'active' : ''}`}>
-          <li><span onClick={() => scrollToSection('home')}>Home</span></li>
-          <li><span onClick={() => scrollToSection('about')}>About</span></li>
-          <li><span onClick={() => scrollToSection('skills')}>Skills</span></li>
-          <li><span onClick={() => scrollToSection('projects')}>Projects</span></li>
-          <li><span onClick={() => scrollToSection('experience')}>Experience</span></li>
-          <li><span onClick={() => scrollToSection('contact')}>Contact</span></li>
-        </ul>
-        <div className={`hamburger ${isOpen ? 'active' : ''}`} onClick={() => setIsOpen(!isOpen)}>
-          <span></span>
-          <span></span>
-          <span></span>
+
+        <div className="nav-right">
+          <ul className={`nav-menu ${isOpen ? 'active' : ''}`}>
+            {navLinks.map((link) => (
+              <li key={link}>
+                <span onClick={() => scrollToSection(link)}>
+                  {link.charAt(0).toUpperCase() + link.slice(1)}
+                </span>
+              </li>
+            ))}
+          </ul>
+
+          <div className="nav-available">
+            <span className="nav-available-dot" />
+            Available for roles
+          </div>
+
+          <div
+            className={`hamburger ${isOpen ? 'active' : ''}`}
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            <span />
+            <span />
+            <span />
+          </div>
         </div>
       </div>
     </nav>

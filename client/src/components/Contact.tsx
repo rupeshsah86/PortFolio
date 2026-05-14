@@ -2,19 +2,12 @@ import React, { useState } from 'react';
 import './Contact.css';
 
 const Contact: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [notification, setNotification] = useState<{message: string, type: string} | null>(null);
+  const [notification, setNotification] = useState<{ message: string; type: string } | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const showNotification = (message: string, type: string) => {
@@ -25,26 +18,21 @@ const Contact: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
     try {
-      const response = await fetch('/api/contact', {
+      const res = await fetch('/api/contact', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
-
-      const data = await response.json();
-
-      if (response.ok) {
+      const data = await res.json();
+      if (res.ok) {
         showNotification(data.message, 'success');
         setFormData({ name: '', email: '', message: '' });
       } else {
         showNotification(data.error, 'error');
       }
-    } catch (error) {
-      showNotification('Network error. Please try again later.', 'error');
+    } catch {
+      showNotification('Network error. Please try again.', 'error');
     } finally {
       setIsSubmitting(false);
     }
@@ -53,67 +41,82 @@ const Contact: React.FC = () => {
   return (
     <section id="contact" className="contact section">
       <div className="container">
-        <h2 className="section-title">Let's Work Together</h2>
-        <div className="contact-content">
+        <div className="contact-grid">
+          {/* Left */}
           <div className="contact-info">
-            <h3>Get In Touch</h3>
-            <p>I'm always interested in discussing new opportunities and challenging projects.</p>
+            <span className="section-label">Contact</span>
+            <h2>Let's build something together.</h2>
+            <p>
+              I'm actively looking for internship opportunities and interesting projects.
+              Whether you have a role, a collaboration idea, or just want to connect — my inbox is open.
+            </p>
             <div className="contact-links">
               <a href="mailto:rupeshshah.86@gmail.com" className="contact-link">
-                <i className="fas fa-envelope"></i>
-                <span>rupeshshah.86@gmail.com</span>
+                <i className="fas fa-envelope" />
+                rupeshshah.86@gmail.com
               </a>
               <a href="https://www.linkedin.com/in/rupesh-shah-a480b8324/" className="contact-link" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-linkedin"></i>
-                <span>LinkedIn</span>
+                <i className="fab fa-linkedin" />
+                linkedin.com/in/rupesh-shah
               </a>
               <a href="https://github.com/rupeshsah86" className="contact-link" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-github"></i>
-                <span>GitHub</span>
+                <i className="fab fa-github" />
+                github.com/rupeshsah86
               </a>
               <a href="https://x.com/RupeshshahB86" className="contact-link" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-twitter"></i>
-                <span>Twitter</span>
+                <i className="fab fa-twitter" />
+                x.com/RupeshshahB86
               </a>
             </div>
           </div>
+
+          {/* Right */}
           <form className="contact-form" onSubmit={handleSubmit}>
             <div className="form-group">
+              <label htmlFor="name">Name</label>
               <input
+                id="name"
                 type="text"
                 name="name"
-                placeholder="Your Name"
+                placeholder="Your name"
                 value={formData.name}
                 onChange={handleChange}
                 required
               />
             </div>
             <div className="form-group">
+              <label htmlFor="email">Email</label>
               <input
+                id="email"
                 type="email"
                 name="email"
-                placeholder="Your Email"
+                placeholder="your@email.com"
                 value={formData.email}
                 onChange={handleChange}
                 required
               />
             </div>
             <div className="form-group">
+              <label htmlFor="message">Message</label>
               <textarea
+                id="message"
                 name="message"
-                placeholder="Your Message"
+                placeholder="What's on your mind?"
                 rows={5}
                 value={formData.message}
                 onChange={handleChange}
                 required
               />
             </div>
-            <button type="submit" className="btn btn-primary" disabled={isSubmitting}>
-              {isSubmitting ? 'Sending...' : 'Send Message'}
-            </button>
+            <div className="form-submit">
+              <button type="submit" className="btn btn-primary" disabled={isSubmitting}>
+                {isSubmitting ? 'Sending...' : 'Send Message'}
+              </button>
+            </div>
           </form>
         </div>
       </div>
+
       {notification && (
         <div className={`notification notification-${notification.type}`}>
           {notification.message}

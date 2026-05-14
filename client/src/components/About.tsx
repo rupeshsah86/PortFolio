@@ -2,37 +2,64 @@ import React from 'react';
 import './About.css';
 
 const About: React.FC = () => {
+  const stats = [
+    { number: '5', suffix: '+', label: 'Projects Shipped' },
+    { number: '100', suffix: '+', label: 'Problems Solved' },
+    { number: '3', suffix: 'rd', label: 'Year CS Student' },
+  ];
+
+  const philosophy = [
+    { icon: '⚡', text: 'Performance is a feature, not an afterthought' },
+    { icon: '🧱', text: 'Build for maintainability first, optimize second' },
+    { icon: '🔍', text: 'Understand the problem deeply before writing a line' },
+  ];
+
   return (
     <section id="about" className="about section">
       <div className="container">
-        <h2 className="section-title">👋 About Me</h2>
-        <div className="about-content">
-          <div className="about-text">
-            <p className="about-intro">
-              I am a Computer Science Engineering student currently in my 4th semester (2nd year), with a strong interest in software development and problem-solving. I began my academic journey in 2024 and have been consistently building my skills through hands-on projects and regular coding practice.
+        <div className="about-grid">
+          {/* Left */}
+          <div className="about-stats">
+            {stats.map((s, i) => (
+              <div className="stat-card" key={i}>
+                <div className="stat-number">
+                  {s.number}<span>{s.suffix}</span>
+                </div>
+                <div className="stat-label">{s.label}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Right */}
+          <div className="about-content">
+            <span className="section-label">About Me</span>
+            <h2 className="section-title">Engineer by mindset,<br />developer by craft.</h2>
+
+            <p>
+              I'm Rupesh — a 3rd-year Computer Science student who thinks in systems and ships in code.
+              I don't just write features; I think about <strong>architecture, tradeoffs, and the humans
+              who'll use what I build</strong>. My obsession is the intersection of great engineering
+              and great product thinking.
             </p>
             <p>
-              I have worked on multiple academic and real-world projects, including a Smart Campus Service Request System, Return & Refund Management System, Blood Bank Management System, Military Vehicle Maintenance System (Machine Learning), and a frontend web project "Hamro Food". These projects have helped me gain practical experience in system design, backend logic, database management, and basic machine learning concepts.
+              Over the past two years I've architected full-stack applications, applied machine learning
+              to real-world maintenance problems, and built database-driven systems from schema design
+              to production logic. I practice DSA consistently across LeetCode, CodeChef, and HackerRank
+              because <strong>strong fundamentals compound</strong>.
             </p>
             <p>
-              Alongside project development, I actively practice Data Structures and Algorithms on platforms like LeetCode, CodeChef, HackerRank, and SkillRack, which has strengthened my logical thinking and coding efficiency. I enjoy learning new technologies and applying theoretical concepts to solve real-world problems.
+              I'm currently deepening my expertise in full-stack development and distributed systems,
+              and actively looking for internship opportunities where I can contribute meaningfully,
+              learn from senior engineers, and grow fast.
             </p>
-            <p>
-              I am currently focused on improving my full-stack development skills, deepening my understanding of core computer science subjects, and preparing for internship opportunities where I can learn, contribute, and grow as a software developer.
-            </p>
-            <div className="about-highlights">
-              <div className="highlight-item">
-                <i className="fas fa-graduation-cap"></i>
-                <span>4th Semester Student</span>
-              </div>
-              <div className="highlight-item">
-                <i className="fas fa-project-diagram"></i>
-                <span>5+ Academic Projects</span>
-              </div>
-              <div className="highlight-item">
-                <i className="fas fa-code"></i>
-                <span>Problem Solving</span>
-              </div>
+
+            <div className="philosophy-grid">
+              {philosophy.map((p, i) => (
+                <div className="philosophy-card" key={i}>
+                  <span className="philosophy-icon">{p.icon}</span>
+                  <p>{p.text}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
