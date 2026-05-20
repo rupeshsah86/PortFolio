@@ -88,7 +88,7 @@ export default function Hero() {
               <div style={{ position:"relative", width:280, height:280, borderRadius:"50%", overflow:"hidden", border:"3px solid var(--c-bg)", background:"var(--c-raised)", display:"flex", alignItems:"center", justifyContent:"center" }} className="hero-profile">
                 {!imgError ? (
                   <Image
-                    src="/images/rupesh.jpeg"
+                    src="/images/profile.png"
                     alt="Rupesh Kumar"
                     fill
                     priority
