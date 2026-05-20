@@ -13,6 +13,7 @@ export interface Project {
   github: string;
   demo?: string;
   accentColor: string;
+  image?: string | null;
 }
 
 export interface Experience {

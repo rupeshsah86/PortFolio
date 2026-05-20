@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ExternalLink } from "lucide-react";
 import { GithubIcon } from "@/components/ui/SocialIcons";
@@ -104,9 +105,15 @@ export default function Projects() {
 
                 {/* Thumbnail */}
                 <div style={{ height:160, background:`linear-gradient(135deg, var(--c-raised) 0%, var(--c-card) 100%)`, position:"relative", display:"flex", alignItems:"center", justifyContent:"center", overflow:"hidden" }}>
-                  <div style={{ position:"absolute", inset:0, backgroundImage:"linear-gradient(var(--c-border) 1px, transparent 1px), linear-gradient(90deg, var(--c-border) 1px, transparent 1px)", backgroundSize:"24px 24px", opacity:0.5 }}/>
-                  <div style={{ position:"absolute", inset:0, background:`radial-gradient(circle at 50% 50%, ${p.accentColor}15 0%, transparent 70%)` }}/>
-                  <span style={{ position:"relative", zIndex:1, fontSize:"4rem", fontWeight:800, fontFamily:"'JetBrains Mono',monospace", color:p.accentColor, opacity:0.25, letterSpacing:"-0.06em", userSelect:"none" }}>{p.initials}</span>
+                  {p.image ? (
+                    <Image src={p.image} alt={p.title} fill sizes="(max-width:768px) 100vw, 50vw" style={{ objectFit:"cover", objectPosition:"top" }}/>
+                  ) : (
+                    <>
+                      <div style={{ position:"absolute", inset:0, backgroundImage:"linear-gradient(var(--c-border) 1px, transparent 1px), linear-gradient(90deg, var(--c-border) 1px, transparent 1px)", backgroundSize:"24px 24px", opacity:0.5 }}/>
+                      <div style={{ position:"absolute", inset:0, background:`radial-gradient(circle at 50% 50%, ${p.accentColor}15 0%, transparent 70%)` }}/>
+                      <span style={{ position:"relative", zIndex:1, fontSize:"4rem", fontWeight:800, fontFamily:"'JetBrains Mono',monospace", color:p.accentColor, opacity:0.25, letterSpacing:"-0.06em", userSelect:"none" }}>{p.initials}</span>
+                    </>
+                  )}
                   <div style={{ position:"absolute", inset:0, background:"rgba(0,0,0,0.6)", display:"flex", alignItems:"center", justifyContent:"center", opacity:0, transition:"opacity 0.2s" }}
                     className="proj-overlay">
                     <span style={{ fontSize:13, fontWeight:600, color:"#fff" }}>View Case Study →</span>

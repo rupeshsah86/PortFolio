@@ -51,6 +51,7 @@ export const projects: Project[] = [
     primaryTech: ["Node.js", "MySQL", "REST API"],
     github: "https://github.com/rupeshsah86",
     accentColor: "#5b5bd6",
+    image: "/images/projects/smart-campus.png",
   },
   {
     id: "return-refund",
@@ -72,6 +73,7 @@ export const projects: Project[] = [
     primaryTech: ["MySQL", "Transaction Management"],
     github: "https://github.com/rupeshsah86/ReturnRefundManager.git",
     accentColor: "#7b7bf0",
+    image: null,
   },
   {
     id: "blood-bank",
@@ -93,6 +95,7 @@ export const projects: Project[] = [
     primaryTech: ["MySQL", "Query Optimization"],
     github: "https://github.com/rupeshsah86/blood-bank-system.git",
     accentColor: "#e05c5c",
+    image: "/images/projects/blood-bank.png",
   },
   {
     id: "predictive-maintenance",
@@ -114,6 +117,7 @@ export const projects: Project[] = [
     primaryTech: ["Python", "Scikit-learn", "Feature Engineering"],
     github: "https://github.com/rupeshsah86/predictivemaintainancemilitarryvehicle-Aiml.git",
     accentColor: "#22c55e",
+    image: null,
   },
   {
     id: "hamro-food",
@@ -136,6 +140,7 @@ export const projects: Project[] = [
     github: "https://github.com/rupeshsah86/Hamro_Food.git",
     demo: "https://rupeshsah86.github.io/Hamro_Food/",
     accentColor: "#f59e0b",
+    image: "/images/projects/hamro-food.png",
   },
 ];
 
