@@ -29,7 +29,7 @@ export default function Hero() {
       }}/>
 
       {/* Glow */}
-      <div style={{ position:"absolute", top:"15%", right:"5%", width:400, height:400, borderRadius:"50%", background:"radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%)", filter:"blur(60px)", pointerEvents:"none", animation:"float 10s ease-in-out infinite" }}/>
+      <div style={{ position:"absolute", top:"15%", right:"5%", width:400, height:400, borderRadius:"50%", background:"radial-gradient(circle, rgba(77,158,247,0.1) 0%, transparent 70%)", filter:"blur(60px)", pointerEvents:"none", animation:"float 10s ease-in-out infinite" }}/>
 
       <div className="wrap" style={{ position:"relative", zIndex:1, width:"100%" }}>
         <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:64, alignItems:"center", minHeight:"calc(100vh - 64px)", padding:"64px 0" }}
@@ -81,9 +81,9 @@ export default function Hero() {
             style={{ display:"flex", justifyContent:"center", alignItems:"center" }}>
             <div style={{ position:"relative" }} className="hero-profile-wrap">
               {/* Spinning gradient ring */}
-              <div style={{ position:"absolute", inset:-3, borderRadius:"50%", background:"conic-gradient(from 0deg, var(--c-accent), #a78bfa, var(--c-accent))", animation:"spin 8s linear infinite" }}/>
+              <div style={{ position:"absolute", inset:-3, borderRadius:"50%", background:"conic-gradient(from 0deg, #4d9ef7, #00d4ff, #4d9ef7)", animation:"spin 8s linear infinite" }}/>
               {/* Glow */}
-              <div style={{ position:"absolute", inset:-24, borderRadius:"50%", background:"radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%)", pointerEvents:"none" }}/>
+              <div style={{ position:"absolute", inset:-24, borderRadius:"50%", background:"radial-gradient(circle, rgba(77,158,247,0.15) 0%, transparent 70%)", pointerEvents:"none" }}/>
               {/* Image */}
               <div style={{ position:"relative", width:280, height:280, borderRadius:"50%", overflow:"hidden", border:"3px solid var(--c-bg)", background:"var(--c-raised)", display:"flex", alignItems:"center", justifyContent:"center" }} className="hero-profile">
                 {!imgError ? (
@@ -97,7 +97,7 @@ export default function Hero() {
                     onError={() => setImgError(true)}
                   />
                 ) : (
-                  <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"center", justifyContent:"center", fontFamily:"'JetBrains Mono',monospace", fontWeight:800, fontSize:"3.5rem", letterSpacing:"-0.04em", color:"var(--c-accent)" }}>RK</div>
+                  <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"center", justifyContent:"center", fontFamily:"'JetBrains Mono',monospace", fontWeight:800, fontSize:"1.8rem", letterSpacing:"-0.04em", color:"var(--c-accent)" }}>RUPESH</div>
                 )}
               </div>
               {/* Floating badges */}

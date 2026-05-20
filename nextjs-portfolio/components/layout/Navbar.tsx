@@ -48,8 +48,8 @@ export default function Navbar() {
         <div className="wrap" style={{ display:"flex", alignItems:"center", justifyContent:"space-between", height:64 }}>
           {/* Logo */}
           <button onClick={() => window.scrollTo({top:0,behavior:"smooth"})}
-            style={{ fontFamily:"'JetBrains Mono',monospace", fontWeight:700, fontSize:18, background:"linear-gradient(135deg,#fff,var(--c-accent))", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent", cursor:"pointer", border:"none" }}>
-            RK.
+            style={{ fontFamily:"'JetBrains Mono',monospace", fontWeight:700, fontSize:18, background:"linear-gradient(135deg,#fff,#4d9ef7)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent", cursor:"pointer", border:"none" }}>
+            RUPESH.
           </button>
 
           {/* Desktop nav */}

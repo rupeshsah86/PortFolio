@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --c-bg:        #0a0a0a;
-  --c-card:      #111111;
-  --c-raised:    #1a1a1a;
-  --c-border:    #222222;
-  --c-border-md: #333333;
-  --c-border-hi: #444444;
-  --c-text:      #f0f0f0;
-  --c-muted:     #999999;
-  --c-subtle:    #555555;
-  --c-accent:    #6366f1;
-  --c-accent-h:  #818cf8;
+  --c-bg:        #06080f;
+  --c-card:      #0d1117;
+  --c-raised:    #161b27;
+  --c-border:    #1e2535;
+  --c-border-md: #2a3347;
+  --c-border-hi: #3a4a63;
+  --c-text:      #e8edf5;
+  --c-muted:     #8b9ab5;
+  --c-subtle:    #4a5568;
+  --c-accent:    #4d9ef7;
+  --c-accent-h:  #74b5ff;
   --c-green:     #22c55e;
-  --c-glow:      rgba(99,102,241,0.15);
+  --c-glow:      rgba(77,158,247,0.15);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -129,9 +129,9 @@ body {
   border: 1px solid var(--c-border);
 }
 .badge-accent {
-  background: rgba(99,102,241,0.1);
+  background: rgba(77,158,247,0.1);
   color: var(--c-accent);
-  border-color: rgba(99,102,241,0.25);
+  border-color: rgba(77,158,247,0.25);
 }
 
 /* Animations */
@@ -168,7 +168,7 @@ body {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, var(--c-accent) 0%, #a78bfa 100%);
+  background: linear-gradient(135deg, #4d9ef7 0%, #00d4ff 100%);
   background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
