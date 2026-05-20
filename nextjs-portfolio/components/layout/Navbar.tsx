@@ -100,6 +100,12 @@ export default function Navbar() {
                   {l}
                 </motion.button>
               ))}
+              <motion.div initial={{opacity:0,x:-12}} animate={{opacity:1,x:0}} transition={{delay:links.length*0.05}}
+                style={{ padding:"8px 16px" }}>
+                <a href={personal.resumeUrl} download target="_blank" rel="noopener noreferrer" className="btn-ghost" style={{ width:"100%", justifyContent:"center" }}>
+                  <Download size={13}/> Download Resume
+                </a>
+              </motion.div>
             </div>
           </motion.div>
         )}

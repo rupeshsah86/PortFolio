@@ -59,7 +59,7 @@ export default function Hero() {
               </a>
             </motion.div>
 
-            <motion.div {...up(0.42)} style={{ display:"flex", gap:10 }}>
+            <motion.div {...up(0.42)} style={{ display:"flex", gap:10 }} className="hero-social">
               {[
                 { href: personal.github,   icon: <GithubIcon size={16}/>,   label:"GitHub" },
                 { href: personal.linkedin, icon: <LinkedinIcon size={16}/>, label:"LinkedIn" },
@@ -79,13 +79,13 @@ export default function Hero() {
           {/* Right — profile */}
           <motion.div initial={{opacity:0,scale:0.95}} animate={{opacity:1,scale:1}} transition={{duration:0.7,ease:E,delay:0.3}}
             style={{ display:"flex", justifyContent:"center", alignItems:"center" }}>
-            <div style={{ position:"relative" }}>
+            <div style={{ position:"relative" }} className="hero-profile-wrap">
               {/* Spinning gradient ring */}
               <div style={{ position:"absolute", inset:-3, borderRadius:"50%", background:"conic-gradient(from 0deg, var(--c-accent), #a78bfa, var(--c-accent))", animation:"spin 8s linear infinite" }}/>
               {/* Glow */}
               <div style={{ position:"absolute", inset:-24, borderRadius:"50%", background:"radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%)", pointerEvents:"none" }}/>
               {/* Image */}
-              <div style={{ position:"relative", width:280, height:280, borderRadius:"50%", overflow:"hidden", border:"3px solid var(--c-bg)", background:"var(--c-raised)", display:"flex", alignItems:"center", justifyContent:"center" }}>
+              <div style={{ position:"relative", width:280, height:280, borderRadius:"50%", overflow:"hidden", border:"3px solid var(--c-bg)", background:"var(--c-raised)", display:"flex", alignItems:"center", justifyContent:"center" }} className="hero-profile">
                 {!imgError ? (
                   <Image
                     src="/images/rupesh.jpeg"
@@ -125,8 +125,13 @@ export default function Hero() {
 
       <style>{`
         @media (max-width: 768px) {
-          .hero-grid { grid-template-columns: 1fr !important; gap: 40px !important; text-align: center; }
+          .hero-grid { grid-template-columns: 1fr !important; gap: 32px !important; text-align: center; padding: 40px 0 !important; }
           .hero-grid > div:last-child { order: -1; }
+          .hero-social { justify-content: center; }
+        }
+        @media (max-width: 480px) {
+          .hero-profile { width: 200px !important; height: 200px !important; }
+          .hero-profile-wrap > div[style] { display: none !important; }
         }
       `}</style>
     </section>
