@@ -37,7 +37,7 @@ export default function Hero() {
 
           {/* Left */}
           <div>
-            <motion.div {...up(0.1)} style={{ display:"inline-flex", alignItems:"center", gap:8, padding:"5px 14px", borderRadius:999, border:"1px solid var(--c-border-md)", background:"var(--c-card)", color:"var(--c-subtle)", fontSize:12, fontFamily:"'JetBrains Mono',monospace", marginBottom:28 }}>
+            <motion.div {...up(0.1)} style={{ display:"inline-flex", alignItems:"center", gap:8, padding:"5px 14px", borderRadius:999, border:"1px solid var(--c-border-md)", background:"var(--c-card)", color:"var(--c-subtle)", fontSize:12, fontFamily:"'JetBrains Mono',monospace", marginBottom:28 }} className="hero-badge">
               <span style={{ width:6, height:6, borderRadius:"50%", background:"var(--c-accent)", display:"block", animation:"pulse 2s ease-in-out infinite" }}/>
               &lt; available for internships &amp; roles /&gt;
             </motion.div>
@@ -50,7 +50,7 @@ export default function Hero() {
               {personal.subheadline}
             </motion.p>
 
-            <motion.div {...up(0.34)} style={{ display:"flex", gap:12, flexWrap:"wrap", marginBottom:36 }}>
+            <motion.div {...up(0.34)} style={{ display:"flex", gap:12, flexWrap:"wrap", marginBottom:36 }} className="hero-buttons">
               <button className="btn-primary" onClick={() => go("projects")}>
                 View My Work <ArrowRight size={15}/>
               </button>
@@ -102,12 +102,12 @@ export default function Hero() {
               </div>
               {/* Floating badges */}
               {[
-                { label:"⚛ React",       top:"8%",  right:"-20px" },
-                { label:"🟦 TypeScript", bottom:"20%", right:"-28px" },
-                { label:"🟢 Node.js",    bottom:"8%",  left:"-20px" },
-                { label:"🐍 Python",     top:"20%",    left:"-28px" },
+                { label:"⚛ React",       top:"8%",   right:"-20px", cls:"hero-badge-1" },
+                { label:"🟦 TypeScript", bottom:"20%", right:"-28px", cls:"hero-badge-2" },
+                { label:"🟢 Node.js",    bottom:"8%",  left:"-20px",  cls:"hero-badge-3" },
+                { label:"🐍 Python",     top:"20%",    left:"-28px",  cls:"hero-badge-4" },
               ].map((b,i) => (
-                <div key={b.label} style={{ position:"absolute", ...b as any, padding:"5px 12px", borderRadius:8, background:"var(--c-card)", border:"1px solid var(--c-border-md)", fontSize:12, fontWeight:600, color:"var(--c-muted)", whiteSpace:"nowrap", animation:`float 6s ease-in-out ${i*1.5}s infinite` }}>
+                <div key={b.label} className={b.cls} style={{ position:"absolute", top:b.top, bottom:(b as any).bottom, right:(b as any).right, left:(b as any).left, padding:"5px 12px", borderRadius:8, background:"var(--c-card)", border:"1px solid var(--c-border-md)", fontSize:12, fontWeight:600, color:"var(--c-muted)", whiteSpace:"nowrap", animation:`float 6s ease-in-out ${i*1.5}s infinite` }}>
                   {b.label}
                 </div>
               ))}
@@ -125,13 +125,27 @@ export default function Hero() {
 
       <style>{`
         @media (max-width: 768px) {
-          .hero-grid { grid-template-columns: 1fr !important; gap: 32px !important; text-align: center; padding: 40px 0 !important; }
+          .hero-grid {
+            grid-template-columns: 1fr !important;
+            gap: 40px !important;
+            text-align: center;
+            padding: 32px 0 !important;
+            min-height: unset !important;
+          }
           .hero-grid > div:last-child { order: -1; }
           .hero-social { justify-content: center; }
+          .hero-buttons { justify-content: center; }
+          .hero-badge { justify-content: center; }
+          .hero-profile { width: 220px !important; height: 220px !important; }
+          .hero-badge-1 { right: -8px !important; font-size: 11px !important; padding: 4px 8px !important; }
+          .hero-badge-2 { right: -8px !important; font-size: 11px !important; padding: 4px 8px !important; }
+          .hero-badge-3 { left: -8px !important; font-size: 11px !important; padding: 4px 8px !important; }
+          .hero-badge-4 { left: -8px !important; font-size: 11px !important; padding: 4px 8px !important; }
         }
         @media (max-width: 480px) {
-          .hero-profile { width: 200px !important; height: 200px !important; }
-          .hero-profile-wrap > div[style] { display: none !important; }
+          .hero-profile { width: 180px !important; height: 180px !important; }
+          .hero-badge-1, .hero-badge-2, .hero-badge-3, .hero-badge-4 { display: none !important; }
+          .hero-grid { gap: 28px !important; }
         }
       `}</style>
     </section>
