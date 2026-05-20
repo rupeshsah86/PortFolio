@@ -73,7 +73,7 @@ export const projects: Project[] = [
     primaryTech: ["MySQL", "Transaction Management"],
     github: "https://github.com/rupeshsah86/ReturnRefundManager.git",
     accentColor: "#7b7bf0",
-    image: null,
+    image: "/images/projects/return-refund.png",
   },
   {
     id: "blood-bank",
@@ -117,7 +117,7 @@ export const projects: Project[] = [
     primaryTech: ["Python", "Scikit-learn", "Feature Engineering"],
     github: "https://github.com/rupeshsah86/predictivemaintainancemilitarryvehicle-Aiml.git",
     accentColor: "#22c55e",
-    image: null,
+    image: "/images/projects/predictive-maintenance.png",
   },
   {
     id: "hamro-food",

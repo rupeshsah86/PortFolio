@@ -104,7 +104,7 @@ export default function Projects() {
                 style={{ cursor:"pointer", overflow:"hidden", display:"flex", flexDirection:"column" }}>
 
                 {/* Thumbnail */}
-                <div style={{ height:160, background:`linear-gradient(135deg, var(--c-raised) 0%, var(--c-card) 100%)`, position:"relative", display:"flex", alignItems:"center", justifyContent:"center", overflow:"hidden" }}>
+                <div style={{ height:160, background:`linear-gradient(135deg, var(--c-raised) 0%, var(--c-card) 100%)`, position:"relative", display:"flex", alignItems:"center", justifyContent:"center", overflow:"hidden", flexShrink:0 }}>
                   {p.image ? (
                     <Image src={p.image} alt={p.title} fill sizes="(max-width:768px) 100vw, 50vw" style={{ objectFit:"cover", objectPosition:"top" }}/>
                   ) : (
