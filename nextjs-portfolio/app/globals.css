@@ -18,6 +18,24 @@
   --c-glow-purple: rgba(183,124,255,0.15);
 }
 
+.light {
+  --c-bg:        #f8fafc;
+  --c-card:      rgba(255, 255, 255, 0.85);
+  --c-raised:    rgba(241, 245, 249, 0.9);
+  --c-border:    rgba(14, 165, 233, 0.15);
+  --c-border-md: rgba(14, 165, 233, 0.3);
+  --c-border-hi: rgba(14, 165, 233, 0.5);
+  --c-text:      #0f172a;
+  --c-muted:     #475569;
+  --c-subtle:    #94a3b8;
+  --c-accent:    #0284c7;
+  --c-accent-h:  #0369a1;
+  --c-purple:    #8b5cf6;
+  --c-green:     #16a34a;
+  --c-glow:      rgba(2, 132, 199, 0.12);
+  --c-glow-purple: rgba(139, 92, 246, 0.12);
+}
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { scroll-behavior: smooth; }

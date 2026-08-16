@@ -1,179 +1,62 @@
-# Senior Developer Portfolio
+# Rupesh Kumar — 3D Interactive Developer Portfolio 🚀
 
-A modern, professional full-stack portfolio built with React, TypeScript, Node.js, and Express. Features responsive design, smooth animations, and a working contact form.
+A modern, high-performance 3D developer portfolio built with **Next.js 16 (App Router)**, **React 19**, **Three.js WebGL**, **TypeScript**, **Tailwind CSS v4**, and **Framer Motion**.
 
-## 🚀 Features
-
-- **React + TypeScript Frontend**: Modern, type-safe React application
-- **Node.js + Express Backend**: RESTful API with contact form handling
-- **Fully Responsive**: Mobile-first design that works on all devices
-- **Professional Design**: Clean, minimal interface suitable for senior developers
-- **Smooth Animations**: Subtle animations and transitions
-- **Contact Form**: Working contact form with validation
-- **SEO Optimized**: Proper meta tags and semantic HTML
-
-## 📁 Project Structure
-
-```
-portfolio/
-├── client/                 # React frontend
-│   ├── src/
-│   │   ├── components/     # React components
-│   │   ├── App.tsx         # Main App component
-│   │   └── App.css         # Global styles
-│   └── public/
-├── server/                 # Node.js backend
-│   ├── index.js           # Express server
-│   └── package.json       # Server dependencies
-├── package.json           # Root package.json
-└── README.md
-```
-
-## 🛠️ Installation & Setup
-
-### Prerequisites
-- Node.js (v16 or higher)
-- npm or yarn
-
-### Quick Start
-
-1. **Clone and install dependencies:**
-```bash
-cd portfolio
-npm run install-deps
-```
-
-2. **Start development servers:**
-```bash
-npm run dev
-```
-
-This will start:
-- React frontend on http://localhost:3000
-- Express backend on http://localhost:5000
-
-### Individual Commands
-
-**Frontend only:**
-```bash
-cd client
-npm start
-```
-
-**Backend only:**
-```bash
-cd server
-npm run dev
-```
-
-## 🎨 Customization
-
-### Personal Information
-
-Update the following files with your information:
-
-**Client Components:**
-- `client/src/components/Hero.tsx` - Name, title, description
-- `client/src/components/About.tsx` - About section content
-- `client/src/components/Experience.tsx` - Work experience
-- `client/src/components/Contact.tsx` - Contact information
-
-**Server Data:**
-- `server/index.js` - Projects data in `/api/projects` endpoint
-
-### Styling
-
-**Colors:** Update CSS variables in component files:
-```css
-/* Primary gradient */
-background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-```
-
-**Fonts:** Change in `client/public/index.html`:
-```html
-<link href="https://fonts.googleapis.com/css2?family=YourFont:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-```
-
-## 🚀 Deployment
-
-### Frontend (Netlify/Vercel)
-
-1. **Build the React app:**
-```bash
-cd client
-npm run build
-```
-
-2. **Deploy the `build` folder** to Netlify or Vercel
-
-### Backend (Heroku/Railway)
-
-1. **Deploy the `server` folder** to your hosting platform
-2. **Set environment variables** if needed
-3. **Update API endpoints** in React components to point to your deployed backend
-
-### Full-Stack Deployment
-
-For platforms like Railway or Render that support monorepos:
-
-1. **Add build scripts** to root `package.json`
-2. **Configure build commands** to build both frontend and backend
-3. **Set up environment variables**
-
-## 📱 Responsive Breakpoints
-
-- **Mobile**: < 768px
-- **Tablet**: 768px - 1024px
-- **Desktop**: > 1024px
-
-## 🔧 API Endpoints
-
-### GET /api/health
-Health check endpoint
-
-### GET /api/projects
-Returns array of projects
-
-### POST /api/contact
-Contact form submission
-- **Body**: `{ name, email, message }`
-- **Response**: `{ success: true, message: string }`
-
-## 🎯 Performance Features
-
-- **Code Splitting**: React lazy loading
-- **Optimized Images**: Proper image optimization
-- **Minimal Bundle**: Only necessary dependencies
-- **Smooth Animations**: CSS-based animations
-- **Fast Loading**: Optimized for Core Web Vitals
-
-## 🔒 Security Features
-
-- **Helmet.js**: Security headers
-- **CORS**: Cross-origin resource sharing
-- **Input Validation**: Form validation on both client and server
-- **XSS Protection**: Sanitized inputs
-
-## 📊 Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create your feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
+Live Demo: [rupu-sah-portfolio.vercel.app](https://rupu-sah-portfolio.vercel.app)
 
 ---
 
-**Built with ❤️ for senior developers looking to showcase their expertise professionally.**
+## ✨ Features
+
+- 🌐 **3D WebGL Hero Canvas**: Interactive Three.js geodesic wireframe sphere, torus knot core, and particle field that rotates & tilts based on mouse position.
+- 🃏 **3D Parallax Tilt Cards**: Smooth 3D rotation (`rotateX`, `rotateY`, `translateZ`) with specular light glare overlays on project & profile cards.
+- ☀️/🌙 **Dark & Light Mode**: Theme switcher powered by `next-themes` with custom HSL color tokens and glassmorphism styling.
+- 🗂 **Interactive Project Filtering**: Filter engineering projects by category (*All*, *Full Stack*, *Backend & ML*, *Systems*).
+- 🔍 **Deep Case Study Drawer**: Interactive modal showcasing problem statements, architectural approaches, key challenges solved, and results metrics.
+- 🚀 **SEO & OpenGraph**: Dynamic JSON-LD structured data (`Person` & `WebSite` schema), `/sitemap.xml`, `/robots.txt`, and Twitter card tags.
+- 📱 **Mobile Responsive**: Fully optimized layout for mobile, tablet, and desktop viewports.
+
+---
+
+## 🛠 Tech Stack
+
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router & Turbopack)
+- **Library**: [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+- **3D Graphics**: [Three.js](https://threejs.org/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/) + CSS Glassmorphism
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Deployment**: [Vercel](https://vercel.com/)
+
+---
+
+## 🚀 Quick Start
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/rupeshsah86/PortFolio.git
+   cd PortFolio
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   cd nextjs-portfolio
+   npm install
+   ```
+
+3. **Run development server:**
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) to view your 3D portfolio.
+
+4. **Build for production:**
+   ```bash
+   npm run build
+   ```
+
+---
+
+## 📄 License
+
+Distributed under the MIT License.

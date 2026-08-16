@@ -4,11 +4,9 @@
   "description": "Professional portfolio for senior developers",
   "main": "server/index.js",
   "scripts": {
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "cd server && npm run dev",
-    "client": "cd client && npm start",
-    "build": "cd client && npm run build",
-    "start": "cd server && npm start",
+    "dev": "cd nextjs-portfolio && npm run dev",
+    "build": "cd nextjs-portfolio && npm run build",
+    "start": "cd nextjs-portfolio && npm start",
     "install-deps": "npm install && cd server && npm install && cd ../client && npm install"
   },
   "keywords": ["portfolio", "react", "nodejs", "express"],

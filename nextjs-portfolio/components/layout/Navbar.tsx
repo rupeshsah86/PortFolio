@@ -1,7 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Download } from "lucide-react";
+import { Menu, X, Download, Sun, Moon } from "lucide-react";
+import { useTheme } from "next-themes";
 import { personal } from "@/lib/data";
 
 const links = ["About","Projects","Skills","Experience","Contact"];
@@ -10,8 +11,11 @@ export default function Navbar() {
   const [scrolled, setScrolled]   = useState(false);
   const [open, setOpen]           = useState(false);
   const [active, setActive]       = useState("");
+  const { theme, setTheme }       = useTheme();
+  const [mounted, setMounted]     = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const fn = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", fn);
     return () => window.removeEventListener("scroll", fn);
@@ -74,6 +78,29 @@ export default function Navbar() {
               <span style={{ width:6, height:6, borderRadius:"50%", background:"var(--c-green)", animation:"pulse 2s ease-in-out infinite", display:"block" }} />
               Open to work
             </div>
+            
+            {mounted && (
+              <button
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                aria-label="Toggle theme"
+                style={{
+                  width: 36,
+                  height: 36,
+                  borderRadius: 10,
+                  border: "1px solid var(--c-border)",
+                  background: "var(--c-raised)",
+                  color: "var(--c-text)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  cursor: "pointer",
+                  transition: "all 0.2s",
+                }}
+              >
+                {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+              </button>
+            )}
+
             <a href={personal.resumeUrl} download target="_blank" rel="noopener noreferrer" className="btn-ghost" style={{ padding:"6px 14px", fontSize:13 }}>
               <Download size={13} /> Resume
             </a>
