@@ -30,7 +30,49 @@ export const personal: PersonalInfo = {
   resumeUrl: "/files/Rupesh_Kumar_Sah_24CS201.pdf",
 };
 
+// ============================================================================
+// PROJECTS DATA
+// To add a new project, simply append a new object to this array below.
+// It will automatically render in the Projects section and support filtering!
+// ============================================================================
 export const projects: Project[] = [
+  {
+    id: "datapulse",
+    initials: "DP",
+    title: "DataPulse — AI Crime Analytics & Spatial Intelligence Platform",
+    shortDesc:
+      "Next-gen AI crime analytics and predictive spatial intelligence platform built for the Karnataka State Police Hackathon 2026, integrating Groq LLM RAG, Three.js 3D spatial maps, NetworkX routing, and React Native mobile telematics.",
+    problem:
+      "Law enforcement agencies operate with fragmented incident data, manual paper FIR scans, and multi-state registries. Officers lack real-time spatial intelligence, automated case briefings, and optimal risk-weighted patrol routing.",
+    approach:
+      "Architected a micro-service ecosystem: Spring Boot 3.5 (Port 8083) REST API with PostgreSQL 17 for relational crime persistence & JWT security; Python 3.12 FastAPI AI Engine (Port 8000) leveraging Groq LLM (Llama-3.3-70b) for RAG case briefs and Tesseract OCR for FIR extraction; NetworkX for Dijkstra shortest-path patrol routing; Next.js 16 frontend featuring Three.js WebGL 3D elevation maps, Leaflet 2D GIS, Vis Network criminal graphs, and Web Speech API voice navigation; and a React Native Expo field mobile app with offline caching and GPS telemetry.",
+    challenges:
+      "Serving sub-second Groq LLM RAG responses while parsing multi-page scanned FIR PDFs required async FastAPI background pipelines. Synchronizing real-time React Native mobile officer GPS locations with interactive 3D WebGL elevation maps demanded low-latency state management via Zustand.",
+    results:
+      "Built an enterprise-grade spatial intelligence platform: automated FIR text extraction to zero manual typing, sub-second Groq RAG case summaries, 3D WebGL severity towers with raycasting, and NetworkX risk-weighted patrol optimization across 6 states.",
+    learnings:
+      "Combining high-speed LLMs (Groq Llama-3.3-70b) with spatial graph algorithms (NetworkX) unlocks domain-specific actionable intelligence. Decoupling enterprise REST services (Spring Boot) from AI engines (FastAPI) enables rapid micro-service scaling.",
+    tech: [
+      "Next.js 16",
+      "Spring Boot 3.5",
+      "Python 3.12",
+      "FastAPI",
+      "Groq LLM (Llama 3.3)",
+      "Three.js WebGL",
+      "React Native Expo",
+      "PostgreSQL 17",
+      "NetworkX",
+      "Leaflet GIS",
+      "Vis Network",
+      "Tesseract OCR",
+      "Web Speech API",
+    ],
+    primaryTech: ["Next.js 16", "Spring Boot 3.5", "Groq LLM", "Python", "Three.js"],
+    github: "https://github.com/rupeshsah86/DataPulse-KSP-Crime-Analytics.git",
+    accentColor: "#38bdf8",
+    image: "/images/projects/datapulse.png",
+    category: "Machine Learning",
+  },
   {
     id: "smart-campus",
     initials: "SC",
@@ -52,6 +94,7 @@ export const projects: Project[] = [
     github: "https://github.com/rupeshsah86",
     accentColor: "#5b5bd6",
     image: "/images/projects/smart-campus.png",
+    category: "Backend & Systems",
   },
   {
     id: "return-refund",
@@ -74,6 +117,7 @@ export const projects: Project[] = [
     github: "https://github.com/rupeshsah86/ReturnRefundManager.git",
     accentColor: "#7b7bf0",
     image: "/images/projects/return-refund.png",
+    category: "Backend & Systems",
   },
   {
     id: "blood-bank",
@@ -96,6 +140,7 @@ export const projects: Project[] = [
     github: "https://github.com/rupeshsah86/blood-bank-system.git",
     accentColor: "#e05c5c",
     image: "/images/projects/blood-bank.png",
+    category: "Backend & Systems",
   },
   {
     id: "predictive-maintenance",
@@ -118,6 +163,7 @@ export const projects: Project[] = [
     github: "https://github.com/rupeshsah86/predictivemaintainancemilitarryvehicle-Aiml.git",
     accentColor: "#22c55e",
     image: "/images/projects/predictive-maintenance.png",
+    category: "Machine Learning",
   },
   {
     id: "hamro-food",
@@ -141,10 +187,23 @@ export const projects: Project[] = [
     demo: "https://rupeshsah86.github.io/Hamro_Food/",
     accentColor: "#f59e0b",
     image: "/images/projects/hamro-food.png",
+    category: "Full Stack",
   },
 ];
 
 export const experiences: Experience[] = [
+  {
+    role: "DataPulse — AI Crime Analytics Platform",
+    company: "Karnataka State Police Hackathon 2026",
+    period: "2026",
+    type: "project",
+    bullets: [
+      "Architected multi-service AI crime analytics system integrating Groq LLM (Llama-3.3-70b) RAG for instant incident summarization",
+      "Engineered 3D WebGL spatial height elevation maps with Three.js and 2D GIS hotspot maps with Leaflet",
+      "Implemented NetworkX shortest path graph algorithms for predictive police patrol route optimization",
+      "Designed Spring Boot 3.5 REST backend with PostgreSQL 17 and FastAPI Python AI microservices",
+    ],
+  },
   {
     role: "B.Tech Computer Science & Engineering",
     company: "Sri Eshwar College of Engineering",

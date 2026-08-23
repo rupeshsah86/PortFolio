@@ -4,7 +4,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://portfolio-rupesh.vercel.app"
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://rupu-sah-portfolio.vercel.app"
   ),
   title: {
     default: "Rupesh Kumar — Building software that scales.",

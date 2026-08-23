@@ -5,14 +5,14 @@ import { Menu, X, Download, Sun, Moon } from "lucide-react";
 import { useTheme } from "next-themes";
 import { personal } from "@/lib/data";
 
-const links = ["About","Projects","Skills","Experience","Contact"];
+const links = ["About", "Projects", "Skills", "Experience", "Contact"];
 
 export default function Navbar() {
-  const [scrolled, setScrolled]   = useState(false);
-  const [open, setOpen]           = useState(false);
-  const [active, setActive]       = useState("");
-  const { theme, setTheme }       = useTheme();
-  const [mounted, setMounted]     = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [active, setActive] = useState("");
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -26,8 +26,10 @@ export default function Navbar() {
       const el = document.getElementById(l.toLowerCase());
       if (!el) return null;
       const o = new IntersectionObserver(
-        ([e]) => { if (e.isIntersecting) setActive(l.toLowerCase()); },
-        { rootMargin: "-40% 0px -55% 0px" }
+        ([e]) => {
+          if (e.isIntersecting) setActive(l.toLowerCase());
+        },
+        { rootMargin: "-30% 0px -60% 0px" }
       );
       o.observe(el);
       return o;
@@ -42,50 +44,132 @@ export default function Navbar() {
 
   return (
     <>
-      <header style={{
-        position: "fixed", top: 0, left: 0, right: 0, zIndex: 50,
-        background: scrolled ? "rgba(10,10,10,0.85)" : "transparent",
-        backdropFilter: scrolled ? "blur(16px)" : "none",
-        borderBottom: scrolled ? "1px solid var(--c-border)" : "1px solid transparent",
-        transition: "all 0.3s ease",
-      }}>
-        <div className="wrap" style={{ display:"flex", alignItems:"center", justifyContent:"space-between", height:64 }}>
+      <header
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 50,
+          background: scrolled ? "var(--c-card)" : "transparent",
+          backdropFilter: scrolled ? "blur(16px)" : "none",
+          WebkitBackdropFilter: scrolled ? "blur(16px)" : "none",
+          borderBottom: scrolled ? "1px solid var(--c-border)" : "1px solid transparent",
+          transition: "all 0.3s ease",
+        }}
+      >
+        <div
+          className="wrap"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            height: 68,
+          }}
+        >
           {/* Logo */}
-          <button onClick={() => window.scrollTo({top:0,behavior:"smooth"})}
-            style={{ fontFamily:"'JetBrains Mono',monospace", fontWeight:700, fontSize:18, background:"linear-gradient(135deg,#fff,#4d9ef7)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent", cursor:"pointer", border:"none" }}>
-            RUPESH.
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontWeight: 800,
+              fontSize: 18,
+              color: "var(--c-text)",
+              cursor: "pointer",
+              border: "none",
+              background: "none",
+              display: "flex",
+              alignItems: "center",
+              gap: 4,
+            }}
+          >
+            <span style={{ color: "var(--c-accent)" }}>//</span> RUPESH
           </button>
 
-          {/* Desktop nav */}
-          <nav style={{ display:"flex", gap:4 }} className="hidden md:flex">
-            {links.map((l) => (
-              <button key={l} onClick={() => go(l.toLowerCase())}
-                style={{
-                  padding:"6px 14px", borderRadius:8, fontSize:14, fontWeight:500, cursor:"pointer", border:"none",
-                  background: active===l.toLowerCase() ? "var(--c-raised)" : "transparent",
-                  color: active===l.toLowerCase() ? "var(--c-text)" : "var(--c-muted)",
-                  transition:"all 0.2s",
-                }}
-                onMouseEnter={e => { if(active!==l.toLowerCase()) { (e.target as HTMLElement).style.color="var(--c-text)"; (e.target as HTMLElement).style.background="var(--c-raised)"; }}}
-                onMouseLeave={e => { if(active!==l.toLowerCase()) { (e.target as HTMLElement).style.color="var(--c-muted)"; (e.target as HTMLElement).style.background="transparent"; }}}
-              >{l}</button>
-            ))}
+          {/* Desktop Nav */}
+          <nav
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 4,
+              padding: "4px 6px",
+              borderRadius: 30,
+              background: scrolled ? "var(--c-raised)" : "rgba(15, 23, 42, 0.4)",
+              border: "1px solid var(--c-border)",
+            }}
+            className="hidden md:flex"
+          >
+            {links.map((l) => {
+              const isActive = active === l.toLowerCase();
+              return (
+                <button
+                  key={l}
+                  onClick={() => go(l.toLowerCase())}
+                  style={{
+                    padding: "6px 16px",
+                    borderRadius: 20,
+                    fontSize: 13,
+                    fontWeight: 600,
+                    cursor: "pointer",
+                    border: "none",
+                    background: isActive ? "var(--c-accent)" : "transparent",
+                    color: isActive ? "#090d16" : "var(--c-muted)",
+                    transition: "all 0.2s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!isActive) {
+                      (e.currentTarget as HTMLElement).style.color = "var(--c-text)";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!isActive) {
+                      (e.currentTarget as HTMLElement).style.color = "var(--c-muted)";
+                    }
+                  }}
+                >
+                  {l}
+                </button>
+              );
+            })}
           </nav>
 
-          {/* Right */}
-          <div style={{ display:"flex", alignItems:"center", gap:12 }} className="hidden md:flex">
-            <div style={{ display:"flex", alignItems:"center", gap:6, padding:"5px 12px", borderRadius:999, border:"1px solid rgba(34,197,94,0.3)", background:"rgba(34,197,94,0.06)", color:"var(--c-green)", fontSize:12, fontWeight:500 }}>
-              <span style={{ width:6, height:6, borderRadius:"50%", background:"var(--c-green)", animation:"pulse 2s ease-in-out infinite", display:"block" }} />
-              Open to work
+          {/* Right Section */}
+          <div style={{ display: "flex", alignItems: "center", gap: 12 }} className="hidden md:flex">
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 8,
+                padding: "6px 12px",
+                borderRadius: 20,
+                border: "1px solid rgba(34,197,94,0.3)",
+                background: "rgba(34,197,94,0.08)",
+                color: "#22c55e",
+                fontSize: 12,
+                fontFamily: "'JetBrains Mono', monospace",
+                fontWeight: 600,
+              }}
+            >
+              <span
+                style={{
+                  width: 6,
+                  height: 6,
+                  borderRadius: "50%",
+                  background: "#22c55e",
+                  animation: "pulse 2s ease-in-out infinite",
+                  display: "block",
+                }}
+              />
+              Open to Work
             </div>
-            
+
             {mounted && (
               <button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                 aria-label="Toggle theme"
                 style={{
-                  width: 36,
-                  height: 36,
+                  width: 38,
+                  height: 38,
                   borderRadius: 10,
                   border: "1px solid var(--c-border)",
                   background: "var(--c-raised)",
@@ -94,45 +178,98 @@ export default function Navbar() {
                   alignItems: "center",
                   justifyContent: "center",
                   cursor: "pointer",
-                  transition: "all 0.2s",
+                  transition: "all 0.2s ease",
                 }}
               >
                 {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
               </button>
             )}
 
-            <a href={personal.resumeUrl} download target="_blank" rel="noopener noreferrer" className="btn-ghost" style={{ padding:"6px 14px", fontSize:13 }}>
+            <a
+              href={personal.resumeUrl}
+              download
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+              style={{ padding: "8px 16px", fontSize: 13, borderRadius: 8 }}
+            >
               <Download size={13} /> Resume
             </a>
           </div>
 
-          {/* Hamburger */}
-          <button className="md:hidden" onClick={() => setOpen(!open)}
-            style={{ background:"none", border:"none", color:"var(--c-muted)", cursor:"pointer", padding:4 }}>
-            {open ? <X size={20}/> : <Menu size={20}/>}
+          {/* Mobile Hamburger */}
+          <button
+            className="md:hidden"
+            onClick={() => setOpen(!open)}
+            aria-label="Toggle menu"
+            style={{
+              background: "var(--c-raised)",
+              border: "1px solid var(--c-border)",
+              color: "var(--c-text)",
+              cursor: "pointer",
+              padding: 8,
+              borderRadius: 8,
+            }}
+          >
+            {open ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </header>
 
-      {/* Mobile menu */}
+      {/* Mobile Drawer */}
       <AnimatePresence>
         {open && (
-          <motion.div initial={{opacity:0,y:-8}} animate={{opacity:1,y:0}} exit={{opacity:0,y:-8}} transition={{duration:0.2}}
-            style={{ position:"fixed", top:64, left:0, right:0, zIndex:40, background:"rgba(10,10,10,0.97)", backdropFilter:"blur(16px)", borderBottom:"1px solid var(--c-border)", padding:"12px 0" }}>
-            <div className="wrap" style={{ display:"flex", flexDirection:"column", gap:4 }}>
-              {links.map((l,i) => (
-                <motion.button key={l} initial={{opacity:0,x:-12}} animate={{opacity:1,x:0}} transition={{delay:i*0.05}}
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            style={{
+              position: "fixed",
+              top: 68,
+              left: 0,
+              right: 0,
+              zIndex: 40,
+              background: "var(--c-bg)",
+              borderBottom: "1px solid var(--c-border)",
+              padding: "16px 0",
+            }}
+          >
+            <div className="wrap" style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+              {links.map((l, i) => (
+                <motion.button
+                  key={l}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.04 }}
                   onClick={() => go(l.toLowerCase())}
-                  style={{ textAlign:"left", padding:"12px 16px", borderRadius:8, fontSize:15, fontWeight:500, color:"var(--c-muted)", background:"none", border:"none", cursor:"pointer" }}>
+                  style={{
+                    textAlign: "left",
+                    padding: "12px 16px",
+                    borderRadius: 8,
+                    fontSize: 15,
+                    fontWeight: 600,
+                    color: active === l.toLowerCase() ? "var(--c-accent)" : "var(--c-text)",
+                    background: active === l.toLowerCase() ? "var(--c-raised)" : "none",
+                    border: "none",
+                    cursor: "pointer",
+                  }}
+                >
                   {l}
                 </motion.button>
               ))}
-              <motion.div initial={{opacity:0,x:-12}} animate={{opacity:1,x:0}} transition={{delay:links.length*0.05}}
-                style={{ padding:"8px 16px" }}>
-                <a href={personal.resumeUrl} download target="_blank" rel="noopener noreferrer" className="btn-ghost" style={{ width:"100%", justifyContent:"center" }}>
-                  <Download size={13}/> Download Resume
+              <div style={{ padding: "8px 16px" }}>
+                <a
+                  href={personal.resumeUrl}
+                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary"
+                  style={{ width: "100%", justifyContent: "center" }}
+                >
+                  <Download size={14} /> Download Resume
                 </a>
-              </motion.div>
+              </div>
             </div>
           </motion.div>
         )}

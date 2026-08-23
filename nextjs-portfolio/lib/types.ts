@@ -14,6 +14,7 @@ export interface Project {
   demo?: string;
   accentColor: string;
   image?: string | null;
+  category?: "Full Stack" | "Backend & Systems" | "Machine Learning";
 }
 
 export interface Experience {

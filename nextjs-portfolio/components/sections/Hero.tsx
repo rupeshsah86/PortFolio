@@ -2,158 +2,312 @@
 import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowRight, Download, Terminal, Cpu, Database, Server } from "lucide-react";
 import { GithubIcon, LinkedinIcon, TwitterIcon, MailIcon } from "@/components/ui/SocialIcons";
 import { personal } from "@/lib/data";
-import Hero3DCanvas from "@/components/ui/Hero3DCanvas";
-import Tilt3DCard from "@/components/ui/Tilt3DCard";
 
 const E = [0.22, 1, 0.36, 1] as const;
 const up = (delay = 0) => ({
-  initial: { opacity: 0, y: 24 },
+  initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, ease: E, delay },
+  transition: { duration: 0.5, ease: E, delay },
 });
 
 export default function Hero() {
   const [imgError, setImgError] = useState(false);
   const go = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
+  const metrics = [
+    { label: "Production Systems", value: "5+", icon: <Server size={14} /> },
+    { label: "Algorithmic Problems", value: "100+", icon: <Cpu size={14} /> },
+    { label: "Query Optimizations", value: "<100ms", icon: <Database size={14} /> },
+  ];
+
   return (
-    <section id="home" style={{ minHeight: "100vh", display: "flex", alignItems: "center", paddingTop: 64, position: "relative", overflow: "hidden" }}>
-
-      {/* 3D Interactive Three.js Canvas Background */}
-      <Hero3DCanvas />
-
-      {/* Subtle dot grid */}
-      <div style={{
-        position: "absolute", inset: 0, opacity: 0.25,
-        backgroundImage: "radial-gradient(circle, #333 1px, transparent 1px)",
-        backgroundSize: "32px 32px",
-        maskImage: "radial-gradient(ellipse 70% 70% at 50% 40%, black 30%, transparent 100%)",
-        pointerEvents: "none",
-      }} />
-
-      {/* Glow */}
-      <div style={{ position: "absolute", top: "15%", right: "5%", width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle, rgba(77,158,247,0.15) 0%, transparent 70%)", filter: "blur(60px)", pointerEvents: "none", animation: "float 10s ease-in-out infinite" }} />
+    <section
+      id="home"
+      style={{
+        minHeight: "92vh",
+        display: "flex",
+        alignItems: "center",
+        paddingTop: 80,
+        paddingBottom: 60,
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      {/* Crisp dark subtle grid background */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          opacity: 0.15,
+          backgroundImage: "linear-gradient(var(--c-border-md) 1px, transparent 1px), linear-gradient(90deg, var(--c-border-md) 1px, transparent 1px)",
+          backgroundSize: "40px 40px",
+          maskImage: "radial-gradient(ellipse 80% 80% at 50% 30%, black 40%, transparent 100%)",
+          pointerEvents: "none",
+        }}
+      />
 
       <div className="wrap" style={{ position: "relative", zIndex: 1, width: "100%" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center", minHeight: "calc(100vh - 64px)", padding: "64px 0" }}
-          className="hero-grid">
-
-          {/* Left */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1.1fr 0.9fr",
+            gap: 56,
+            alignItems: "center",
+          }}
+          className="hero-grid"
+        >
+          {/* Left Column */}
           <div>
-            <motion.div {...up(0.1)} style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "5px 14px", borderRadius: 999, border: "1px solid var(--c-border-md)", background: "var(--c-card)", color: "var(--c-subtle)", fontSize: 12, fontFamily: "'JetBrains Mono',monospace", marginBottom: 28 }} className="hero-badge">
-              <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--c-accent)", display: "block", animation: "pulse 2s ease-in-out infinite" }} />
-              &lt; available for internships &amp; roles /&gt;
+            {/* Status Pill */}
+            <motion.div
+              {...up(0.1)}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 8,
+                padding: "6px 14px",
+                borderRadius: 20,
+                border: "1px solid var(--c-border-hi)",
+                background: "var(--c-raised)",
+                color: "var(--c-text)",
+                fontSize: 12,
+                fontFamily: "'JetBrains Mono', monospace",
+                fontWeight: 500,
+                marginBottom: 24,
+              }}
+              className="hero-badge"
+            >
+              <span
+                style={{
+                  width: 8,
+                  height: 8,
+                  borderRadius: "50%",
+                  background: "#22c55e",
+                  display: "block",
+                  boxShadow: "0 0 8px rgba(34, 197, 94, 0.6)",
+                }}
+              />
+              Available for Full-Stack & Engineering Roles
             </motion.div>
 
-            <motion.h1 {...up(0.18)} style={{ fontSize: "clamp(2.6rem,5vw,4rem)", fontWeight: 800, lineHeight: 1.08, letterSpacing: "-0.04em", color: "var(--c-text)", marginBottom: 20 }}>
-              I build systems<br />that <span className="gradient-text">scale.</span>
+            {/* Headline */}
+            <motion.h1
+              {...up(0.16)}
+              style={{
+                fontSize: "clamp(2.5rem, 4.5vw, 3.8rem)",
+                fontWeight: 800,
+                lineHeight: 1.1,
+                letterSpacing: "-0.03em",
+                color: "var(--c-text)",
+                marginBottom: 20,
+              }}
+            >
+              Architecting scalable <br />
+              <span className="gradient-text">full-stack systems.</span>
             </motion.h1>
 
-            <motion.p {...up(0.26)} style={{ fontSize: 17, color: "var(--c-muted)", lineHeight: 1.75, marginBottom: 36, maxWidth: 460 }}>
-              {personal.subheadline}
+            {/* Subheadline */}
+            <motion.p
+              {...up(0.22)}
+              style={{
+                fontSize: 17,
+                color: "var(--c-muted)",
+                lineHeight: 1.7,
+                marginBottom: 32,
+                maxWidth: 520,
+              }}
+            >
+              {personal.subheadline} Focused on backend scalability, ACID compliance, optimized database schemas, and clean frontend engineering.
             </motion.p>
 
-            <motion.div {...up(0.34)} style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 36 }} className="hero-buttons">
+            {/* Key Engineering Metrics */}
+            <motion.div
+              {...up(0.28)}
+              style={{
+                display: "flex",
+                gap: 24,
+                marginBottom: 36,
+                padding: "16px 20px",
+                borderRadius: 12,
+                border: "1px solid var(--c-border-md)",
+                background: "var(--c-card)",
+                maxWidth: 520,
+              }}
+            >
+              {metrics.map((m) => (
+                <div key={m.label} style={{ flex: 1 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 6, color: "var(--c-accent)", fontSize: 12, fontWeight: 600, marginBottom: 4 }}>
+                    {m.icon}
+                    <span>{m.value}</span>
+                  </div>
+                  <div style={{ fontSize: 12, color: "var(--c-subtle)", fontWeight: 500 }}>{m.label}</div>
+                </div>
+              ))}
+            </motion.div>
+
+            {/* CTAs */}
+            <motion.div {...up(0.34)} style={{ display: "flex", gap: 14, flexWrap: "wrap", marginBottom: 32 }} className="hero-buttons">
               <button className="btn-primary" onClick={() => go("projects")}>
-                View My Work <ArrowRight size={15} />
+                Explore Featured Systems <ArrowRight size={15} />
               </button>
               <a href={personal.resumeUrl} download target="_blank" rel="noopener noreferrer" className="btn-ghost">
-                <Download size={14} /> Resume
+                <Download size={14} /> Download Resume
               </a>
             </motion.div>
 
-            <motion.div {...up(0.42)} style={{ display: "flex", gap: 10 }} className="hero-social">
+            {/* Social Icons */}
+            <motion.div {...up(0.4)} style={{ display: "flex", gap: 10, alignItems: "center" }} className="hero-social">
+              <span style={{ fontSize: 12, color: "var(--c-subtle)", marginRight: 6, fontFamily: "'JetBrains Mono', monospace" }}>CONNECT:</span>
               {[
                 { href: personal.github, icon: <GithubIcon size={16} />, label: "GitHub" },
                 { href: personal.linkedin, icon: <LinkedinIcon size={16} />, label: "LinkedIn" },
                 { href: personal.twitter, icon: <TwitterIcon size={16} />, label: "Twitter" },
                 { href: `mailto:${personal.email}`, icon: <MailIcon size={16} />, label: "Email" },
-              ].map(s => (
-                <a key={s.label} href={s.href} target={s.href.startsWith("mailto") ? undefined : "_blank"} rel="noopener noreferrer" aria-label={s.label}
-                  style={{ width: 38, height: 38, borderRadius: 8, border: "1px solid var(--c-border-md)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--c-subtle)", textDecoration: "none", transition: "all 0.2s" }}
-                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = "var(--c-accent)"; (e.currentTarget as HTMLElement).style.color = "var(--c-accent)"; }}
-                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = "var(--c-border-md)"; (e.currentTarget as HTMLElement).style.color = "var(--c-subtle)"; }}>
+              ].map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target={s.href.startsWith("mailto") ? undefined : "_blank"}
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  style={{
+                    width: 38,
+                    height: 38,
+                    borderRadius: 8,
+                    border: "1px solid var(--c-border-md)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "var(--c-subtle)",
+                    textDecoration: "none",
+                    background: "var(--c-card)",
+                    transition: "all 0.2s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLElement).style.borderColor = "var(--c-accent)";
+                    (e.currentTarget as HTMLElement).style.color = "var(--c-accent)";
+                    (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLElement).style.borderColor = "var(--c-border-md)";
+                    (e.currentTarget as HTMLElement).style.color = "var(--c-subtle)";
+                    (e.currentTarget as HTMLElement).style.transform = "none";
+                  }}
+                >
                   {s.icon}
                 </a>
               ))}
             </motion.div>
           </div>
 
-          {/* Right — 3D Tilt profile card */}
-          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, ease: E, delay: 0.3 }}
-            style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-            <Tilt3DCard maxRotation={15} scaleOnHover={1.05}>
-              <div style={{ position: "relative" }} className="hero-profile-wrap">
-                {/* Spinning gradient ring */}
-                <div style={{ position: "absolute", inset: -3, borderRadius: "50%", background: "conic-gradient(from 0deg, #4d9ef7, #00d4ff, #4d9ef7)", animation: "spin 8s linear infinite" }} />
-                {/* Glow */}
-                <div style={{ position: "absolute", inset: -24, borderRadius: "50%", background: "radial-gradient(circle, rgba(77,158,247,0.2) 0%, transparent 70%)", pointerEvents: "none" }} />
-                {/* Image */}
-                <div style={{ position: "relative", width: 280, height: 280, borderRadius: "50%", overflow: "hidden", border: "3px solid var(--c-bg)", background: "var(--c-raised)", display: "flex", alignItems: "center", justifyContent: "center" }} className="hero-profile">
-                  {!imgError ? (
-                    <Image
-                      src="/images/profile.png"
-                      alt="Rupesh Kumar"
-                      fill
-                      priority
-                      sizes="280px"
-                      style={{ objectFit: "cover", objectPosition: "center top" }}
-                      onError={() => setImgError(true)}
-                    />
-                  ) : (
-                    <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: "1.8rem", letterSpacing: "-0.04em", color: "var(--c-accent)" }}>RUPESH</div>
-                  )}
-                </div>
-                {/* Floating 3D depth badges */}
-                {[
-                  { label: "⚛ React", top: "8%", right: "-20px", cls: "hero-badge-1" },
-                  { label: "🟦 TypeScript", bottom: "20%", right: "-28px", cls: "hero-badge-2" },
-                  { label: "🟢 Node.js", bottom: "8%", left: "-20px", cls: "hero-badge-3" },
-                  { label: "🐍 Python", top: "20%", left: "-28px", cls: "hero-badge-4" },
-                ].map((b, i) => (
-                  <div key={b.label} className={b.cls} style={{ position: "absolute", top: b.top, bottom: (b as any).bottom, right: (b as any).right, left: (b as any).left, padding: "6px 14px", borderRadius: 10, background: "var(--c-card)", backdropFilter: "blur(8px)", border: "1px solid var(--c-border-hi)", fontSize: 12, fontWeight: 600, color: "var(--c-text)", whiteSpace: "nowrap", boxShadow: "0 8px 24px rgba(0,0,0,0.3)", transform: "translateZ(30px)", animation: `float 6s ease-in-out ${i * 1.5}s infinite` }}>
-                    {b.label}
+          {/* Right Column — Professional Profile & Code Artifact */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: E, delay: 0.2 }}
+            style={{ display: "flex", flexDirection: "column", gap: 20, alignItems: "center" }}
+          >
+            {/* Profile Frame */}
+            <div
+              style={{
+                position: "relative",
+                width: 280,
+                height: 280,
+                borderRadius: 16,
+                padding: 6,
+                background: "linear-gradient(135deg, var(--c-border-hi) 0%, var(--c-border-md) 100%)",
+                boxShadow: "0 20px 40px -15px rgba(0,0,0,0.5)",
+              }}
+            >
+              <div
+                style={{
+                  position: "relative",
+                  width: "100%",
+                  height: "100%",
+                  borderRadius: 12,
+                  overflow: "hidden",
+                  background: "var(--c-raised)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                {!imgError ? (
+                  <Image
+                    src="/images/profile.png"
+                    alt="Rupesh Kumar"
+                    fill
+                    priority
+                    sizes="280px"
+                    style={{ objectFit: "cover", objectPosition: "center top" }}
+                    onError={() => setImgError(true)}
+                  />
+                ) : (
+                  <div
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontFamily: "'JetBrains Mono', monospace",
+                      fontWeight: 800,
+                      fontSize: "1.8rem",
+                      color: "var(--c-accent)",
+                    }}
+                  >
+                    RUPESH
                   </div>
-                ))}
+                )}
               </div>
-            </Tilt3DCard>
+            </div>
+
+            {/* Sleek Terminal / Architectural Preview Box */}
+            <div
+              style={{
+                width: "100%",
+                maxWidth: 340,
+                padding: "14px 18px",
+                borderRadius: 12,
+                border: "1px solid var(--c-border-md)",
+                background: "var(--c-card)",
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: 12,
+                lineHeight: 1.6,
+                color: "var(--c-subtle)",
+              }}
+            >
+              <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 10, color: "var(--c-muted)" }}>
+                <Terminal size={14} color="var(--c-accent)" />
+                <span style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.05em", fontWeight: 600 }}>System Spec</span>
+              </div>
+              <div style={{ color: "var(--c-text)" }}>
+                <span style={{ color: "var(--c-accent)" }}>const</span> engineer = &#123;
+              </div>
+              <div style={{ paddingLeft: 12 }}>
+                focus: <span style={{ color: "#22c55e" }}>"Scalable Backends & ML"</span>,<br />
+                databases: <span style={{ color: "#22c55e" }}>["MySQL", "MongoDB"]</span>,<br />
+                principles: <span style={{ color: "#22c55e" }}>["ACID", "Clean Code"]</span>
+              </div>
+              <div style={{ color: "var(--c-text)" }}>&#125;;</div>
+            </div>
           </motion.div>
         </div>
       </div>
 
-      {/* Scroll hint */}
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5 }}
-        style={{ position: "absolute", bottom: 28, left: "50%", transform: "translateX(-50%)", display: "flex", flexDirection: "column", alignItems: "center", gap: 6, color: "var(--c-subtle)" }}>
-        <span style={{ fontSize: 10, fontFamily: "'JetBrains Mono',monospace", letterSpacing: "0.1em", textTransform: "uppercase" }}>scroll</span>
-        <div style={{ width: 14, height: 14, borderRight: "1.5px solid var(--c-subtle)", borderBottom: "1.5px solid var(--c-subtle)", animation: "bounce 1.5s ease-in-out infinite" }} />
-      </motion.div>
-
       <style>{`
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
           .hero-grid {
             grid-template-columns: 1fr !important;
             gap: 40px !important;
             text-align: center;
-            padding: 32px 0 !important;
-            min-height: unset !important;
           }
           .hero-grid > div:last-child { order: -1; }
-          .hero-social { justify-content: center; }
-          .hero-buttons { justify-content: center; }
-          .hero-badge { justify-content: center; }
-          .hero-profile { width: 220px !important; height: 220px !important; }
-          .hero-badge-1 { right: -8px !important; font-size: 11px !important; padding: 4px 8px !important; }
-          .hero-badge-2 { right: -8px !important; font-size: 11px !important; padding: 4px 8px !important; }
-          .hero-badge-3 { left: -8px !important; font-size: 11px !important; padding: 4px 8px !important; }
-          .hero-badge-4 { left: -8px !important; font-size: 11px !important; padding: 4px 8px !important; }
-        }
-        @media (max-width: 480px) {
-          .hero-profile { width: 180px !important; height: 180px !important; }
-          .hero-badge-1, .hero-badge-2, .hero-badge-3, .hero-badge-4 { display: none !important; }
-          .hero-grid { gap: 28px !important; }
+          .hero-social, .hero-buttons, .hero-badge { justify-content: center; }
+          .hero-grid > div:first-child > div { margin-left: auto; margin-right: auto; }
         }
       `}</style>
     </section>

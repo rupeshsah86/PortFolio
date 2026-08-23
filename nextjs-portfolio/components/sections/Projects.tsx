@@ -1,13 +1,12 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, Layers } from "lucide-react";
+import { motion } from "framer-motion";
+import { ExternalLink, Layers, ArrowUpRight } from "lucide-react";
 import { GithubIcon } from "@/components/ui/SocialIcons";
 import { projects } from "@/lib/data";
 import type { Project } from "@/lib/types";
 import ProjectModal from "@/components/shared/ProjectModal";
-import Tilt3DCard from "@/components/ui/Tilt3DCard";
 
 const E = [0.22, 1, 0.36, 1] as const;
 const inView = (delay = 0) => ({
@@ -21,24 +20,21 @@ export default function Projects() {
   const [selected, setSelected] = useState<Project | null>(null);
   const [filter, setFilter] = useState<string>("All");
 
-  const categories = ["All", "Full Stack", "Backend & ML", "Systems"];
+  const categories = ["All", "Backend & Systems", "Full Stack", "Machine Learning"];
 
   const filteredProjects = projects.filter((p) => {
     if (filter === "All") return true;
-    if (filter === "Full Stack") return p.tech.includes("React") || p.tech.includes("Next.js");
-    if (filter === "Backend & ML") return p.tech.includes("Python") || p.tech.includes("Node.js") || p.tech.includes("Flask");
-    if (filter === "Systems") return p.tech.includes("Docker") || p.tech.includes("PostgreSQL") || p.tech.includes("Redis");
-    return true;
+    return p.category === filter;
   });
 
   return (
     <section id="projects" className="section" style={{ background: "var(--c-bg)" }}>
       <div className="wrap">
         <motion.div {...inView(0)} style={{ marginBottom: 36 }}>
-          <div className="label">Featured Engineering Projects</div>
+          <div className="label">Featured Engineering Systems</div>
           <h2 className="heading">Production-Grade Applications</h2>
           <p className="subtext">
-            End-to-end architectures I designed, engineered, and optimized for performance and scale.
+            Architectures, ML pipelines, and backend systems I designed and engineered with explicit tradeoffs and benchmarked performance.
           </p>
         </motion.div>
 
@@ -50,13 +46,13 @@ export default function Projects() {
               onClick={() => setFilter(cat)}
               style={{
                 padding: "8px 18px",
-                borderRadius: 30,
+                borderRadius: 20,
                 fontSize: 13,
                 fontWeight: 600,
                 cursor: "pointer",
                 border: "1px solid",
-                borderColor: filter === cat ? "var(--c-accent)" : "var(--c-border)",
-                background: filter === cat ? "var(--c-accent)15" : "var(--c-card)",
+                borderColor: filter === cat ? "var(--c-accent)" : "var(--c-border-md)",
+                background: filter === cat ? "var(--c-raised)" : "var(--c-card)",
                 color: filter === cat ? "var(--c-accent)" : "var(--c-muted)",
                 transition: "all 0.2s ease",
               }}
@@ -70,15 +66,25 @@ export default function Projects() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 24 }} className="proj-grid">
           {filteredProjects.map((p, i) => (
             <motion.div key={p.id} {...inView(i * 0.08)} layout style={{ height: "100%" }}>
-              <Tilt3DCard onClick={() => setSelected(p)} maxRotation={10} scaleOnHover={1.02}>
-                <div
-                  className="card"
-                  style={{ overflow: "hidden", display: "flex", flexDirection: "column", height: "100%" }}
-                >
+              <div
+                className="card project-card"
+                onClick={() => setSelected(p)}
+                style={{
+                  cursor: "pointer",
+                  overflow: "hidden",
+                  display: "flex",
+                  flexDirection: "column",
+                  height: "100%",
+                  border: "1px solid var(--c-border-md)",
+                  borderRadius: 14,
+                  background: "var(--c-card)",
+                  transition: "all 0.25s ease",
+                }}
+              >
                 {/* Thumbnail */}
                 <div
                   style={{
-                    height: 180,
+                    height: 190,
                     background: `linear-gradient(135deg, var(--c-raised) 0%, var(--c-card) 100%)`,
                     position: "relative",
                     display: "flex",
@@ -86,6 +92,7 @@ export default function Projects() {
                     justifyContent: "center",
                     overflow: "hidden",
                     flexShrink: 0,
+                    borderBottom: "1px solid var(--c-border-md)",
                   }}
                 >
                   {p.image ? (
@@ -103,26 +110,19 @@ export default function Projects() {
                           position: "absolute",
                           inset: 0,
                           backgroundImage:
-                            "linear-gradient(var(--c-border) 1px, transparent 1px), linear-gradient(90deg, var(--c-border) 1px, transparent 1px)",
+                            "linear-gradient(var(--c-border-md) 1px, transparent 1px), linear-gradient(90deg, var(--c-border-md) 1px, transparent 1px)",
                           backgroundSize: "24px 24px",
-                          opacity: 0.5,
-                        }}
-                      />
-                      <div
-                        style={{
-                          position: "absolute",
-                          inset: 0,
-                          background: `radial-gradient(circle at 50% 50%, ${p.accentColor}20 0%, transparent 70%)`,
+                          opacity: 0.4,
                         }}
                       />
                       <span
                         style={{
                           position: "relative",
                           zIndex: 1,
-                          fontSize: "4.5rem",
+                          fontSize: "4rem",
                           fontWeight: 800,
-                          fontFamily: "'JetBrains Mono',monospace",
-                          color: p.accentColor,
+                          fontFamily: "'JetBrains Mono', monospace",
+                          color: p.accentColor || "var(--c-accent)",
                           opacity: 0.3,
                           letterSpacing: "-0.06em",
                           userSelect: "none",
@@ -132,6 +132,26 @@ export default function Projects() {
                       </span>
                     </>
                   )}
+                  {/* Category Tag overlay */}
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: 12,
+                      left: 12,
+                      padding: "4px 10px",
+                      borderRadius: 6,
+                      background: "rgba(15, 23, 42, 0.85)",
+                      backdropFilter: "blur(6px)",
+                      border: "1px solid var(--c-border-md)",
+                      color: "var(--c-text)",
+                      fontSize: 11,
+                      fontFamily: "'JetBrains Mono', monospace",
+                      fontWeight: 600,
+                    }}
+                  >
+                    {p.category || "Engineering"}
+                  </div>
+
                   <div
                     style={{
                       position: "absolute",
@@ -159,26 +179,28 @@ export default function Projects() {
                         gap: 6,
                       }}
                     >
-                      <Layers size={14} /> Explore Case Study
+                      <Layers size={14} /> Read Case Study
                     </span>
                   </div>
                 </div>
 
                 {/* Body */}
                 <div style={{ padding: "24px", display: "flex", flexDirection: "column", flex: 1 }}>
-                  <h3
-                    style={{
-                      fontSize: 18,
-                      fontWeight: 700,
-                      color: "var(--c-text)",
-                      marginBottom: 8,
-                      letterSpacing: "-0.01em",
-                      lineHeight: 1.3,
-                    }}
-                  >
-                    {p.title}
-                  </h3>
-                  <p style={{ fontSize: 14, color: "var(--c-muted)", lineHeight: 1.65, marginBottom: 18, flex: 1 }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 12, marginBottom: 8 }}>
+                    <h3
+                      style={{
+                        fontSize: 18,
+                        fontWeight: 700,
+                        color: "var(--c-text)",
+                        letterSpacing: "-0.01em",
+                        lineHeight: 1.3,
+                      }}
+                    >
+                      {p.title}
+                    </h3>
+                    <ArrowUpRight size={18} color="var(--c-subtle)" className="proj-arrow" />
+                  </div>
+                  <p style={{ fontSize: 14, color: "var(--c-muted)", lineHeight: 1.65, marginBottom: 20, flex: 1 }}>
                     {p.shortDesc}
                   </p>
 
@@ -206,7 +228,7 @@ export default function Projects() {
                       className="btn-ghost"
                       style={{ fontSize: 13, padding: "8px 14px", flex: 1, justifyContent: "center" }}
                     >
-                      <GithubIcon size={14} /> GitHub
+                      <GithubIcon size={14} /> Repository
                     </a>
                     {p.demo && (
                       <a
@@ -216,14 +238,13 @@ export default function Projects() {
                         className="btn-ghost"
                         style={{ fontSize: 13, padding: "8px 14px", flex: 1, justifyContent: "center" }}
                       >
-                        <ExternalLink size={14} /> Live Demo
+                        <ExternalLink size={14} /> Live System
                       </a>
                     )}
                   </div>
                 </div>
               </div>
-            </Tilt3DCard>
-          </motion.div>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -232,7 +253,13 @@ export default function Projects() {
       <ProjectModal project={selected} onClose={() => setSelected(null)} />
 
       <style>{`
-        .card:hover .proj-overlay { opacity: 1 !important; }
+        .project-card:hover {
+          transform: translateY(-4px);
+          border-color: var(--c-border-hi) !important;
+          box-shadow: 0 12px 30px -10px rgba(0,0,0,0.5);
+        }
+        .project-card:hover .proj-overlay { opacity: 1 !important; }
+        .project-card:hover .proj-arrow { color: var(--c-accent) !important; }
         @media (max-width: 768px) { .proj-grid { grid-template-columns: 1fr !important; } }
       `}</style>
     </section>
