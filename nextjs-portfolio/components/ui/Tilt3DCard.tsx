@@ -16,7 +16,7 @@ export default function Tilt3DCard({
   children,
   className = "",
   style = {},
-  maxRotation = 12,
+  maxRotation = 14,
   scaleOnHover = 1.03,
   onClick,
 }: Tilt3DCardProps) {
@@ -45,7 +45,7 @@ export default function Tilt3DCard({
     // Glare position percentage
     const glareX = (mouseX / width) * 100;
     const glareY = (mouseY / height) * 100;
-    setGlarePos({ x: glareX, y: glareY, opacity: 0.2 });
+    setGlarePos({ x: glareX, y: glareY, opacity: 0.28 });
   };
 
   const handleMouseEnter = () => {
@@ -59,8 +59,15 @@ export default function Tilt3DCard({
     setGlarePos((prev) => ({ ...prev, opacity: 0 }));
   };
 
+  // Dynamic 3D Box Shadow based on tilt rotation
+  const shadowX = -rotateY * 2;
+  const shadowY = rotateX * 2 + 15;
+  const dynamicShadow = isHovered
+    ? `${shadowX}px ${shadowY}px 35px -10px rgba(0, 0, 0, 0.6), 0 0 25px rgba(56, 189, 248, 0.15)`
+    : "0 10px 30px -15px rgba(0, 0, 0, 0.4)";
+
   return (
-    <div style={{ perspective: 1000, width: "100%", height: "100%" }}>
+    <div style={{ perspective: 1200, width: "100%", height: "100%" }}>
       <motion.div
         ref={cardRef}
         className={className}
@@ -75,19 +82,22 @@ export default function Tilt3DCard({
         }}
         transition={{
           type: "spring",
-          stiffness: 400,
-          damping: 25,
-          mass: 0.5,
+          stiffness: 300,
+          damping: 20,
+          mass: 0.4,
         }}
         style={{
           transformStyle: "preserve-3d",
           position: "relative",
           cursor: onClick ? "pointer" : "default",
+          boxShadow: dynamicShadow,
+          transition: "box-shadow 0.2s ease",
+          borderRadius: "inherit",
           ...style,
         }}
       >
         {/* Children content with 3D depth */}
-        <div style={{ transform: "translateZ(20px)", transformStyle: "preserve-3d", height: "100%" }}>
+        <div style={{ transform: "translateZ(30px)", transformStyle: "preserve-3d", height: "100%" }}>
           {children}
         </div>
 
@@ -98,8 +108,8 @@ export default function Tilt3DCard({
             inset: 0,
             borderRadius: "inherit",
             pointerEvents: "none",
-            background: `radial-gradient(circle at ${glarePos.x}% ${glarePos.y}%, rgba(255, 255, 255, ${glarePos.opacity}) 0%, transparent 80%)`,
-            transition: "opacity 0.25s ease",
+            background: `radial-gradient(circle at ${glarePos.x}% ${glarePos.y}%, rgba(255, 255, 255, ${glarePos.opacity}) 0%, transparent 75%)`,
+            transition: "opacity 0.2s ease",
             zIndex: 10,
           }}
         />

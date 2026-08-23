@@ -1,7 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
 import { personal } from "@/lib/data";
-import { ShieldCheck, Cpu, Code2, Sparkles } from "lucide-react";
+import { ShieldCheck, Cpu, Code2 } from "lucide-react";
+import Tilt3DCard from "@/components/ui/Tilt3DCard";
 
 const stats = [
   { n: "5+", l: "Systems Built" },
@@ -32,13 +33,17 @@ export default function About() {
           {/* Stats Column */}
           <div style={{ display: "flex", flexDirection: "column", gap: 14, position: "sticky", top: 96 }}>
             {stats.map((s, i) => (
-              <motion.div key={i} {...inView(i * 0.07)} className="card" style={{ padding: "20px 24px" }}>
-                <div style={{ fontSize: "2.2rem", fontWeight: 800, letterSpacing: "-0.04em", lineHeight: 1, marginBottom: 6 }} className="gradient-text">
-                  {s.n}
-                </div>
-                <div style={{ fontSize: 12, color: "var(--c-subtle)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em", fontFamily: "'JetBrains Mono', monospace" }}>
-                  {s.l}
-                </div>
+              <motion.div key={i} {...inView(i * 0.07)}>
+                <Tilt3DCard maxRotation={8} scaleOnHover={1.02}>
+                  <div className="card" style={{ padding: "20px 24px" }}>
+                    <div style={{ fontSize: "2.2rem", fontWeight: 800, letterSpacing: "-0.04em", lineHeight: 1, marginBottom: 6 }} className="gradient-text">
+                      {s.n}
+                    </div>
+                    <div style={{ fontSize: 12, color: "var(--c-subtle)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em", fontFamily: "'JetBrains Mono', monospace" }}>
+                      {s.l}
+                    </div>
+                  </div>
+                </Tilt3DCard>
               </motion.div>
             ))}
           </div>
@@ -61,17 +66,19 @@ export default function About() {
             {/* Philosophy Cards Grid */}
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }} className="philosophy-grid">
               {philosophy.map((p, i) => (
-                <motion.div
-                  key={p.title}
-                  {...inView(0.2 + i * 0.08)}
-                  className="card"
-                  style={{ padding: "22px", display: "flex", flexDirection: "column", gap: 10 }}
-                >
-                  <div style={{ padding: 10, borderRadius: 10, background: "var(--c-raised)", width: "fit-content" }}>
-                    {p.icon}
-                  </div>
-                  <h3 style={{ fontSize: 15, fontWeight: 700, color: "var(--c-text)" }}>{p.title}</h3>
-                  <p style={{ fontSize: 13, color: "var(--c-muted)", lineHeight: 1.6 }}>{p.text}</p>
+                <motion.div key={p.title} {...inView(0.2 + i * 0.08)}>
+                  <Tilt3DCard maxRotation={10} scaleOnHover={1.03}>
+                    <div
+                      className="card"
+                      style={{ padding: "22px", display: "flex", flexDirection: "column", gap: 10, height: "100%" }}
+                    >
+                      <div style={{ padding: 10, borderRadius: 10, background: "var(--c-raised)", width: "fit-content" }}>
+                        {p.icon}
+                      </div>
+                      <h3 style={{ fontSize: 15, fontWeight: 700, color: "var(--c-text)" }}>{p.title}</h3>
+                      <p style={{ fontSize: 13, color: "var(--c-muted)", lineHeight: 1.6 }}>{p.text}</p>
+                    </div>
+                  </Tilt3DCard>
                 </motion.div>
               ))}
             </div>

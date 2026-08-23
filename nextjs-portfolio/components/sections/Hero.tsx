@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Download, Terminal, Cpu, Database, Server, Layers } from "lucide-react";
+import { ArrowRight, Download, Terminal, Cpu, Database, Server, Sparkles } from "lucide-react";
 import { GithubIcon, LinkedinIcon, TwitterIcon, MailIcon } from "@/components/ui/SocialIcons";
 import { personal } from "@/lib/data";
 import Tilt3DCard from "@/components/ui/Tilt3DCard";
@@ -24,6 +24,13 @@ export default function Hero() {
     { label: "Query Optimizations", value: "<100ms", icon: <Database size={14} /> },
   ];
 
+  const floatingBadges = [
+    { label: "⚡ Next.js 16", top: "-14px", right: "-16px", color: "#38bdf8", z: "50px", delay: 0 },
+    { label: "🤖 Groq LLM", top: "45%", right: "-24px", color: "#818cf8", z: "60px", delay: 1 },
+    { label: "🟢 Spring Boot", bottom: "30px", left: "-24px", color: "#22c55e", z: "55px", delay: 2 },
+    { label: "🗄️ Postgres 17", top: "20px", left: "-20px", color: "#f59e0b", z: "45px", delay: 1.5 },
+  ];
+
   return (
     <section
       id="home"
@@ -37,15 +44,43 @@ export default function Hero() {
         overflow: "hidden",
       }}
     >
-      {/* Crisp dark subtle grid background */}
+      {/* 3D Grid Perspective Background */}
       <div
         style={{
           position: "absolute",
           inset: 0,
-          opacity: 0.15,
+          opacity: 0.12,
           backgroundImage: "linear-gradient(var(--c-border-md) 1px, transparent 1px), linear-gradient(90deg, var(--c-border-md) 1px, transparent 1px)",
-          backgroundSize: "40px 40px",
-          maskImage: "radial-gradient(ellipse 80% 80% at 50% 30%, black 40%, transparent 100%)",
+          backgroundSize: "44px 44px",
+          maskImage: "radial-gradient(ellipse 90% 80% at 50% 35%, black 40%, transparent 100%)",
+          pointerEvents: "none",
+        }}
+      />
+
+      {/* 3D Floating Ambient Orbs */}
+      <div
+        style={{
+          position: "absolute",
+          top: "15%",
+          right: "10%",
+          width: 380,
+          height: 380,
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(56,189,248,0.15) 0%, transparent 70%)",
+          filter: "blur(50px)",
+          pointerEvents: "none",
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          bottom: "10%",
+          left: "5%",
+          width: 320,
+          height: 320,
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(129,140,248,0.15) 0%, transparent 70%)",
+          filter: "blur(50px)",
           pointerEvents: "none",
         }}
       />
@@ -132,7 +167,7 @@ export default function Hero() {
                 gap: 24,
                 marginBottom: 36,
                 padding: "16px 20px",
-                borderRadius: 12,
+                borderRadius: 14,
                 border: "1px solid var(--c-border-md)",
                 background: "var(--c-card)",
                 maxWidth: 520,
@@ -204,69 +239,56 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right Column — 3D Interactive Profile Frame & Code Artifact */}
+          {/* Right Column — Interactive 3D Card Stack */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: E, delay: 0.2 }}
             style={{ display: "flex", flexDirection: "column", gap: 20, alignItems: "center" }}
           >
-            <Tilt3DCard maxRotation={8} scaleOnHover={1.02}>
-              <div style={{ display: "flex", flexDirection: "column", gap: 20, alignItems: "center", position: "relative" }}>
-                {/* 3D Depth Floating Tech Pills */}
-                <div
-                  style={{
-                    position: "absolute",
-                    top: -12,
-                    right: -12,
-                    transform: "translateZ(35px)",
-                    background: "var(--c-raised)",
-                    border: "1px solid var(--c-border-hi)",
-                    padding: "4px 10px",
-                    borderRadius: 8,
-                    fontSize: 11,
-                    fontWeight: 700,
-                    color: "#38bdf8",
-                    fontFamily: "'JetBrains Mono', monospace",
-                    boxShadow: "0 8px 20px rgba(0,0,0,0.4)",
-                    zIndex: 2,
-                  }}
-                >
-                  ⚡ Next.js 16
-                </div>
+            <Tilt3DCard maxRotation={15} scaleOnHover={1.03}>
+              <div style={{ display: "flex", flexDirection: "column", gap: 20, alignItems: "center", position: "relative", padding: "10px 0" }}>
+                {/* 3D Depth Floating Tech Badges */}
+                {floatingBadges.map((b) => (
+                  <div
+                    key={b.label}
+                    style={{
+                      position: "absolute",
+                      top: (b as any).top,
+                      bottom: (b as any).bottom,
+                      right: (b as any).right,
+                      left: (b as any).left,
+                      transform: `translateZ(${b.z})`,
+                      background: "rgba(15, 23, 42, 0.85)",
+                      backdropFilter: "blur(12px)",
+                      WebkitBackdropFilter: "blur(12px)",
+                      border: `1px solid ${b.color}50`,
+                      padding: "6px 14px",
+                      borderRadius: 10,
+                      fontSize: 12,
+                      fontWeight: 700,
+                      color: b.color,
+                      fontFamily: "'JetBrains Mono', monospace",
+                      boxShadow: `0 10px 25px -5px rgba(0,0,0,0.6), 0 0 15px ${b.color}25`,
+                      zIndex: 12,
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    {b.label}
+                  </div>
+                ))}
 
-                <div
-                  style={{
-                    position: "absolute",
-                    bottom: 120,
-                    left: -18,
-                    transform: "translateZ(35px)",
-                    background: "var(--c-raised)",
-                    border: "1px solid var(--c-border-hi)",
-                    padding: "4px 10px",
-                    borderRadius: 8,
-                    fontSize: 11,
-                    fontWeight: 700,
-                    color: "#22c55e",
-                    fontFamily: "'JetBrains Mono', monospace",
-                    boxShadow: "0 8px 20px rgba(0,0,0,0.4)",
-                    zIndex: 2,
-                  }}
-                >
-                  🤖 Groq LLM
-                </div>
-
-                {/* Profile Frame */}
+                {/* Profile Frame with 3D Border Glow */}
                 <div
                   style={{
                     position: "relative",
-                    width: 280,
-                    height: 280,
-                    borderRadius: 16,
+                    width: 290,
+                    height: 290,
+                    borderRadius: 20,
                     padding: 6,
-                    background: "linear-gradient(135deg, var(--c-border-hi) 0%, var(--c-border-md) 100%)",
-                    boxShadow: "0 20px 40px -15px rgba(0,0,0,0.5)",
-                    transform: "translateZ(20px)",
+                    background: "linear-gradient(135deg, var(--c-accent) 0%, var(--c-purple) 100%)",
+                    boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.6), 0 0 30px rgba(56, 189, 248, 0.2)",
+                    transform: "translateZ(30px)",
                   }}
                 >
                   <div
@@ -274,7 +296,7 @@ export default function Hero() {
                       position: "relative",
                       width: "100%",
                       height: "100%",
-                      borderRadius: 12,
+                      borderRadius: 14,
                       overflow: "hidden",
                       background: "var(--c-raised)",
                       display: "flex",
@@ -288,7 +310,7 @@ export default function Hero() {
                         alt="Rupesh Kumar"
                         fill
                         priority
-                        sizes="280px"
+                        sizes="290px"
                         style={{ objectFit: "cover", objectPosition: "center top" }}
                         onError={() => setImgError(true)}
                       />
@@ -318,28 +340,33 @@ export default function Hero() {
                     width: "100%",
                     maxWidth: 320,
                     padding: "16px 20px",
-                    borderRadius: 12,
-                    border: "1px solid var(--c-border-md)",
-                    background: "var(--c-card)",
+                    borderRadius: 14,
+                    border: "1px solid var(--c-border-hi)",
+                    background: "rgba(15, 23, 42, 0.8)",
+                    backdropFilter: "blur(16px)",
+                    WebkitBackdropFilter: "blur(16px)",
                     fontFamily: "'JetBrains Mono', monospace",
                     fontSize: 12,
                     lineHeight: 1.6,
                     color: "var(--c-subtle)",
-                    boxShadow: "0 12px 28px -10px rgba(0,0,0,0.5)",
-                    transform: "translateZ(25px)",
+                    boxShadow: "0 15px 35px -10px rgba(0,0,0,0.6)",
+                    transform: "translateZ(40px)",
                   }}
                 >
-                  <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 10, color: "var(--c-muted)" }}>
-                    <Terminal size={14} color="var(--c-accent)" />
-                    <span style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.05em", fontWeight: 600 }}>System Spec</span>
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 10 }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: 6, color: "var(--c-muted)" }}>
+                      <Terminal size={14} color="var(--c-accent)" />
+                      <span style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.05em", fontWeight: 600 }}>System Spec</span>
+                    </div>
+                    <span style={{ fontSize: 10, background: "rgba(34,197,94,0.15)", color: "#22c55e", padding: "2px 8px", borderRadius: 4 }}>Active</span>
                   </div>
                   <div style={{ color: "var(--c-text)" }}>
                     <span style={{ color: "var(--c-accent)" }}>const</span> engineer = &#123;
                   </div>
                   <div style={{ paddingLeft: 12 }}>
                     focus: <span style={{ color: "#22c55e" }}>"Scalable Backends & ML"</span>,<br />
-                    databases: <span style={{ color: "#22c55e" }}>["MySQL", "PostgreSQL"]</span>,<br />
-                    principles: <span style={{ color: "#22c55e" }}>["ACID", "3D WebGL"]</span>
+                    stack: <span style={{ color: "#22c55e" }}>["Next.js", "Spring Boot"]</span>,<br />
+                    architecture: <span style={{ color: "#22c55e" }}>["ACID", "3D WebGL"]</span>
                   </div>
                   <div style={{ color: "var(--c-text)" }}>&#125;;</div>
                 </div>
