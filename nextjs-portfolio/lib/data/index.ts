@@ -270,30 +270,42 @@ export const skills: SkillCategory[] = [
   {
     title: "Languages",
     skills: [
-      { name: "Python", primary: true },
+      { name: "Java", primary: true },
+      { name: "Python (Intermediate)", primary: true },
       { name: "JavaScript", primary: true },
       { name: "TypeScript", primary: true },
-      { name: "Java", primary: false },
-      { name: "C / C++", primary: false },
+      { name: "C", primary: false },
+      { name: "C++", primary: false },
     ],
   },
   {
-    title: "Frontend",
+    title: "Web Technologies",
     skills: [
-      { name: "React", primary: true },
       { name: "HTML5", primary: true },
       { name: "CSS3", primary: true },
-      { name: "Responsive Design", primary: false },
-      { name: "Accessibility", primary: false },
+      { name: "JavaScript", primary: true },
+      { name: "React.js", primary: true },
+      { name: "Next.js", primary: true },
     ],
   },
   {
     title: "Backend",
     skills: [
+      { name: "Spring Boot", primary: true },
       { name: "Node.js", primary: true },
       { name: "Express.js", primary: true },
+      { name: "FastAPI", primary: true },
       { name: "REST APIs", primary: true },
-      { name: "Django", primary: false },
+    ],
+  },
+  {
+    title: "Machine Learning & Data Analysis",
+    skills: [
+      { name: "Pandas", primary: true },
+      { name: "NumPy", primary: true },
+      { name: "Scikit-learn", primary: true },
+      { name: "Matplotlib", primary: false },
+      { name: "Groq LLM RAG", primary: true },
     ],
   },
   {
@@ -301,27 +313,29 @@ export const skills: SkillCategory[] = [
     skills: [
       { name: "MySQL", primary: true },
       { name: "MongoDB", primary: true },
-      { name: "Schema Design", primary: true },
-      { name: "Query Optimization", primary: false },
+      { name: "PostgreSQL", primary: true },
+      { name: "Schema Design", primary: false },
     ],
   },
   {
-    title: "CS Fundamentals",
+    title: "Tools & Cloud",
+    skills: [
+      { name: "GitHub & Git", primary: true },
+      { name: "Docker", primary: true },
+      { name: "AWS", primary: false },
+      { name: "VS Code", primary: false },
+      { name: "IntelliJ IDEA", primary: false },
+      { name: "Postman", primary: false },
+    ],
+  },
+  {
+    title: "Core Concepts",
     skills: [
       { name: "Data Structures", primary: true },
-      { name: "Algorithms", primary: true },
-      { name: "OOP", primary: true },
+      { name: "Algorithms & OOP", primary: true },
       { name: "DBMS", primary: true },
-      { name: "OS Concepts", primary: false },
-    ],
-  },
-  {
-    title: "Tools & Platforms",
-    skills: [
-      { name: "Git & GitHub", primary: true },
-      { name: "Linux", primary: false },
-      { name: "Postman", primary: false },
-      { name: "VS Code", primary: false },
+      { name: "Computer Networks", primary: false },
+      { name: "Operating Systems", primary: false },
     ],
   },
 ];
