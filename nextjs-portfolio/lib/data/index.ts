@@ -71,7 +71,7 @@ export const projects: Project[] = [
     github: "https://github.com/rupeshsah86/DataPulse-KSP-Crime-Analytics.git",
     demo: "https://frontend-deploy-ejcwfbbz.onslate.in",
     accentColor: "#38bdf8",
-    image: "/images/projects/datapulse.png",
+    image: "/images/projects/datapulse.jpg",
     category: "Machine Learning",
   },
   {
