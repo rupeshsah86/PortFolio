@@ -213,7 +213,7 @@ export const experiences: Experience[] = [
     bullets: [
       "Maintaining strong academic performance across core CS subjects: DSA, OOP, DBMS, Operating Systems, and Computer Networks",
       "Architected and shipped 5+ full-stack and ML projects applying real-world engineering principles beyond coursework requirements",
-      "Solved 100+ algorithmic problems on LeetCode, CodeChef, and HackerRank with consistent focus on time/space complexity analysis",
+      "Solved 2000+ algorithmic problems on LeetCode, CodeChef, and HackerRank with consistent focus on time/space complexity analysis",
       "Actively building toward a full-stack engineering career with deep focus on system design, scalable architecture, and production-grade development",
     ],
   },
@@ -259,7 +259,7 @@ export const experiences: Experience[] = [
     period: "2024 – Present",
     type: "practice",
     bullets: [
-      "Solved 100+ problems spanning arrays, strings, recursion, hashing, stacks, queues, and trees",
+      "Solved 2000+ problems spanning arrays, strings, recursion, hashing, stacks, queues, and trees",
       "Consistent daily practice with explicit focus on time/space complexity analysis and optimal solution design",
       "Building the algorithmic foundation required for technical interviews at top engineering companies",
     ],

@@ -6,7 +6,7 @@ import Tilt3DCard from "@/components/ui/Tilt3DCard";
 
 const stats = [
   { n: "5+", l: "Systems Built" },
-  { n: "100+", l: "DSA Problems" },
+  { n: "2000+", l: "DSA Problems" },
   { n: "3rd", l: "Year B.Tech CSE" },
   { n: "<100ms", l: "Optimized Queries" },
 ];

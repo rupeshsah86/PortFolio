@@ -20,7 +20,7 @@ export default function Hero() {
 
   const metrics = [
     { label: "Production Systems", value: "5+", icon: <Server size={14} /> },
-    { label: "Algorithmic Problems", value: "100+", icon: <Cpu size={14} /> },
+    { label: "Algorithmic Problems", value: "2000+", icon: <Cpu size={14} /> },
     { label: "Query Optimizations", value: "<100ms", icon: <Database size={14} /> },
   ];
 
