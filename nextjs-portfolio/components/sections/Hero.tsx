@@ -2,9 +2,10 @@
 import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Download, Terminal, Cpu, Database, Server } from "lucide-react";
+import { ArrowRight, Download, Terminal, Cpu, Database, Server, Layers } from "lucide-react";
 import { GithubIcon, LinkedinIcon, TwitterIcon, MailIcon } from "@/components/ui/SocialIcons";
 import { personal } from "@/lib/data";
+import Tilt3DCard from "@/components/ui/Tilt3DCard";
 
 const E = [0.22, 1, 0.36, 1] as const;
 const up = (delay = 0) => ({
@@ -203,97 +204,147 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right Column — Professional Profile & Code Artifact */}
+          {/* Right Column — 3D Interactive Profile Frame & Code Artifact */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: E, delay: 0.2 }}
             style={{ display: "flex", flexDirection: "column", gap: 20, alignItems: "center" }}
           >
-            {/* Profile Frame */}
-            <div
-              style={{
-                position: "relative",
-                width: 280,
-                height: 280,
-                borderRadius: 16,
-                padding: 6,
-                background: "linear-gradient(135deg, var(--c-border-hi) 0%, var(--c-border-md) 100%)",
-                boxShadow: "0 20px 40px -15px rgba(0,0,0,0.5)",
-              }}
-            >
-              <div
-                style={{
-                  position: "relative",
-                  width: "100%",
-                  height: "100%",
-                  borderRadius: 12,
-                  overflow: "hidden",
-                  background: "var(--c-raised)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                {!imgError ? (
-                  <Image
-                    src="/images/profile.png"
-                    alt="Rupesh Kumar"
-                    fill
-                    priority
-                    sizes="280px"
-                    style={{ objectFit: "cover", objectPosition: "center top" }}
-                    onError={() => setImgError(true)}
-                  />
-                ) : (
+            <Tilt3DCard maxRotation={8} scaleOnHover={1.02}>
+              <div style={{ display: "flex", flexDirection: "column", gap: 20, alignItems: "center", position: "relative" }}>
+                {/* 3D Depth Floating Tech Pills */}
+                <div
+                  style={{
+                    position: "absolute",
+                    top: -12,
+                    right: -12,
+                    transform: "translateZ(35px)",
+                    background: "var(--c-raised)",
+                    border: "1px solid var(--c-border-hi)",
+                    padding: "4px 10px",
+                    borderRadius: 8,
+                    fontSize: 11,
+                    fontWeight: 700,
+                    color: "#38bdf8",
+                    fontFamily: "'JetBrains Mono', monospace",
+                    boxShadow: "0 8px 20px rgba(0,0,0,0.4)",
+                    zIndex: 2,
+                  }}
+                >
+                  ⚡ Next.js 16
+                </div>
+
+                <div
+                  style={{
+                    position: "absolute",
+                    bottom: 120,
+                    left: -18,
+                    transform: "translateZ(35px)",
+                    background: "var(--c-raised)",
+                    border: "1px solid var(--c-border-hi)",
+                    padding: "4px 10px",
+                    borderRadius: 8,
+                    fontSize: 11,
+                    fontWeight: 700,
+                    color: "#22c55e",
+                    fontFamily: "'JetBrains Mono', monospace",
+                    boxShadow: "0 8px 20px rgba(0,0,0,0.4)",
+                    zIndex: 2,
+                  }}
+                >
+                  🤖 Groq LLM
+                </div>
+
+                {/* Profile Frame */}
+                <div
+                  style={{
+                    position: "relative",
+                    width: 280,
+                    height: 280,
+                    borderRadius: 16,
+                    padding: 6,
+                    background: "linear-gradient(135deg, var(--c-border-hi) 0%, var(--c-border-md) 100%)",
+                    boxShadow: "0 20px 40px -15px rgba(0,0,0,0.5)",
+                    transform: "translateZ(20px)",
+                  }}
+                >
                   <div
                     style={{
+                      position: "relative",
                       width: "100%",
                       height: "100%",
+                      borderRadius: 12,
+                      overflow: "hidden",
+                      background: "var(--c-raised)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      fontFamily: "'JetBrains Mono', monospace",
-                      fontWeight: 800,
-                      fontSize: "1.8rem",
-                      color: "var(--c-accent)",
                     }}
                   >
-                    RUPESH
+                    {!imgError ? (
+                      <Image
+                        src="/images/profile.png"
+                        alt="Rupesh Kumar"
+                        fill
+                        priority
+                        sizes="280px"
+                        style={{ objectFit: "cover", objectPosition: "center top" }}
+                        onError={() => setImgError(true)}
+                      />
+                    ) : (
+                      <div
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          fontFamily: "'JetBrains Mono', monospace",
+                          fontWeight: 800,
+                          fontSize: "1.8rem",
+                          color: "var(--c-accent)",
+                        }}
+                      >
+                        RUPESH
+                      </div>
+                    )}
                   </div>
-                )}
-              </div>
-            </div>
+                </div>
 
-            {/* Sleek Terminal / Architectural Preview Box */}
-            <div
-              style={{
-                width: "100%",
-                maxWidth: 340,
-                padding: "14px 18px",
-                borderRadius: 12,
-                border: "1px solid var(--c-border-md)",
-                background: "var(--c-card)",
-                fontFamily: "'JetBrains Mono', monospace",
-                fontSize: 12,
-                lineHeight: 1.6,
-                color: "var(--c-subtle)",
-              }}
-            >
-              <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 10, color: "var(--c-muted)" }}>
-                <Terminal size={14} color="var(--c-accent)" />
-                <span style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.05em", fontWeight: 600 }}>System Spec</span>
+                {/* Sleek Terminal / Architectural Preview Box with 3D depth */}
+                <div
+                  style={{
+                    width: "100%",
+                    maxWidth: 320,
+                    padding: "16px 20px",
+                    borderRadius: 12,
+                    border: "1px solid var(--c-border-md)",
+                    background: "var(--c-card)",
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: 12,
+                    lineHeight: 1.6,
+                    color: "var(--c-subtle)",
+                    boxShadow: "0 12px 28px -10px rgba(0,0,0,0.5)",
+                    transform: "translateZ(25px)",
+                  }}
+                >
+                  <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 10, color: "var(--c-muted)" }}>
+                    <Terminal size={14} color="var(--c-accent)" />
+                    <span style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.05em", fontWeight: 600 }}>System Spec</span>
+                  </div>
+                  <div style={{ color: "var(--c-text)" }}>
+                    <span style={{ color: "var(--c-accent)" }}>const</span> engineer = &#123;
+                  </div>
+                  <div style={{ paddingLeft: 12 }}>
+                    focus: <span style={{ color: "#22c55e" }}>"Scalable Backends & ML"</span>,<br />
+                    databases: <span style={{ color: "#22c55e" }}>["MySQL", "PostgreSQL"]</span>,<br />
+                    principles: <span style={{ color: "#22c55e" }}>["ACID", "3D WebGL"]</span>
+                  </div>
+                  <div style={{ color: "var(--c-text)" }}>&#125;;</div>
+                </div>
               </div>
-              <div style={{ color: "var(--c-text)" }}>
-                <span style={{ color: "var(--c-accent)" }}>const</span> engineer = &#123;
-              </div>
-              <div style={{ paddingLeft: 12 }}>
-                focus: <span style={{ color: "#22c55e" }}>"Scalable Backends & ML"</span>,<br />
-                databases: <span style={{ color: "#22c55e" }}>["MySQL", "MongoDB"]</span>,<br />
-                principles: <span style={{ color: "#22c55e" }}>["ACID", "Clean Code"]</span>
-              </div>
-              <div style={{ color: "var(--c-text)" }}>&#125;;</div>
-            </div>
+            </Tilt3DCard>
           </motion.div>
         </div>
       </div>
