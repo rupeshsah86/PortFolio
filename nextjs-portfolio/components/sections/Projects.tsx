@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ExternalLink, Layers, ArrowUpRight } from "lucide-react";
+import { ExternalLink, Layers, ArrowUpRight, ShieldCheck, Activity } from "lucide-react";
 import { GithubIcon } from "@/components/ui/SocialIcons";
 import { projects } from "@/lib/data";
 import type { Project } from "@/lib/types";
@@ -19,6 +19,7 @@ const inView = (delay = 0) => ({
 export default function Projects() {
   const [selected, setSelected] = useState<Project | null>(null);
   const [filter, setFilter] = useState<string>("All");
+  const [imgErrors, setImgErrors] = useState<Record<string, boolean>>({});
 
   const categories = ["All", "Backend & Systems", "Full Stack", "Machine Learning"];
 
@@ -76,7 +77,7 @@ export default function Projects() {
                   flexDirection: "column",
                   height: "100%",
                   border: "1px solid var(--c-border-md)",
-                  borderRadius: 14,
+                  borderRadius: 16,
                   background: "var(--c-card)",
                   transition: "all 0.25s ease",
                 }}
@@ -84,7 +85,7 @@ export default function Projects() {
                 {/* Thumbnail */}
                 <div
                   style={{
-                    height: 190,
+                    height: 200,
                     background: `linear-gradient(135deg, var(--c-raised) 0%, var(--c-card) 100%)`,
                     position: "relative",
                     display: "flex",
@@ -95,14 +96,50 @@ export default function Projects() {
                     borderBottom: "1px solid var(--c-border-md)",
                   }}
                 >
-                  {p.image ? (
+                  {p.image && !imgErrors[p.id] ? (
                     <Image
                       src={p.image}
                       alt={p.title}
                       fill
                       sizes="(max-width:768px) 100vw, 50vw"
                       style={{ objectFit: "cover", objectPosition: "top" }}
+                      onError={() => setImgErrors((prev) => ({ ...prev, [p.id]: true }))}
                     />
+                  ) : p.id === "datapulse" ? (
+                    /* High-End DataPulse Dashboard UI Card Preview */
+                    <div
+                      style={{
+                        position: "absolute",
+                        inset: 0,
+                        background: "linear-gradient(135deg, #090d16 0%, #0f172a 100%)",
+                        padding: "20px",
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "space-between",
+                        borderBottom: "1px solid var(--c-border-md)",
+                      }}
+                    >
+                      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                          <ShieldCheck size={18} color="#38bdf8" />
+                          <span style={{ fontSize: 13, fontWeight: 800, color: "#f8fafc", fontFamily: "'JetBrains Mono', monospace" }}>DataPulse</span>
+                        </div>
+                        <span style={{ fontSize: 10, background: "rgba(56,189,248,0.15)", color: "#38bdf8", padding: "3px 10px", borderRadius: 12, border: "1px solid rgba(56,189,248,0.3)", fontFamily: "'JetBrains Mono', monospace", fontWeight: 700 }}>
+                          Groq LLM RAG + Three.js
+                        </span>
+                      </div>
+
+                      <div>
+                        <div style={{ fontSize: 16, fontWeight: 800, color: "#f8fafc", lineHeight: 1.25, marginBottom: 8, letterSpacing: "-0.02em" }}>
+                          Transform Crime Data Into <span style={{ color: "#38bdf8" }}>Actionable Intelligence</span>
+                        </div>
+                        <div style={{ display: "flex", gap: 10, flexWrap: "wrap", fontSize: 11, color: "#94a3b8", fontFamily: "'JetBrains Mono', monospace" }}>
+                          <span style={{ background: "rgba(255,255,255,0.06)", padding: "2px 8px", borderRadius: 4 }}>15+ Categories</span>
+                          <span style={{ background: "rgba(255,255,255,0.06)", padding: "2px 8px", borderRadius: 4 }}>1000+ Analyzed</span>
+                          <span style={{ background: "rgba(34,197,94,0.15)", color: "#22c55e", padding: "2px 8px", borderRadius: 4 }}>Live Deployed</span>
+                        </div>
+                      </div>
+                    </div>
                   ) : (
                     <>
                       <div
@@ -132,7 +169,8 @@ export default function Projects() {
                       </span>
                     </>
                   )}
-                  {/* Category Tag overlay */}
+
+                  {/* Category Tag Overlay */}
                   <div
                     style={{
                       position: "absolute",
@@ -152,11 +190,12 @@ export default function Projects() {
                     {p.category || "Engineering"}
                   </div>
 
+                  {/* Overlay on hover */}
                   <div
                     style={{
                       position: "absolute",
                       inset: 0,
-                      background: "rgba(7, 11, 23, 0.75)",
+                      background: "rgba(9, 13, 22, 0.85)",
                       backdropFilter: "blur(4px)",
                       display: "flex",
                       alignItems: "center",
@@ -173,7 +212,7 @@ export default function Projects() {
                         padding: "8px 18px",
                         borderRadius: 20,
                         background: "var(--c-accent)",
-                        color: "#070b17",
+                        color: "#090d16",
                         display: "inline-flex",
                         alignItems: "center",
                         gap: 6,
@@ -235,7 +274,7 @@ export default function Projects() {
                         href={p.demo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn-ghost"
+                        className="btn-primary"
                         style={{ fontSize: 13, padding: "8px 14px", flex: 1, justifyContent: "center" }}
                       >
                         <ExternalLink size={14} /> Live System
@@ -256,7 +295,7 @@ export default function Projects() {
         .project-card:hover {
           transform: translateY(-4px);
           border-color: var(--c-border-hi) !important;
-          box-shadow: 0 12px 30px -10px rgba(0,0,0,0.5);
+          box-shadow: 0 16px 36px -12px rgba(0,0,0,0.6);
         }
         .project-card:hover .proj-overlay { opacity: 1 !important; }
         .project-card:hover .proj-arrow { color: var(--c-accent) !important; }

@@ -69,6 +69,7 @@ export const projects: Project[] = [
     ],
     primaryTech: ["Next.js 16", "Spring Boot 3.5", "Groq LLM", "Python", "Three.js"],
     github: "https://github.com/rupeshsah86/DataPulse-KSP-Crime-Analytics.git",
+    demo: "https://frontend-deploy-ejcwfbbz.onslate.in",
     accentColor: "#38bdf8",
     image: "/images/projects/datapulse.png",
     category: "Machine Learning",
