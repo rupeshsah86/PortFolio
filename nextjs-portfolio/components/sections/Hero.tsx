@@ -28,10 +28,10 @@ export default function Hero() {
   ];
 
   const floatingBadges = [
-    { label: "⚡ Next.js 16", top: "-14px", right: "-16px", color: "#38bdf8", z: "50px", delay: 0 },
-    { label: "🤖 Groq LLM", top: "45%", right: "-24px", color: "#818cf8", z: "60px", delay: 1 },
-    { label: "🟢 Spring Boot", bottom: "30px", left: "-24px", color: "#22c55e", z: "55px", delay: 2 },
-    { label: "🗄️ Postgres 17", top: "20px", left: "-20px", color: "#f59e0b", z: "45px", delay: 1.5 },
+    { label: "⚡ Next.js 16", top: "-12px", right: "-16px", color: "#38bdf8", z: "45px" },
+    { label: "🗄️ Postgres 17", top: "-12px", left: "-16px", color: "#f59e0b", z: "45px" },
+    { label: "🟢 Spring Boot", bottom: "-12px", left: "-16px", color: "#22c55e", z: "45px" },
+    { label: "🤖 Groq LLM", bottom: "-12px", right: "-16px", color: "#818cf8", z: "45px" },
   ];
 
   return (
@@ -250,46 +250,16 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: E, delay: 0.2 }}
-            style={{ display: "flex", flexDirection: "column", gap: 20, alignItems: "center" }}
+            style={{ display: "flex", flexDirection: "column", gap: 24, alignItems: "center" }}
           >
             <Tilt3DCard maxRotation={15} scaleOnHover={1.03}>
-              <div style={{ display: "flex", flexDirection: "column", gap: 20, alignItems: "center", position: "relative", padding: "10px 0" }}>
-                {/* 3D Depth Floating Tech Badges */}
-                {floatingBadges.map((b) => (
-                  <div
-                    key={b.label}
-                    style={{
-                      position: "absolute",
-                      top: (b as any).top,
-                      bottom: (b as any).bottom,
-                      right: (b as any).right,
-                      left: (b as any).left,
-                      transform: `translateZ(${b.z})`,
-                      background: "rgba(15, 23, 42, 0.85)",
-                      backdropFilter: "blur(12px)",
-                      WebkitBackdropFilter: "blur(12px)",
-                      border: `1px solid ${b.color}50`,
-                      padding: "6px 14px",
-                      borderRadius: 10,
-                      fontSize: 12,
-                      fontWeight: 700,
-                      color: b.color,
-                      fontFamily: "'JetBrains Mono', monospace",
-                      boxShadow: `0 10px 25px -5px rgba(0,0,0,0.6), 0 0 15px ${b.color}25`,
-                      zIndex: 12,
-                      whiteSpace: "nowrap",
-                    }}
-                  >
-                    {b.label}
-                  </div>
-                ))}
-
-                {/* Profile Frame with 3D Border Glow */}
+              <div style={{ display: "flex", flexDirection: "column", gap: 28, alignItems: "center" }}>
+                {/* Profile Frame with 3D Depth & Floating Corner Badges */}
                 <div
                   style={{
                     position: "relative",
-                    width: 290,
-                    height: 290,
+                    width: 280,
+                    height: 280,
                     borderRadius: 20,
                     padding: 6,
                     background: "linear-gradient(135deg, var(--c-accent) 0%, var(--c-purple) 100%)",
@@ -297,6 +267,36 @@ export default function Hero() {
                     transform: "translateZ(30px)",
                   }}
                 >
+                  {/* Floating Badges pinned precisely around Profile Frame */}
+                  {floatingBadges.map((b) => (
+                    <div
+                      key={b.label}
+                      style={{
+                        position: "absolute",
+                        top: (b as any).top,
+                        bottom: (b as any).bottom,
+                        right: (b as any).right,
+                        left: (b as any).left,
+                        transform: `translateZ(${b.z})`,
+                        background: "rgba(15, 23, 42, 0.9)",
+                        backdropFilter: "blur(12px)",
+                        WebkitBackdropFilter: "blur(12px)",
+                        border: `1px solid ${b.color}60`,
+                        padding: "5px 12px",
+                        borderRadius: 8,
+                        fontSize: 11,
+                        fontWeight: 700,
+                        color: b.color,
+                        fontFamily: "'JetBrains Mono', monospace",
+                        boxShadow: `0 8px 20px -4px rgba(0,0,0,0.7), 0 0 12px ${b.color}25`,
+                        zIndex: 20,
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      {b.label}
+                    </div>
+                  ))}
+
                   <div
                     style={{
                       position: "relative",
@@ -316,7 +316,7 @@ export default function Hero() {
                         alt="Rupesh Kumar"
                         fill
                         priority
-                        sizes="290px"
+                        sizes="280px"
                         style={{ objectFit: "cover", objectPosition: "center top" }}
                         onError={() => setImgError(true)}
                       />
@@ -340,15 +340,15 @@ export default function Hero() {
                   </div>
                 </div>
 
-                {/* Sleek Terminal / Architectural Preview Box with 3D depth */}
+                {/* Sleek Terminal Box cleanly separated below floating badges */}
                 <div
                   style={{
                     width: "100%",
-                    maxWidth: 320,
+                    maxWidth: 310,
                     padding: "16px 20px",
                     borderRadius: 14,
                     border: "1px solid var(--c-border-hi)",
-                    background: "rgba(15, 23, 42, 0.8)",
+                    background: "rgba(15, 23, 42, 0.85)",
                     backdropFilter: "blur(16px)",
                     WebkitBackdropFilter: "blur(16px)",
                     fontFamily: "'JetBrains Mono', monospace",

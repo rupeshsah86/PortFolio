@@ -135,34 +135,6 @@ export default function Navbar() {
 
           {/* Right Section */}
           <div style={{ display: "flex", alignItems: "center", gap: 12 }} className="hidden md:flex">
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 8,
-                padding: "6px 12px",
-                borderRadius: 20,
-                border: "1px solid rgba(34,197,94,0.3)",
-                background: "rgba(34,197,94,0.08)",
-                color: "#22c55e",
-                fontSize: 12,
-                fontFamily: "'JetBrains Mono', monospace",
-                fontWeight: 600,
-              }}
-            >
-              <span
-                style={{
-                  width: 6,
-                  height: 6,
-                  borderRadius: "50%",
-                  background: "#22c55e",
-                  animation: "pulse 2s ease-in-out infinite",
-                  display: "block",
-                }}
-              />
-              Open to Work
-            </div>
-
             {mounted && (
               <button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
