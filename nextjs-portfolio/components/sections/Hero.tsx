@@ -1,4 +1,5 @@
 "use client";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -6,6 +7,8 @@ import { ArrowRight, Download, Terminal, Cpu, Database, Server, Sparkles } from 
 import { GithubIcon, LinkedinIcon, TwitterIcon, MailIcon } from "@/components/ui/SocialIcons";
 import { personal } from "@/lib/data";
 import Tilt3DCard from "@/components/ui/Tilt3DCard";
+
+const Hero3DCanvas = dynamic(() => import("@/components/ui/Hero3DCanvas"), { ssr: false });
 
 const E = [0.22, 1, 0.36, 1] as const;
 const up = (delay = 0) => ({
@@ -44,6 +47,8 @@ export default function Hero() {
         overflow: "hidden",
       }}
     >
+      {/* Interactive 3D WebGL Canvas */}
+      <Hero3DCanvas />
       {/* 3D Grid Perspective Background */}
       <div
         style={{
