@@ -317,7 +317,12 @@ export default function Hero() {
                         fill
                         priority
                         sizes="280px"
-                        style={{ objectFit: "cover", objectPosition: "center top" }}
+                        style={{
+                          objectFit: "cover",
+                          objectPosition: "center top",
+                          filter: "contrast(1.06) brightness(1.02)",
+                          transition: "filter 0.3s ease, transform 0.3s ease",
+                        }}
                         onError={() => setImgError(true)}
                       />
                     ) : (
