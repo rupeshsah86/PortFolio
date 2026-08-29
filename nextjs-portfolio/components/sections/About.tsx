@@ -5,16 +5,16 @@ import { ShieldCheck, Cpu, Code2 } from "lucide-react";
 import Tilt3DCard from "@/components/ui/Tilt3DCard";
 
 const stats = [
-  { n: "5+", l: "Systems Built" },
+  { n: "5+", l: "Projects Built" },
   { n: "2000+", l: "DSA Problems" },
-  { n: "3rd", l: "Year B.Tech CSE" },
-  { n: "<100ms", l: "Optimized Queries" },
+  { n: "3rd Year", l: "B.Tech CSE" },
+  { n: "Database", l: "Query Optimization" },
 ];
 
 const philosophy = [
-  { icon: <Cpu size={20} color="var(--c-accent)" />, title: "Systems Thinking", text: "Designing normalized schemas, explicit state transitions, and audit trails." },
-  { icon: <Code2 size={20} color="var(--c-purple)" />, title: "Maintainable Code", text: "Prioritizing clean architecture, strict typing, and developer experience." },
-  { icon: <ShieldCheck size={20} color="#22c55e" />, title: "ACID & Reliability", text: "Ensuring database integrity, error boundaries, and race-condition safety." },
+  { icon: <Cpu size={20} color="var(--c-accent)" />, title: "Systems Thinking", text: "Designing normalized database schemas, explicit state transitions, and clear REST APIs." },
+  { icon: <Code2 size={20} color="var(--c-purple)" />, title: "Maintainable Code", text: "Prioritizing clean architecture, modular components, and good developer experience." },
+  { icon: <ShieldCheck size={20} color="#22c55e" />, title: "Reliability & Quality", text: "Focusing on data integrity, input validation, and proper error handling." },
 ];
 
 const E = [0.22, 1, 0.36, 1] as const;
@@ -36,7 +36,7 @@ export default function About() {
               <motion.div key={i} {...inView(i * 0.07)}>
                 <Tilt3DCard maxRotation={8} scaleOnHover={1.02}>
                   <div className="card" style={{ padding: "20px 24px" }}>
-                    <div style={{ fontSize: "2.2rem", fontWeight: 800, letterSpacing: "-0.04em", lineHeight: 1, marginBottom: 6 }} className="gradient-text">
+                    <div style={{ fontSize: "2rem", fontWeight: 800, letterSpacing: "-0.04em", lineHeight: 1, marginBottom: 6 }} className="gradient-text">
                       {s.n}
                     </div>
                     <div style={{ fontSize: 12, color: "var(--c-subtle)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em", fontFamily: "'JetBrains Mono', monospace" }}>
@@ -52,7 +52,7 @@ export default function About() {
           <div>
             <motion.div {...inView(0)}>
               <div className="label">Engineering Philosophy</div>
-              <h2 className="heading">Systems mindset.<br />Production-grade execution.</h2>
+              <h2 className="heading">Engineering Philosophy & Practice</h2>
             </motion.div>
 
             <div style={{ marginTop: 24, marginBottom: 36, display: "flex", flexDirection: "column", gap: 18 }}>

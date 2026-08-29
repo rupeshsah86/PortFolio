@@ -28,10 +28,10 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://rupeshkumar.dev",
+    url: "https://rupu-sah-portfolio.vercel.app",
     title: "Rupesh Kumar — Building software that scales.",
     description:
-      "Full-stack systems, ML pipelines, and scalable backend architectures. Open to engineering roles and internships.",
+      "Full-stack web applications, database architecture, and machine learning pipelines. Open to engineering roles and internships.",
     siteName: "Rupesh Kumar Portfolio",
     images: [
       {
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Rupesh Kumar — Building software that scales.",
-    description: "Full-stack systems, ML pipelines, and scalable backend architectures.",
+    description: "Full-stack web applications, database architecture, and machine learning pipelines.",
     creator: "@RupeshshahB86",
     images: ["/og-image.png"],
   },
@@ -61,7 +61,7 @@ const jsonLd = {
   "@type": "Person",
   name: "Rupesh Kumar",
   jobTitle: "Full-Stack Software Engineer",
-  url: "https://rupeshkumar.dev",
+  url: "https://rupu-sah-portfolio.vercel.app",
   sameAs: [
     "https://github.com/rupeshshah86",
     "https://linkedin.com/in/rupeshshah86",

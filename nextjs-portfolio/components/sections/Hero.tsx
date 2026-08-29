@@ -19,9 +19,9 @@ export default function Hero() {
   const go = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
   const metrics = [
-    { label: "Production Systems", value: "5+", icon: <Server size={14} /> },
+    { label: "Full-Stack Projects", value: "5+", icon: <Server size={14} /> },
     { label: "Algorithmic Problems", value: "2000+", icon: <Cpu size={14} /> },
-    { label: "Query Optimizations", value: "<100ms", icon: <Database size={14} /> },
+    { label: "Query Optimization", value: "Focus", icon: <Database size={14} /> },
   ];
 
   const floatingBadges = [
@@ -141,8 +141,8 @@ export default function Hero() {
                 marginBottom: 20,
               }}
             >
-              Architecting scalable <br />
-              <span className="gradient-text">full-stack systems.</span>
+              Building scalable <br />
+              <span className="gradient-text">full-stack applications.</span>
             </motion.h1>
 
             {/* Subheadline */}
@@ -156,7 +156,7 @@ export default function Hero() {
                 maxWidth: 520,
               }}
             >
-              {personal.subheadline} Focused on backend scalability, ACID compliance, optimized database schemas, and clean frontend engineering.
+              {personal.subheadline}
             </motion.p>
 
             {/* Key Engineering Metrics */}
@@ -172,10 +172,11 @@ export default function Hero() {
                 background: "var(--c-card)",
                 maxWidth: 520,
               }}
+              className="hero-metrics"
             >
               {metrics.map((m) => (
                 <div key={m.label} style={{ flex: 1 }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: 6, color: "var(--c-accent)", fontSize: 12, fontWeight: 600, marginBottom: 4 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 6, color: "var(--c-accent)", fontSize: 13, fontWeight: 700, marginBottom: 4 }}>
                     {m.icon}
                     <span>{m.value}</span>
                   </div>
@@ -187,7 +188,7 @@ export default function Hero() {
             {/* CTAs */}
             <motion.div {...up(0.34)} style={{ display: "flex", gap: 14, flexWrap: "wrap", marginBottom: 32 }} className="hero-buttons">
               <button className="btn-primary" onClick={() => go("projects")}>
-                Explore Featured Systems <ArrowRight size={15} />
+                Explore Projects <ArrowRight size={15} />
               </button>
               <a href={personal.resumeUrl} download target="_blank" rel="noopener noreferrer" className="btn-ghost">
                 <Download size={14} /> Download Resume
@@ -356,7 +357,7 @@ export default function Hero() {
                   <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 10 }}>
                     <div style={{ display: "flex", alignItems: "center", gap: 6, color: "var(--c-muted)" }}>
                       <Terminal size={14} color="var(--c-accent)" />
-                      <span style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.05em", fontWeight: 600 }}>System Spec</span>
+                      <span style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.05em", fontWeight: 600 }}>Developer Profile</span>
                     </div>
                     <span style={{ fontSize: 10, background: "rgba(34,197,94,0.15)", color: "#22c55e", padding: "2px 8px", borderRadius: 4 }}>Active</span>
                   </div>
@@ -364,9 +365,9 @@ export default function Hero() {
                     <span style={{ color: "var(--c-accent)" }}>const</span> engineer = &#123;
                   </div>
                   <div style={{ paddingLeft: 12 }}>
-                    focus: <span style={{ color: "#22c55e" }}>"Scalable Backends & ML"</span>,<br />
-                    stack: <span style={{ color: "#22c55e" }}>["Next.js", "Spring Boot"]</span>,<br />
-                    architecture: <span style={{ color: "#22c55e" }}>["ACID", "3D WebGL"]</span>
+                    focus: <span style={{ color: "#22c55e" }}>"Full-Stack & ML"</span>,<br />
+                    stack: <span style={{ color: "#22c55e" }}>["Next.js", "Spring Boot", "FastAPI"]</span>,<br />
+                    status: <span style={{ color: "#22c55e" }}>"Open to Internships"</span>
                   </div>
                   <div style={{ color: "var(--c-text)" }}>&#125;;</div>
                 </div>
@@ -386,6 +387,13 @@ export default function Hero() {
           .hero-grid > div:last-child { order: -1; }
           .hero-social, .hero-buttons, .hero-badge { justify-content: center; }
           .hero-grid > div:first-child > div { margin-left: auto; margin-right: auto; }
+        }
+        @media (max-width: 480px) {
+          .hero-metrics {
+            flex-direction: column !important;
+            gap: 12px !important;
+            align-items: flex-start !important;
+          }
         }
       `}</style>
     </section>

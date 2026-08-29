@@ -33,10 +33,10 @@ export default function Projects() {
     <section id="projects" className="section" style={{ background: "var(--c-bg)" }}>
       <div className="wrap">
         <motion.div {...inView(0)} style={{ marginBottom: 36 }}>
-          <div className="label">Featured Engineering Systems</div>
-          <h2 className="heading">Production-Grade Applications</h2>
+          <div className="label">Featured Projects</div>
+          <h2 className="heading">Projects & Engineering Systems</h2>
           <p className="subtext">
-            Architectures, ML pipelines, and backend systems I designed and engineered with explicit tradeoffs and benchmarked performance.
+            Full-stack web applications, database architectures, and machine learning pipelines built with clear engineering principles.
           </p>
         </motion.div>
 
@@ -219,7 +219,7 @@ export default function Projects() {
                           gap: 6,
                         }}
                       >
-                        <Layers size={14} /> Read Case Study
+                        <Layers size={14} /> Read Overview
                       </span>
                     </div>
                   </div>
@@ -260,7 +260,7 @@ export default function Projects() {
                         ))}
                     </div>
 
-                    <div style={{ display: "flex", gap: 10 }} onClick={(e) => e.stopPropagation()}>
+                    <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }} onClick={(e) => e.stopPropagation()}>
                       <a
                         href={p.github}
                         target="_blank"
@@ -270,7 +270,7 @@ export default function Projects() {
                       >
                         <GithubIcon size={14} /> Repository
                       </a>
-                      {p.demo && (
+                      {p.demo ? (
                         <a
                           href={p.demo}
                           target="_blank"
@@ -278,8 +278,27 @@ export default function Projects() {
                           className="btn-primary"
                           style={{ fontSize: 13, padding: "8px 14px", flex: 1, justifyContent: "center" }}
                         >
-                          <ExternalLink size={14} /> Live System
+                          <ExternalLink size={14} /> Live Demo
                         </a>
+                      ) : (
+                        <span
+                          style={{
+                            fontSize: 11,
+                            color: "var(--c-subtle)",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            padding: "8px 12px",
+                            background: "var(--c-raised)",
+                            borderRadius: 10,
+                            border: "1px solid var(--c-border)",
+                            fontFamily: "'JetBrains Mono', monospace",
+                            flex: 1,
+                            textAlign: "center",
+                          }}
+                        >
+                          Backend service — code repository
+                        </span>
                       )}
                     </div>
                   </div>

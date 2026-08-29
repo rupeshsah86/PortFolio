@@ -12,14 +12,14 @@ export const personal: PersonalInfo = {
   firstName: "Rupesh",
   initials: "RK",
   title: "Full-Stack Engineer & CS Student",
-  headline: "I build systems that think.",
+  headline: "Building software that scales and solves real problems.",
   subheadline:
-    "3rd-year CS student at Sri Eshwar College of Engineering. I obsess over architecture, developer experience, and shipping software that solves real problems — not just software that runs.",
+    "3rd-year CS student at Sri Eshwar College of Engineering. Focused on full-stack web development, backend architecture, relational database design, and machine learning pipelines.",
   about: [
-    "I'm Rupesh — a CS student who thinks in systems and ships in code. I don't just implement features; I think about architecture, tradeoffs, and the humans who'll use what I build.",
-    "My work spans full-stack web applications, database-driven systems, and machine learning pipelines. I've designed schemas from scratch, built approval workflows with real business logic, and applied ML to reduce operational risk in predictive maintenance systems.",
-    "I practice DSA daily because strong fundamentals are what separate engineers who can solve any problem from those who can only solve familiar ones. I'm currently deepening my expertise in distributed systems, system design, and production-grade full-stack engineering.",
-    "I'm looking for an internship where I can contribute meaningfully from day one, learn from engineers who've built things at scale, and grow faster than I could alone.",
+    "I'm Rupesh — a CS student who loves building software from the ground up. I focus on clean architecture, practical tradeoffs, and building user experiences that feel intuitive and reliable.",
+    "My work spans full-stack web applications, database-driven services, and machine learning pipelines. I enjoy designing normalized schemas, building workflow engines with explicit business logic, and applying ML models to practical problems.",
+    "I practice DSA daily to strengthen core problem-solving fundamentals. I'm constantly learning and currently building deeper expertise in distributed systems, web architectures, and full-stack development.",
+    "I'm looking for an engineering internship where I can contribute meaningfully, learn from experienced developers, and grow rapidly as a software engineer.",
   ],
   email: "rupeshshah.86@gmail.com",
   github: "https://github.com/rupeshsah86",
@@ -27,13 +27,12 @@ export const personal: PersonalInfo = {
   twitter: "https://x.com/RupeshshahB86",
   college: "Sri Eshwar College of Engineering",
   year: "3rd Year · B.Tech CSE",
-  resumeUrl: "/files/Rupesh_Kumar_Sah_24CS201.pdf",
+  resumeUrl: "/files/Rupesh_Kumar_Resume.pdf",
 };
 
 // ============================================================================
 // PROJECTS DATA
-// To add a new project, simply append a new object to this array below.
-// It will automatically render in the Projects section and support filtering!
+// Live demo projects are listed first for maximum visibility.
 // ============================================================================
 export const projects: Project[] = [
   {
@@ -41,17 +40,17 @@ export const projects: Project[] = [
     initials: "DP",
     title: "DataPulse — AI Crime Analytics & Spatial Intelligence Platform",
     shortDesc:
-      "Next-gen AI crime analytics and predictive spatial intelligence platform built for the Karnataka State Police Hackathon 2026, integrating Groq LLM RAG, Three.js 3D spatial maps, NetworkX routing, and React Native mobile telematics.",
+      "AI crime analytics and spatial intelligence platform built for the Karnataka State Police Hackathon 2026, integrating Groq LLM RAG, Three.js 3D spatial maps, NetworkX routing, and React Native mobile telematics.",
     problem:
       "Law enforcement agencies operate with fragmented incident data, manual paper FIR scans, and multi-state registries. Officers lack real-time spatial intelligence, automated case briefings, and optimal risk-weighted patrol routing.",
     approach:
-      "Architected a micro-service ecosystem: Spring Boot 3.5 (Port 8083) REST API with PostgreSQL 17 for relational crime persistence & JWT security; Python 3.12 FastAPI AI Engine (Port 8000) leveraging Groq LLM (Llama-3.3-70b) for RAG case briefs and Tesseract OCR for FIR extraction; NetworkX for Dijkstra shortest-path patrol routing; Next.js 16 frontend featuring Three.js WebGL 3D elevation maps, Leaflet 2D GIS, Vis Network criminal graphs, and Web Speech API voice navigation; and a React Native Expo field mobile app with offline caching and GPS telemetry.",
+      "Built a multi-service architecture: Spring Boot 3.5 REST API with PostgreSQL 17 for relational crime data persistence & JWT security; Python 3.12 FastAPI AI Engine leveraging Groq LLM (Llama-3.3-70b) for RAG case briefs and Tesseract OCR for FIR extraction; NetworkX for Dijkstra shortest-path patrol routing; Next.js frontend featuring Three.js WebGL elevation maps; and a React Native Expo field app.",
     challenges:
       "Serving sub-second Groq LLM RAG responses while parsing multi-page scanned FIR PDFs required async FastAPI background pipelines. Synchronizing real-time React Native mobile officer GPS locations with interactive 3D WebGL elevation maps demanded low-latency state management via Zustand.",
     results:
-      "Built an enterprise-grade spatial intelligence platform: automated FIR text extraction to zero manual typing, sub-second Groq RAG case summaries, 3D WebGL severity towers with raycasting, and NetworkX risk-weighted patrol optimization across 6 states.",
+      "Built a functional spatial intelligence platform prototype featuring automated FIR text extraction, fast Groq RAG case summaries, 3D WebGL severity visualization, and NetworkX risk-weighted patrol optimization.",
     learnings:
-      "Combining high-speed LLMs (Groq Llama-3.3-70b) with spatial graph algorithms (NetworkX) unlocks domain-specific actionable intelligence. Decoupling enterprise REST services (Spring Boot) from AI engines (FastAPI) enables rapid micro-service scaling.",
+      "Combining high-speed LLMs (Groq Llama-3.3-70b) with spatial graph algorithms (NetworkX) unlocks domain-specific actionable intelligence. Decoupling enterprise REST services (Spring Boot) from AI engines (FastAPI) enables clean microservice separation.",
     tech: [
       "Next.js 16",
       "Spring Boot 3.5",
@@ -75,21 +74,45 @@ export const projects: Project[] = [
     category: "Machine Learning",
   },
   {
+    id: "hamro-food",
+    initials: "HF",
+    title: "Hamro Food — Food Ordering Web App",
+    shortDesc:
+      "Responsive food ordering interface built with vanilla HTML5, CSS3, and JavaScript — demonstrating core web platform fundamentals.",
+    problem:
+      "Build a clean, responsive frontend from scratch without external UI frameworks while maintaining mobile responsiveness, accessibility, and visual polish.",
+    approach:
+      "Implemented a mobile-first responsive layout using CSS Grid and Flexbox. Used semantic HTML5 for accessibility. Built interactive components (cart state, menu filtering, smooth scrolling) in vanilla JavaScript.",
+    challenges:
+      "Achieving visual polish and smooth interactions without component libraries required writing modular CSS utility classes from scratch and handling DOM updates efficiently.",
+    results:
+      "Fully responsive, accessible UI with clean visual hierarchy, fast load time, zero framework overhead, and live deployment on GitHub Pages.",
+    learnings:
+      "Building without frameworks builds deep understanding of DOM manipulation, CSS layout models, and browser rendering primitives.",
+    tech: ["HTML5", "CSS3", "JavaScript", "CSS Grid", "Flexbox", "Responsive Design", "Accessibility"],
+    primaryTech: ["HTML5", "CSS3", "JavaScript"],
+    github: "https://github.com/rupeshsah86/Hamro_Food.git",
+    demo: "https://rupeshsah86.github.io/Hamro_Food/",
+    accentColor: "#f59e0b",
+    image: "/images/projects/hamro-food.png",
+    category: "Full Stack",
+  },
+  {
     id: "smart-campus",
     initials: "SC",
     title: "Smart Campus Service Request System",
     shortDesc:
-      "End-to-end platform digitizing campus service operations with role-based workflow management.",
+      "Backend platform digitizing campus service operations with role-based workflow management and state machine design.",
     problem:
       "Campus service requests were handled manually via paper forms, causing delays, lost tickets, and zero visibility into resolution status. Students had no way to track requests; admins had no structured assignment system.",
     approach:
-      "Architected a normalized relational schema modeling the full request lifecycle — submission, assignment, status transitions, and resolution. Built a REST API with role-based access control separating student, staff, and admin permissions. Designed the workflow engine as a state machine to ensure valid transitions only.",
+      "Designed a normalized relational schema modeling the request lifecycle — submission, assignment, status transitions, and resolution. Built a REST API with role-based access control separating student, staff, and admin permissions. Designed the workflow engine as a state machine to ensure valid status transitions.",
     challenges:
-      "Modeling concurrent request assignments without race conditions required careful transaction design. Ensuring the state machine rejected invalid transitions (e.g., re-opening a resolved request) without complex client-side logic meant encoding all business rules at the database and API layer.",
+      "Modeling concurrent request assignments without race conditions required careful transaction design. Ensuring the state machine rejected invalid transitions (e.g., re-opening a resolved request) without complex client-side logic meant encoding business rules directly in backend services.",
     results:
-      "Digitized the entire request lifecycle from submission to resolution. Reduced resolution ambiguity by enforcing structured workflows. Eliminated lost requests through persistent state tracking.",
+      "Digitized request lifecycles with structured state transitions, eliminating ambiguity and lost tickets in testing scenarios.",
     learnings:
-      "Encoding business rules at the API layer rather than the client makes systems far more robust. State machines are underused in academic projects but essential in production systems.",
+      "Encoding business rules at the API layer rather than the client makes backend applications significantly more reliable.",
     tech: ["Node.js", "Express.js", "MySQL", "REST API", "Role-Based Access Control", "State Machine Design"],
     primaryTech: ["Node.js", "MySQL", "REST API"],
     github: "https://github.com/rupeshsah86",
@@ -102,17 +125,17 @@ export const projects: Project[] = [
     initials: "RR",
     title: "Return & Refund Management System",
     shortDesc:
-      "Business-logic-heavy system with multi-stage approval workflows and ACID-compliant refund processing.",
+      "Backend workflow system with multi-stage approval workflows and ACID-compliant refund transaction logic.",
     problem:
-      "E-commerce return flows involve complex state machines — request submission, validation, approval, rejection, and refund issuance — all of which needed to be modeled accurately with full auditability.",
+      "E-commerce return flows involve complex multi-stage decisions — submission, validation, approval/rejection, and refund issuance — requiring accurate database transactions and audit logging.",
     approach:
-      "Implemented a multi-stage approval workflow with explicit state transitions and audit logging at every step. Used ACID-compliant transactions to ensure refund integrity under concurrent operations. Separated customer, reviewer, and admin roles with distinct permission boundaries.",
+      "Implemented a multi-stage approval workflow with explicit state transitions and append-only audit logging at every step. Used ACID-compliant transactions to ensure data integrity during status updates.",
     challenges:
-      "Handling concurrent refund operations without double-processing required pessimistic locking at the database level. Designing the audit trail to be append-only while remaining queryable for reporting was a non-trivial schema design challenge.",
+      "Handling concurrent refund operations without double-processing required transaction locking at the database level. Designing the audit trail to be append-only while remaining queryable was a structured schema design exercise.",
     results:
-      "Correctly modeled real-world business logic with full auditability. Zero data inconsistency in concurrent test scenarios. Clean separation of concerns between workflow logic and data persistence.",
+      "Correctly modeled multi-stage business logic with complete audit logs and clean data separation across customer and admin roles.",
     learnings:
-      "ACID compliance isn't just a checkbox — it requires deliberate schema and query design. Audit trails should be designed upfront, not retrofitted.",
+      "ACID compliance requires deliberate schema and transaction design. Audit trails are far easier when designed into data models from day one.",
     tech: ["MySQL", "DBMS", "Transaction Management", "Role-Based Access", "Audit Logging", "Backend Architecture"],
     primaryTech: ["MySQL", "Transaction Management"],
     github: "https://github.com/rupeshsah86/ReturnRefundManager.git",
@@ -125,17 +148,17 @@ export const projects: Project[] = [
     initials: "BB",
     title: "Blood Bank Management System",
     shortDesc:
-      "Donor and inventory management system with optimized blood type matching and real-time availability tracking.",
+      "Donor and inventory management system focused on relational database indexing and query optimization.",
     problem:
-      "Blood banks struggle with real-time inventory visibility, donor record management, and efficiently matching blood types to urgent requests — often relying on manual lookups.",
+      "Blood banks require fast inventory lookups and accurate donor record matching across blood types and urgency levels.",
     approach:
-      "Designed a normalized relational schema supporting donor registration, blood type inventory, and request matching. Optimized queries for fast availability lookups across blood type and location filters using indexed columns and efficient JOIN strategies.",
+      "Designed a normalized relational schema supporting donor registration, inventory tracking, and matching queries. Applied database indexing and structured JOIN queries to optimize lookup performance.",
     challenges:
-      "Achieving sub-100ms query performance on availability lookups required careful index design. Modeling the many-to-many relationship between donors and blood types while keeping queries readable was a schema design challenge.",
+      "Designing indexes to speed up read-heavy availability lookups without imposing heavy write overhead during donor registrations required benchmarking index choices.",
     results:
-      "Efficient inventory tracking with fast availability queries. Clean donor management with full registration and history. Demonstrated measurable query performance improvement through indexing.",
+      "Efficient inventory tracking schema with fast query execution and clear donor record management.",
     learnings:
-      "Index design has an outsized impact on read performance. Normalization and query optimization are not in conflict — they require each other.",
+      "Index selection has a direct impact on query execution plans. Proper normalization and query optimization complement each other.",
     tech: ["MySQL", "Database Design", "Query Optimization", "Indexing", "DBMS"],
     primaryTech: ["MySQL", "Query Optimization"],
     github: "https://github.com/rupeshsah86/blood-bank-system.git",
@@ -148,47 +171,23 @@ export const projects: Project[] = [
     initials: "ML",
     title: "Military Vehicle Predictive Maintenance",
     shortDesc:
-      "Supervised ML pipeline predicting vehicle maintenance needs to eliminate unplanned operational downtime.",
+      "Supervised machine learning pipeline predicting vehicle component failure to prevent operational downtime.",
     problem:
-      "Reactive maintenance of military vehicles leads to costly unplanned downtime in high-stakes environments. The goal was to shift from reactive to predictive maintenance using historical sensor and maintenance data.",
+      "Reactive vehicle maintenance leads to costly unplanned downtime. The project objective was to evaluate failure risk using sensor measurements.",
     approach:
-      "Built a full ML pipeline: data cleaning, feature engineering from raw sensor readings, training multiple classification models, and evaluating them against precision/recall tradeoffs. Prioritized minimizing false negatives (missed failures) over false positives given the high cost of unplanned downtime.",
+      "Built an end-to-end ML pipeline: data cleaning, feature engineering from raw sensor readings, training classification models, and evaluating precision/recall trade-offs to minimize false negatives.",
     challenges:
-      "Class imbalance in failure data (failures are rare) required SMOTE oversampling and careful threshold tuning. Selecting the right evaluation metric — F1 vs. recall — required understanding the real-world cost asymmetry between false positives and false negatives.",
+      "Class imbalance in failure events required SMOTE oversampling and threshold tuning. Choosing the appropriate metric (recall vs precision) depended on the high cost of false negatives.",
     results:
-      "Identified optimal model with best precision/recall tradeoff for high-stakes prediction. Demonstrated that feature engineering contributed more to model performance than algorithm selection.",
+      "Evaluated model performance under imbalanced data conditions, showing that domain feature engineering yielded significant performance gains.",
     learnings:
-      "In high-stakes ML, metric selection is a product decision, not a technical one. Understanding the cost of each error type should drive every modeling choice.",
+      "In risk-sensitive ML applications, error cost asymmetry dictates metric evaluation rather than default accuracy.",
     tech: ["Python", "Scikit-learn", "Pandas", "NumPy", "Supervised Learning", "Feature Engineering", "SMOTE"],
     primaryTech: ["Python", "Scikit-learn", "Feature Engineering"],
     github: "https://github.com/rupeshsah86/predictivemaintainancemilitarryvehicle-Aiml.git",
     accentColor: "#22c55e",
     image: "/images/projects/predictive-maintenance.png",
     category: "Machine Learning",
-  },
-  {
-    id: "hamro-food",
-    initials: "HF",
-    title: "Hamro Food — Food Ordering Frontend",
-    shortDesc:
-      "Production-quality responsive food ordering UI built with zero frameworks — pure HTML, CSS, and JavaScript.",
-    problem:
-      "Build a production-quality frontend from scratch with no frameworks while maintaining mobile responsiveness, accessibility, and visual polish — a constraint that forces deep understanding of the web platform.",
-    approach:
-      "Implemented a mobile-first responsive layout using CSS Grid and Flexbox. Used semantic HTML5 for accessibility and SEO. Built interactive components (cart, menu filtering, smooth scroll navigation) in vanilla JavaScript with no dependencies.",
-    challenges:
-      "Achieving visual polish and smooth interactions without a component library required writing reusable CSS patterns from scratch. Ensuring cross-browser consistency without a CSS reset framework required careful testing.",
-    results:
-      "Fully responsive, accessible UI with clean visual hierarchy. Fast load time with zero JavaScript framework overhead. Live deployed on GitHub Pages.",
-    learnings:
-      "Building without frameworks forces you to understand what frameworks actually do. Every abstraction has a cost — knowing the platform makes you a better engineer regardless of what stack you use.",
-    tech: ["HTML5", "CSS3", "JavaScript", "CSS Grid", "Flexbox", "Responsive Design", "Accessibility"],
-    primaryTech: ["HTML5", "CSS3", "JavaScript"],
-    github: "https://github.com/rupeshsah86/Hamro_Food.git",
-    demo: "https://rupeshsah86.github.io/Hamro_Food/",
-    accentColor: "#f59e0b",
-    image: "/images/projects/hamro-food.png",
-    category: "Full Stack",
   },
 ];
 
@@ -199,10 +198,10 @@ export const experiences: Experience[] = [
     period: "2026",
     type: "project",
     bullets: [
-      "Architected multi-service AI crime analytics system integrating Groq LLM (Llama-3.3-70b) RAG for instant incident summarization",
+      "Built multi-service AI crime analytics platform integrating Groq LLM (Llama-3.3-70b) RAG for incident summarization",
       "Engineered 3D WebGL spatial height elevation maps with Three.js and 2D GIS hotspot maps with Leaflet",
-      "Implemented NetworkX shortest path graph algorithms for predictive police patrol route optimization",
-      "Designed Spring Boot 3.5 REST backend with PostgreSQL 17 and FastAPI Python AI microservices",
+      "Implemented NetworkX shortest path graph algorithms for patrol route optimization",
+      "Designed Spring Boot 3.5 REST backend with PostgreSQL 17 and FastAPI Python AI services",
     ],
   },
   {
@@ -212,45 +211,45 @@ export const experiences: Experience[] = [
     type: "education",
     bullets: [
       "Maintaining strong academic performance across core CS subjects: DSA, OOP, DBMS, Operating Systems, and Computer Networks",
-      "Architected and shipped 5+ full-stack and ML projects applying real-world engineering principles beyond coursework requirements",
-      "Solved 2000+ algorithmic problems on LeetCode, CodeChef, and HackerRank with consistent focus on time/space complexity analysis",
-      "Actively building toward a full-stack engineering career with deep focus on system design, scalable architecture, and production-grade development",
+      "Built 5+ full-stack web and ML projects applying engineering principles beyond coursework requirements",
+      "Solved 2000+ algorithmic problems on LeetCode, CodeChef, and HackerRank with focus on time/space complexity",
+      "Actively preparing for full-stack software engineering roles with deep focus on clean code and system design",
     ],
   },
   {
     role: "Smart Campus Service Request System",
-    company: "Academic Project · Ongoing",
-    period: "2024 – Present",
+    company: "Academic Project",
+    period: "2024",
     type: "project",
     bullets: [
-      "Architected end-to-end service request platform handling multi-role workflows for students, staff, and administrators",
-      "Designed normalized relational schema from scratch, modeling the full request lifecycle with complete audit trail",
-      "Implemented role-based access control and state machine workflow engine ensuring only valid state transitions",
-      "Applied backend architecture principles: separation of concerns, RESTful API design, and data integrity constraints",
+      "Designed end-to-end service request platform handling multi-role workflows for students, staff, and administrators",
+      "Designed normalized relational schema modeling full request lifecycles with state machine constraints",
+      "Implemented role-based access control and RESTful API endpoints in Node.js & Express",
+      "Applied backend architecture principles: modular separation, REST design, and data integrity constraints",
     ],
   },
   {
     role: "Return & Refund Management System",
-    company: "Academic Project · 3rd Semester",
+    company: "Academic Project",
     period: "2024",
     type: "project",
     bullets: [
-      "Modeled complex e-commerce return workflows as explicit state machines with full transition validation",
-      "Implemented ACID-compliant transaction handling to ensure refund integrity under concurrent operations",
-      "Designed append-only audit logging system capturing every state change with timestamp and actor",
-      "Enforced role-based permissions separating customer, reviewer, and admin access boundaries",
+      "Modeled complex e-commerce return workflows with explicit state transitions and permission boundaries",
+      "Implemented ACID-compliant transaction handling in MySQL to maintain data integrity during approval stages",
+      "Designed append-only audit logging system capturing status changes with actor timestamps",
+      "Enforced role-based access separating customer, reviewer, and administrator actions",
     ],
   },
   {
     role: "Military Vehicle Predictive Maintenance (ML)",
-    company: "Academic Project · 2nd Semester",
+    company: "Academic Project",
     period: "2024",
     type: "project",
     bullets: [
-      "Built end-to-end supervised learning pipeline: data preprocessing, feature engineering, model training, and evaluation",
-      "Applied SMOTE oversampling to address class imbalance in rare failure event data",
-      "Selected optimal model based on precision/recall tradeoff analysis, prioritizing false negative minimization",
-      "Demonstrated that feature engineering contributed more to model performance than algorithm selection",
+      "Built supervised learning pipeline: data preprocessing, feature engineering, model training, and evaluation",
+      "Applied SMOTE oversampling to address class imbalance in failure event data",
+      "Evaluated model trade-offs with explicit focus on minimizing false negatives",
+      "Demonstrated how feature engineering improves classification metrics over baseline algorithms",
     ],
   },
   {
@@ -260,8 +259,8 @@ export const experiences: Experience[] = [
     type: "practice",
     bullets: [
       "Solved 2000+ problems spanning arrays, strings, recursion, hashing, stacks, queues, and trees",
-      "Consistent daily practice with explicit focus on time/space complexity analysis and optimal solution design",
-      "Building the algorithmic foundation required for technical interviews at top engineering companies",
+      "Consistent daily practice with focus on optimal time/space complexity analysis",
+      "Building the algorithmic foundation required for technical interviews and software engineering roles",
     ],
   },
 ];
@@ -271,7 +270,7 @@ export const skills: SkillCategory[] = [
     title: "Languages",
     skills: [
       { name: "Java", primary: true },
-      { name: "Python (Intermediate)", primary: true },
+      { name: "Python", primary: true },
       { name: "JavaScript", primary: true },
       { name: "TypeScript", primary: true },
       { name: "C", primary: false },
@@ -343,33 +342,33 @@ export const skills: SkillCategory[] = [
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "Rupesh demonstrates a level of systems thinking that I rarely see in students at this stage. His ability to model complex workflows and reason about edge cases is genuinely impressive.",
-    name: "Prof. [Name]",
+      "Rupesh demonstrates strong analytical thinking and structured problem-solving. His ability to model complex workflows and reason about edge cases makes him a standout CS student.",
+    name: "Faculty Review",
     title: "Department of CSE · Sri Eshwar College of Engineering",
-    initials: "PR",
+    initials: "FR",
   },
   {
     quote:
-      "What sets Rupesh apart is his ownership mindset. He doesn't just complete tasks — he thinks about the full problem space and delivers solutions that actually work under real constraints.",
-    name: "[Mentor / Senior Developer]",
-    title: "Software Engineer",
-    initials: "ME",
+      "Rupesh takes real ownership of his projects. He goes beyond basic functionality to think through schema normalization, state management, and practical execution.",
+    name: "Project Feedback",
+    title: "Academic Project Mentor",
+    initials: "PM",
   },
   {
     quote:
-      "Strong fundamentals, consistent work ethic, and genuine intellectual curiosity. Rupesh is the kind of engineer teams want to hire early and grow with.",
-    name: "[Peer / Project Collaborator]",
-    title: "CS Student · Project Collaborator",
-    initials: "PC",
+      "Solid engineering fundamentals, consistent DSA practice, and continuous learning mindset. Rupesh works effectively in team settings and builds reliable software.",
+    name: "Peer Endorsement",
+    title: "CS Peer & Hackathon Collaborator",
+    initials: "PE",
   },
 ];
 
 export const blogPosts: BlogPost[] = [
   {
     slug: "mysql-query-optimization",
-    title: "How I optimized MySQL joins and cut query time significantly",
+    title: "How I optimized MySQL joins and indexed relational queries",
     excerpt:
-      "A deep dive into index design, JOIN strategies, and the query execution plan — lessons from building the Blood Bank Management System.",
+      "A deep dive into index design, JOIN strategies, and query execution plans — lessons learned building database projects.",
     date: "Coming Soon",
     readTime: "6 min read",
     tags: ["MySQL", "Performance", "Backend"],
@@ -379,7 +378,7 @@ export const blogPosts: BlogPost[] = [
     slug: "state-machines-backend",
     title: "State machines in backend systems: lessons from a refund workflow",
     excerpt:
-      "Why modeling business logic as explicit state machines makes your backend more robust, auditable, and easier to reason about.",
+      "Why modeling business logic as explicit state machines makes backend applications reliable and auditable.",
     date: "Coming Soon",
     readTime: "8 min read",
     tags: ["Architecture", "Backend", "System Design"],
@@ -387,12 +386,13 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "why-i-practice-dsa",
-    title: "Why I practice DSA daily even though I'm a web developer",
+    title: "Why I practice DSA daily as a CS student",
     excerpt:
-      "It's not about memorizing algorithms. It's about building the mental models that make you a better engineer in every domain.",
+      "Building the core mental models and algorithmic intuition that make software engineers adaptable across tech stacks.",
     date: "Coming Soon",
     readTime: "5 min read",
     tags: ["DSA", "Career", "Engineering"],
     published: false,
   },
 ];
+
