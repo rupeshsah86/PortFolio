@@ -1,39 +1,54 @@
 @import "tailwindcss";
 
-:root {
-  --c-bg:            #090d16;
-  --c-card:          rgba(15, 23, 42, 0.65);
-  --c-raised:        rgba(30, 41, 59, 0.7);
-  --c-border:        rgba(255, 255, 255, 0.08);
-  --c-border-md:     rgba(56, 189, 248, 0.2);
-  --c-border-hi:     rgba(56, 189, 248, 0.4);
-  --c-text:          #f8fafc;
-  --c-muted:         #a0aec0;
-  --c-subtle:        #8090a6;
-  --c-accent:        #38bdf8;
-  --c-accent-h:      #7dd3fc;
-  --c-purple:        #818cf8;
-  --c-green:         #22c55e;
-  --c-glow:          rgba(56, 189, 248, 0.12);
-  --c-glow-purple:   rgba(129, 140, 248, 0.12);
+:root,
+.dark {
+  --c-bg:                  #07080b;
+  --c-card:                rgba(15, 23, 42, 0.7);
+  --c-raised:              rgba(30, 41, 59, 0.7);
+  --c-border:              rgba(255, 255, 255, 0.08);
+  --c-border-md:           rgba(56, 189, 248, 0.2);
+  --c-border-hi:           rgba(56, 189, 248, 0.4);
+  --c-text:                #ffffff;
+  --c-muted:               #9ca3af;
+  --c-subtle:              #6b7280;
+  --c-accent:              #38bdf8;
+  --c-accent-h:            #7dd3fc;
+  --c-purple:              #818cf8;
+  --c-green:               #4ade80;
+  --c-glow:                rgba(56, 189, 248, 0.12);
+  --c-grid:                rgba(255, 255, 255, 0.06);
+  --c-nav-bg:              rgba(7, 8, 11, 0.85);
+  --c-pill-bg:             rgba(74, 222, 128, 0.08);
+  --c-pill-border:         rgba(74, 222, 128, 0.25);
+  --c-pill-text:           #4ade80;
+  --c-button-ghost-bg:     rgba(255, 255, 255, 0.03);
+  --c-button-ghost-border: rgba(255, 255, 255, 0.16);
+  --c-button-ghost-text:   #e5e7eb;
 }
 
 .light {
-  --c-bg:            #f8fafc;
-  --c-card:          rgba(255, 255, 255, 0.9);
-  --c-raised:        rgba(241, 245, 249, 0.95);
-  --c-border:        rgba(15, 23, 42, 0.08);
-  --c-border-md:     rgba(2, 132, 199, 0.2);
-  --c-border-hi:     rgba(2, 132, 199, 0.4);
-  --c-text:          #0f172a;
-  --c-muted:         #475569;
-  --c-subtle:        #94a3b8;
-  --c-accent:        #0284c7;
-  --c-accent-h:      #0369a1;
-  --c-purple:        #6366f1;
-  --c-green:         #16a34a;
-  --c-glow:          rgba(2, 132, 199, 0.08);
-  --c-glow-purple:   rgba(99, 102, 241, 0.08);
+  --c-bg:                  #f8fafc;
+  --c-card:                rgba(255, 255, 255, 0.9);
+  --c-raised:              #f1f5f9;
+  --c-border:              rgba(15, 23, 42, 0.08);
+  --c-border-md:           rgba(2, 132, 199, 0.2);
+  --c-border-hi:           rgba(2, 132, 199, 0.4);
+  --c-text:                #0f172a;
+  --c-muted:               #475569;
+  --c-subtle:              #64748b;
+  --c-accent:              #0284c7;
+  --c-accent-h:            #0369a1;
+  --c-purple:              #4f46e5;
+  --c-green:               #16a34a;
+  --c-glow:                rgba(2, 132, 199, 0.12);
+  --c-grid:                rgba(15, 23, 42, 0.06);
+  --c-nav-bg:              rgba(248, 250, 252, 0.85);
+  --c-pill-bg:             rgba(22, 163, 74, 0.1);
+  --c-pill-border:         rgba(22, 163, 74, 0.25);
+  --c-pill-text:           #15803d;
+  --c-button-ghost-bg:     rgba(15, 23, 42, 0.03);
+  --c-button-ghost-border: rgba(15, 23, 42, 0.16);
+  --c-button-ghost-text:   #1e293b;
 }
 
 *, *::before, *::after {
@@ -54,6 +69,7 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
   position: relative;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Ambient glow overlay */
@@ -61,8 +77,8 @@ body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background: radial-gradient(circle 800px at 20% -10%, rgba(56, 189, 248, 0.07) 0%, transparent 60%),
-              radial-gradient(circle 600px at 80% 90%, rgba(129, 140, 248, 0.07) 0%, transparent 60%);
+  background: radial-gradient(circle 800px at 20% -10%, var(--c-glow) 0%, transparent 60%),
+              radial-gradient(circle 600px at 80% 90%, var(--c-glow) 0%, transparent 60%);
   pointer-events: none;
   z-index: 0;
 }
@@ -150,7 +166,7 @@ body::before {
 .card:hover {
   transform: translateY(-3px);
   border-color: var(--c-border-md);
-  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.4), 0 0 20px var(--c-glow);
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.2), 0 0 20px var(--c-glow);
 }
 
 /* Buttons */
@@ -159,23 +175,23 @@ body::before {
   align-items: center;
   gap: 8px;
   padding: 12px 24px;
-  background: linear-gradient(135deg, var(--c-accent) 0%, var(--c-purple) 100%);
-  color: #090d16;
+  background: #2563eb;
+  color: #ffffff;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.25s ease;
   text-decoration: none;
   white-space: nowrap;
-  box-shadow: 0 4px 14px rgba(56, 189, 248, 0.25);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
 }
 
 .btn-primary:hover {
+  background: #1d4ed8;
   transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(56, 189, 248, 0.4);
-  filter: brightness(1.08);
+  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.4);
 }
 
 .btn-ghost {
@@ -183,12 +199,12 @@ body::before {
   align-items: center;
   gap: 8px;
   padding: 12px 24px;
-  background: var(--c-raised);
-  color: var(--c-text);
-  border: 1px solid var(--c-border);
-  border-radius: 10px;
+  background: var(--c-button-ghost-bg);
+  color: var(--c-button-ghost-text);
+  border: 1px solid var(--c-button-ghost-border);
+  border-radius: 8px;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.25s ease;
   text-decoration: none;
@@ -196,10 +212,10 @@ body::before {
 }
 
 .btn-ghost:hover {
-  border-color: var(--c-accent);
-  color: var(--c-accent);
+  border-color: var(--c-border-hi);
+  color: var(--c-text);
   transform: translateY(-2px);
-  background: var(--c-card);
+  background: var(--c-raised);
 }
 
 /* Badges */
@@ -220,7 +236,7 @@ body::before {
 .badge-accent {
   background: rgba(56, 189, 248, 0.12);
   color: var(--c-accent);
-  border-color: rgba(56, 189, 248, 0.3);
+  border-color: var(--c-border-md);
 }
 
 /* Pulse animation */

@@ -1,7 +1,8 @@
 "use client";
+
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Download, Sun, Moon } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import { useTheme } from "next-themes";
 import { personal } from "@/lib/data";
 
@@ -11,7 +12,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("");
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -42,6 +43,8 @@ export default function Navbar() {
     setOpen(false);
   };
 
+  const isDark = mounted ? (resolvedTheme || theme) === "dark" : true;
+
   return (
     <>
       <header
@@ -51,11 +54,11 @@ export default function Navbar() {
           left: 0,
           right: 0,
           zIndex: 50,
-          background: scrolled ? "rgba(9, 13, 22, 0.85)" : "transparent",
+          background: scrolled ? "var(--c-nav-bg)" : "transparent",
           backdropFilter: scrolled ? "blur(16px)" : "none",
           WebkitBackdropFilter: scrolled ? "blur(16px)" : "none",
           borderBottom: scrolled ? "1px solid var(--c-border)" : "1px solid transparent",
-          transition: "all 0.3s ease",
+          transition: "background-color 0.3s ease, border-color 0.3s ease",
         }}
       >
         <div
@@ -74,7 +77,7 @@ export default function Navbar() {
               fontFamily: "'JetBrains Mono', monospace",
               fontWeight: 800,
               fontSize: 18,
-              color: "#ffffff",
+              color: "var(--c-text)",
               cursor: "pointer",
               border: "none",
               background: "none",
@@ -82,9 +85,10 @@ export default function Navbar() {
               alignItems: "center",
               gap: 6,
               letterSpacing: "-0.02em",
+              transition: "color 0.3s ease",
             }}
           >
-            <span style={{ color: "#38bdf8" }}>//</span> RUPESH
+            <span style={{ color: "var(--c-accent)" }}>//</span> RUPESH
           </button>
 
           {/* Desktop Nav */}
@@ -95,8 +99,9 @@ export default function Navbar() {
               gap: 4,
               padding: "4px 6px",
               borderRadius: 30,
-              background: scrolled ? "rgba(15, 23, 42, 0.6)" : "rgba(15, 23, 42, 0.4)",
-              border: "1px solid rgba(255, 255, 255, 0.08)",
+              background: "var(--c-card)",
+              border: "1px solid var(--c-border)",
+              transition: "all 0.3s ease",
             }}
             className="hidden md:flex"
           >
@@ -113,18 +118,18 @@ export default function Navbar() {
                     fontWeight: 500,
                     cursor: "pointer",
                     border: "none",
-                    background: isActive ? "rgba(56, 189, 248, 0.15)" : "transparent",
-                    color: isActive ? "#38bdf8" : "#94a3b8",
+                    background: isActive ? "var(--c-glow)" : "transparent",
+                    color: isActive ? "var(--c-accent)" : "var(--c-muted)",
                     transition: "all 0.2s ease",
                   }}
                   onMouseEnter={(e) => {
                     if (!isActive) {
-                      (e.currentTarget as HTMLElement).style.color = "#f8fafc";
+                      (e.currentTarget as HTMLElement).style.color = "var(--c-text)";
                     }
                   }}
                   onMouseLeave={(e) => {
                     if (!isActive) {
-                      (e.currentTarget as HTMLElement).style.color = "#94a3b8";
+                      (e.currentTarget as HTMLElement).style.color = "var(--c-muted)";
                     }
                   }}
                 >
@@ -138,15 +143,15 @@ export default function Navbar() {
           <div style={{ display: "flex", alignItems: "center", gap: 12 }} className="hidden md:flex">
             {mounted && (
               <button
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                onClick={() => setTheme(isDark ? "light" : "dark")}
                 aria-label="Toggle theme"
                 style={{
                   width: 38,
                   height: 38,
                   borderRadius: 10,
-                  border: "1px solid rgba(255, 255, 255, 0.1)",
-                  background: "rgba(15, 23, 42, 0.5)",
-                  color: "#f8fafc",
+                  border: "1px solid var(--c-border)",
+                  background: "var(--c-card)",
+                  color: "var(--c-text)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -154,7 +159,7 @@ export default function Navbar() {
                   transition: "all 0.2s ease",
                 }}
               >
-                {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+                {isDark ? <Sun size={16} /> : <Moon size={16} />}
               </button>
             )}
 
@@ -168,33 +173,45 @@ export default function Navbar() {
                 padding: "8px 18px",
                 fontSize: 13,
                 borderRadius: 8,
-                border: "1px solid rgba(255, 255, 255, 0.15)",
-                background: "rgba(255, 255, 255, 0.03)",
-                color: "#f8fafc",
-                fontWeight: 600,
-                textDecoration: "none",
               }}
             >
               View Resume
             </a>
           </div>
 
-          {/* Mobile Hamburger */}
-          <button
-            className="md:hidden"
-            onClick={() => setOpen(!open)}
-            aria-label="Toggle menu"
-            style={{
-              background: "rgba(15, 23, 42, 0.7)",
-              border: "1px solid rgba(255, 255, 255, 0.1)",
-              color: "#f8fafc",
-              cursor: "pointer",
-              padding: 8,
-              borderRadius: 8,
-            }}
-          >
-            {open ? <X size={20} /> : <Menu size={20} />}
-          </button>
+          {/* Mobile Hamburger & Theme Toggle */}
+          <div style={{ display: "flex", alignItems: "center", gap: 8 }} className="md:hidden">
+            {mounted && (
+              <button
+                onClick={() => setTheme(isDark ? "light" : "dark")}
+                aria-label="Toggle theme"
+                style={{
+                  background: "var(--c-card)",
+                  border: "1px solid var(--c-border)",
+                  color: "var(--c-text)",
+                  cursor: "pointer",
+                  padding: 8,
+                  borderRadius: 8,
+                }}
+              >
+                {isDark ? <Sun size={18} /> : <Moon size={18} />}
+              </button>
+            )}
+            <button
+              onClick={() => setOpen(!open)}
+              aria-label="Toggle menu"
+              style={{
+                background: "var(--c-card)",
+                border: "1px solid var(--c-border)",
+                color: "var(--c-text)",
+                cursor: "pointer",
+                padding: 8,
+                borderRadius: 8,
+              }}
+            >
+              {open ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </div>
       </header>
 
@@ -212,8 +229,8 @@ export default function Navbar() {
               left: 0,
               right: 0,
               zIndex: 40,
-              background: "#090d16",
-              borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
+              background: "var(--c-bg)",
+              borderBottom: "1px solid var(--c-border)",
               padding: "16px 0",
             }}
           >
@@ -231,8 +248,8 @@ export default function Navbar() {
                     borderRadius: 8,
                     fontSize: 15,
                     fontWeight: 600,
-                    color: active === l.toLowerCase() ? "#38bdf8" : "#f8fafc",
-                    background: active === l.toLowerCase() ? "rgba(56, 189, 248, 0.1)" : "none",
+                    color: active === l.toLowerCase() ? "var(--c-accent)" : "var(--c-text)",
+                    background: active === l.toLowerCase() ? "var(--c-raised)" : "none",
                     border: "none",
                     cursor: "pointer",
                   }}
@@ -250,9 +267,6 @@ export default function Navbar() {
                   style={{
                     width: "100%",
                     justifyContent: "center",
-                    border: "1px solid rgba(255, 255, 255, 0.15)",
-                    background: "rgba(255, 255, 255, 0.03)",
-                    color: "#f8fafc",
                     padding: "10px 16px",
                     borderRadius: 8,
                     display: "inline-flex",

@@ -28,10 +28,11 @@ export default function Hero() {
         paddingBottom: 80,
         position: "relative",
         overflow: "hidden",
-        backgroundColor: "#07080b",
+        backgroundColor: "var(--c-bg)",
+        transition: "background-color 0.3s ease",
       }}
     >
-      {/* Soft Blue Ambient Lighting & Depth Background */}
+      {/* Soft Ambient Lighting & Depth Background */}
       <div
         style={{
           position: "absolute",
@@ -41,7 +42,7 @@ export default function Hero() {
           width: 700,
           height: 700,
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, rgba(59, 130, 246, 0.03) 40%, transparent 70%)",
+          background: "radial-gradient(circle, var(--c-glow) 0%, transparent 70%)",
           filter: "blur(70px)",
           pointerEvents: "none",
         }}
@@ -54,7 +55,7 @@ export default function Hero() {
           width: 450,
           height: 450,
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(56, 189, 248, 0.06) 0%, transparent 70%)",
+          background: "radial-gradient(circle, var(--c-glow) 0%, transparent 70%)",
           filter: "blur(60px)",
           pointerEvents: "none",
         }}
@@ -65,9 +66,9 @@ export default function Hero() {
         style={{
           position: "absolute",
           inset: 0,
-          opacity: 0.06,
+          opacity: 0.8,
           backgroundImage:
-            "linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)",
+            "linear-gradient(var(--c-grid) 1px, transparent 1px), linear-gradient(90deg, var(--c-grid) 1px, transparent 1px)",
           backgroundSize: "40px 40px",
           maskImage: "radial-gradient(ellipse 80% 70% at 50% 50%, black 40%, transparent 100%)",
           WebkitMaskImage: "radial-gradient(ellipse 80% 70% at 50% 50%, black 40%, transparent 100%)",
@@ -96,13 +97,14 @@ export default function Hero() {
                 gap: 8,
                 padding: "6px 14px",
                 borderRadius: 9999,
-                border: "1px solid rgba(74, 222, 128, 0.25)",
-                background: "rgba(74, 222, 128, 0.08)",
-                color: "#4ade80",
+                border: "1px solid var(--c-pill-border)",
+                background: "var(--c-pill-bg)",
+                color: "var(--c-pill-text)",
                 fontSize: 13,
                 fontWeight: 500,
                 letterSpacing: "0.01em",
                 marginBottom: 28,
+                transition: "all 0.3s ease",
               }}
             >
               <span
@@ -110,9 +112,9 @@ export default function Hero() {
                   width: 7,
                   height: 7,
                   borderRadius: "50%",
-                  background: "#4ade80",
+                  background: "var(--c-green)",
                   display: "inline-block",
-                  boxShadow: "0 0 10px rgba(74, 222, 128, 0.8)",
+                  boxShadow: "0 0 10px var(--c-green)",
                 }}
               />
               Available for new opportunities
@@ -126,12 +128,13 @@ export default function Hero() {
                 fontWeight: 800,
                 lineHeight: 1.12,
                 letterSpacing: "-0.03em",
-                color: "#ffffff",
+                color: "var(--c-text)",
                 marginBottom: 24,
+                transition: "color 0.3s ease",
               }}
             >
               Building scalable <br />
-              <span style={{ color: "#38bdf8" }}>full-stack</span> applications.
+              <span style={{ color: "var(--c-accent)" }}>full-stack</span> applications.
             </motion.h1>
 
             {/* Short Clean Bio Paragraph */}
@@ -139,11 +142,12 @@ export default function Hero() {
               {...up(0.24)}
               style={{
                 fontSize: 17,
-                color: "#9ca3af",
+                color: "var(--c-muted)",
                 lineHeight: 1.7,
                 marginBottom: 36,
                 maxWidth: 540,
                 fontWeight: 400,
+                transition: "color 0.3s ease",
               }}
             >
               I build robust, scalable web applications with modern technologies. Focused on clean code, performance, and exceptional user experiences.
@@ -156,31 +160,7 @@ export default function Hero() {
             >
               <button
                 onClick={() => go("projects")}
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 8,
-                  padding: "13px 26px",
-                  borderRadius: 8,
-                  background: "#2563eb",
-                  color: "#ffffff",
-                  fontSize: 14,
-                  fontWeight: 600,
-                  cursor: "pointer",
-                  border: "none",
-                  transition: "all 0.2s ease",
-                  boxShadow: "0 4px 20px rgba(37, 99, 235, 0.3)",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "#1d4ed8";
-                  e.currentTarget.style.transform = "translateY(-1px)";
-                  e.currentTarget.style.boxShadow = "0 6px 24px rgba(37, 99, 235, 0.45)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "#2563eb";
-                  e.currentTarget.style.transform = "none";
-                  e.currentTarget.style.boxShadow = "0 4px 20px rgba(37, 99, 235, 0.3)";
-                }}
+                className="btn-primary"
               >
                 View My Work <ArrowRight size={16} />
               </button>
@@ -190,32 +170,7 @@ export default function Hero() {
                 download
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 8,
-                  padding: "13px 26px",
-                  borderRadius: 8,
-                  border: "1px solid rgba(255, 255, 255, 0.16)",
-                  background: "rgba(255, 255, 255, 0.03)",
-                  color: "#e5e7eb",
-                  fontSize: 14,
-                  fontWeight: 500,
-                  textDecoration: "none",
-                  transition: "all 0.2s ease",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.35)";
-                  e.currentTarget.style.color = "#ffffff";
-                  e.currentTarget.style.background = "rgba(255, 255, 255, 0.07)";
-                  e.currentTarget.style.transform = "translateY(-1px)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.16)";
-                  e.currentTarget.style.color = "#e5e7eb";
-                  e.currentTarget.style.background = "rgba(255, 255, 255, 0.03)";
-                  e.currentTarget.style.transform = "none";
-                }}
+                className="btn-ghost"
               >
                 View Resume
               </a>
@@ -240,10 +195,11 @@ export default function Hero() {
                 height: 330,
                 borderRadius: "50%",
                 padding: 4,
-                border: "1px solid rgba(56, 189, 248, 0.4)",
+                border: "1px solid var(--c-border-hi)",
                 boxShadow:
-                  "0 0 35px rgba(56, 189, 248, 0.18), inset 0 0 20px rgba(56, 189, 248, 0.1), 0 20px 40px rgba(0, 0, 0, 0.6)",
-                background: "linear-gradient(145deg, rgba(56, 189, 248, 0.15), rgba(15, 23, 42, 0.8))",
+                  "0 0 35px var(--c-glow), inset 0 0 20px var(--c-glow), 0 20px 40px rgba(0, 0, 0, 0.15)",
+                background: "linear-gradient(145deg, var(--c-glow), var(--c-card))",
+                transition: "all 0.3s ease",
               }}
             >
               <div
@@ -253,7 +209,8 @@ export default function Hero() {
                   height: "100%",
                   borderRadius: "50%",
                   overflow: "hidden",
-                  backgroundColor: "#0f172a",
+                  backgroundColor: "var(--c-raised)",
+                  transition: "background-color 0.3s ease",
                 }}
               >
                 {!imgError ? (
@@ -280,7 +237,7 @@ export default function Hero() {
                       fontFamily: "'JetBrains Mono', monospace",
                       fontWeight: 800,
                       fontSize: "1.8rem",
-                      color: "#38bdf8",
+                      color: "var(--c-accent)",
                     }}
                   >
                     RUPESH
