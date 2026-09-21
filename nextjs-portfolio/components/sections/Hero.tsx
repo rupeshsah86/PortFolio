@@ -1,91 +1,76 @@
 "use client";
-import dynamic from "next/dynamic";
+
 import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Download, Terminal, Cpu, Database, Server, Sparkles } from "lucide-react";
-import { GithubIcon, LinkedinIcon, TwitterIcon, MailIcon } from "@/components/ui/SocialIcons";
+import { ArrowRight } from "lucide-react";
 import { personal } from "@/lib/data";
-import Tilt3DCard from "@/components/ui/Tilt3DCard";
-
-const Hero3DCanvas = dynamic(() => import("@/components/ui/Hero3DCanvas"), { ssr: false });
 
 const E = [0.22, 1, 0.36, 1] as const;
 const up = (delay = 0) => ({
-  initial: { opacity: 0, y: 20 },
+  initial: { opacity: 0, y: 18 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5, ease: E, delay },
+  transition: { duration: 0.6, ease: E, delay },
 });
 
 export default function Hero() {
   const [imgError, setImgError] = useState(false);
   const go = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
-  const metrics = [
-    { label: "Full-Stack Projects", value: "5+", icon: <Server size={14} /> },
-    { label: "Algorithmic Problems", value: "2000+", icon: <Cpu size={14} /> },
-    { label: "Query Optimization", value: "Focus", icon: <Database size={14} /> },
-  ];
-
-  const floatingBadges = [
-    { label: "⚡ Next.js 16", top: "-12px", right: "-16px", color: "#38bdf8", z: "45px" },
-    { label: "🗄️ Postgres 17", top: "-12px", left: "-16px", color: "#f59e0b", z: "45px" },
-    { label: "🟢 Spring Boot", bottom: "-12px", left: "-16px", color: "#22c55e", z: "45px" },
-    { label: "🤖 Groq LLM", bottom: "-12px", right: "-16px", color: "#818cf8", z: "45px" },
-  ];
-
   return (
     <section
       id="home"
       style={{
-        minHeight: "92vh",
+        minHeight: "100vh",
         display: "flex",
         alignItems: "center",
-        paddingTop: 80,
-        paddingBottom: 60,
+        paddingTop: 100,
+        paddingBottom: 80,
         position: "relative",
         overflow: "hidden",
+        backgroundColor: "#07080b",
       }}
     >
-      {/* Interactive 3D WebGL Canvas */}
-      <Hero3DCanvas />
-      {/* 3D Grid Perspective Background */}
+      {/* Soft Blue Ambient Lighting & Depth Background */}
       <div
         style={{
           position: "absolute",
-          inset: 0,
-          opacity: 0.12,
-          backgroundImage: "linear-gradient(var(--c-border-md) 1px, transparent 1px), linear-gradient(90deg, var(--c-border-md) 1px, transparent 1px)",
-          backgroundSize: "44px 44px",
-          maskImage: "radial-gradient(ellipse 90% 80% at 50% 35%, black 40%, transparent 100%)",
+          top: "30%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          width: 700,
+          height: 700,
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, rgba(59, 130, 246, 0.03) 40%, transparent 70%)",
+          filter: "blur(70px)",
+          pointerEvents: "none",
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          top: "10%",
+          right: "15%",
+          width: 450,
+          height: 450,
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(56, 189, 248, 0.06) 0%, transparent 70%)",
+          filter: "blur(60px)",
           pointerEvents: "none",
         }}
       />
 
-      {/* 3D Floating Ambient Orbs */}
+      {/* Faint Grid Pattern Background */}
       <div
         style={{
           position: "absolute",
-          top: "15%",
-          right: "10%",
-          width: 380,
-          height: 380,
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(56,189,248,0.15) 0%, transparent 70%)",
-          filter: "blur(50px)",
-          pointerEvents: "none",
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          bottom: "10%",
-          left: "5%",
-          width: 320,
-          height: 320,
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(129,140,248,0.15) 0%, transparent 70%)",
-          filter: "blur(50px)",
+          inset: 0,
+          opacity: 0.06,
+          backgroundImage:
+            "linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)",
+          backgroundSize: "40px 40px",
+          maskImage: "radial-gradient(ellipse 80% 70% at 50% 50%, black 40%, transparent 100%)",
+          WebkitMaskImage: "radial-gradient(ellipse 80% 70% at 50% 50%, black 40%, transparent 100%)",
           pointerEvents: "none",
         }}
       />
@@ -94,15 +79,15 @@ export default function Hero() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "1.1fr 0.9fr",
-            gap: 56,
+            gridTemplateColumns: "1.2fr 0.8fr",
+            gap: 64,
             alignItems: "center",
           }}
           className="hero-grid"
         >
-          {/* Left Column */}
-          <div>
-            {/* Status Pill */}
+          {/* Left Side Content */}
+          <div style={{ maxWidth: 640 }}>
+            {/* Soft Green Pill Badge */}
             <motion.div
               {...up(0.1)}
               style={{
@@ -110,279 +95,199 @@ export default function Hero() {
                 alignItems: "center",
                 gap: 8,
                 padding: "6px 14px",
-                borderRadius: 20,
-                border: "1px solid var(--c-border-hi)",
-                background: "var(--c-raised)",
-                color: "var(--c-text)",
-                fontSize: 12,
-                fontFamily: "'JetBrains Mono', monospace",
+                borderRadius: 9999,
+                border: "1px solid rgba(74, 222, 128, 0.25)",
+                background: "rgba(74, 222, 128, 0.08)",
+                color: "#4ade80",
+                fontSize: 13,
                 fontWeight: 500,
-                marginBottom: 24,
+                letterSpacing: "0.01em",
+                marginBottom: 28,
               }}
-              className="hero-badge"
             >
               <span
                 style={{
-                  width: 8,
-                  height: 8,
+                  width: 7,
+                  height: 7,
                   borderRadius: "50%",
-                  background: "#22c55e",
-                  display: "block",
-                  boxShadow: "0 0 8px rgba(34, 197, 94, 0.6)",
+                  background: "#4ade80",
+                  display: "inline-block",
+                  boxShadow: "0 0 10px rgba(74, 222, 128, 0.8)",
                 }}
               />
-              Available for Full-Stack & Engineering Roles
+              Available for new opportunities
             </motion.div>
 
-            {/* Headline */}
+            {/* Large Elegant White Heading */}
             <motion.h1
-              {...up(0.16)}
+              {...up(0.18)}
               style={{
-                fontSize: "clamp(2.5rem, 4.5vw, 3.8rem)",
+                fontSize: "clamp(2.5rem, 4.8vw, 4rem)",
                 fontWeight: 800,
-                lineHeight: 1.1,
+                lineHeight: 1.12,
                 letterSpacing: "-0.03em",
-                color: "var(--c-text)",
-                marginBottom: 20,
+                color: "#ffffff",
+                marginBottom: 24,
               }}
             >
               Building scalable <br />
-              <span className="gradient-text">full-stack applications.</span>
+              <span style={{ color: "#38bdf8" }}>full-stack</span> applications.
             </motion.h1>
 
-            {/* Subheadline */}
+            {/* Short Clean Bio Paragraph */}
             <motion.p
-              {...up(0.22)}
+              {...up(0.24)}
               style={{
                 fontSize: 17,
-                color: "var(--c-muted)",
+                color: "#9ca3af",
                 lineHeight: 1.7,
-                marginBottom: 32,
-                maxWidth: 520,
+                marginBottom: 36,
+                maxWidth: 540,
+                fontWeight: 400,
               }}
             >
-              {personal.subheadline}
+              I build robust, scalable web applications with modern technologies. Focused on clean code, performance, and exceptional user experiences.
             </motion.p>
 
-            {/* Key Engineering Metrics */}
+            {/* Two Buttons Only */}
             <motion.div
-              {...up(0.28)}
-              style={{
-                display: "flex",
-                gap: 24,
-                marginBottom: 36,
-                padding: "16px 20px",
-                borderRadius: 14,
-                border: "1px solid var(--c-border-md)",
-                background: "var(--c-card)",
-                maxWidth: 520,
-              }}
-              className="hero-metrics"
+              {...up(0.3)}
+              style={{ display: "flex", gap: 16, alignItems: "center", flexWrap: "wrap" }}
             >
-              {metrics.map((m) => (
-                <div key={m.label} style={{ flex: 1 }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: 6, color: "var(--c-accent)", fontSize: 13, fontWeight: 700, marginBottom: 4 }}>
-                    {m.icon}
-                    <span>{m.value}</span>
-                  </div>
-                  <div style={{ fontSize: 12, color: "var(--c-subtle)", fontWeight: 500 }}>{m.label}</div>
-                </div>
-              ))}
-            </motion.div>
-
-            {/* CTAs */}
-            <motion.div {...up(0.34)} style={{ display: "flex", gap: 14, flexWrap: "wrap", marginBottom: 32 }} className="hero-buttons">
-              <button className="btn-primary" onClick={() => go("projects")}>
-                Explore Projects <ArrowRight size={15} />
+              <button
+                onClick={() => go("projects")}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 8,
+                  padding: "13px 26px",
+                  borderRadius: 8,
+                  background: "#2563eb",
+                  color: "#ffffff",
+                  fontSize: 14,
+                  fontWeight: 600,
+                  cursor: "pointer",
+                  border: "none",
+                  transition: "all 0.2s ease",
+                  boxShadow: "0 4px 20px rgba(37, 99, 235, 0.3)",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "#1d4ed8";
+                  e.currentTarget.style.transform = "translateY(-1px)";
+                  e.currentTarget.style.boxShadow = "0 6px 24px rgba(37, 99, 235, 0.45)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "#2563eb";
+                  e.currentTarget.style.transform = "none";
+                  e.currentTarget.style.boxShadow = "0 4px 20px rgba(37, 99, 235, 0.3)";
+                }}
+              >
+                View My Work <ArrowRight size={16} />
               </button>
-              <a href={personal.resumeUrl} download target="_blank" rel="noopener noreferrer" className="btn-ghost">
-                <Download size={14} /> Download Resume
-              </a>
-            </motion.div>
 
-            {/* Social Icons */}
-            <motion.div {...up(0.4)} style={{ display: "flex", gap: 10, alignItems: "center" }} className="hero-social">
-              <span style={{ fontSize: 12, color: "var(--c-subtle)", marginRight: 6, fontFamily: "'JetBrains Mono', monospace" }}>CONNECT:</span>
-              {[
-                { href: personal.github, icon: <GithubIcon size={16} />, label: "GitHub" },
-                { href: personal.linkedin, icon: <LinkedinIcon size={16} />, label: "LinkedIn" },
-                { href: personal.twitter, icon: <TwitterIcon size={16} />, label: "Twitter" },
-                { href: `mailto:${personal.email}`, icon: <MailIcon size={16} />, label: "Email" },
-              ].map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  target={s.href.startsWith("mailto") ? undefined : "_blank"}
-                  rel="noopener noreferrer"
-                  aria-label={s.label}
-                  style={{
-                    width: 38,
-                    height: 38,
-                    borderRadius: 8,
-                    border: "1px solid var(--c-border-md)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    color: "var(--c-subtle)",
-                    textDecoration: "none",
-                    background: "var(--c-card)",
-                    transition: "all 0.2s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.borderColor = "var(--c-accent)";
-                    (e.currentTarget as HTMLElement).style.color = "var(--c-accent)";
-                    (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)";
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.borderColor = "var(--c-border-md)";
-                    (e.currentTarget as HTMLElement).style.color = "var(--c-subtle)";
-                    (e.currentTarget as HTMLElement).style.transform = "none";
-                  }}
-                >
-                  {s.icon}
-                </a>
-              ))}
+              <a
+                href={personal.resumeUrl}
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 8,
+                  padding: "13px 26px",
+                  borderRadius: 8,
+                  border: "1px solid rgba(255, 255, 255, 0.16)",
+                  background: "rgba(255, 255, 255, 0.03)",
+                  color: "#e5e7eb",
+                  fontSize: 14,
+                  fontWeight: 500,
+                  textDecoration: "none",
+                  transition: "all 0.2s ease",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.35)";
+                  e.currentTarget.style.color = "#ffffff";
+                  e.currentTarget.style.background = "rgba(255, 255, 255, 0.07)";
+                  e.currentTarget.style.transform = "translateY(-1px)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.16)";
+                  e.currentTarget.style.color = "#e5e7eb";
+                  e.currentTarget.style.background = "rgba(255, 255, 255, 0.03)";
+                  e.currentTarget.style.transform = "none";
+                }}
+              >
+                View Resume
+              </a>
             </motion.div>
           </div>
 
-          {/* Right Column — Interactive 3D Card Stack */}
+          {/* Right Side Content — Clean Perfect Circular Frame */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: E, delay: 0.2 }}
-            style={{ display: "flex", flexDirection: "column", gap: 24, alignItems: "center" }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, ease: E, delay: 0.2 }}
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
           >
-            <Tilt3DCard maxRotation={15} scaleOnHover={1.03}>
-              <div style={{ display: "flex", flexDirection: "column", gap: 28, alignItems: "center" }}>
-                {/* Profile Frame with 3D Depth & Floating Corner Badges */}
-                <div
-                  style={{
-                    position: "relative",
-                    width: 280,
-                    height: 280,
-                    borderRadius: 20,
-                    padding: 6,
-                    background: "linear-gradient(135deg, var(--c-accent) 0%, var(--c-purple) 100%)",
-                    boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.6), 0 0 30px rgba(56, 189, 248, 0.2)",
-                    transform: "translateZ(30px)",
-                  }}
-                >
-                  {/* Floating Badges pinned precisely around Profile Frame */}
-                  {floatingBadges.map((b) => (
-                    <div
-                      key={b.label}
-                      style={{
-                        position: "absolute",
-                        top: (b as any).top,
-                        bottom: (b as any).bottom,
-                        right: (b as any).right,
-                        left: (b as any).left,
-                        transform: `translateZ(${b.z})`,
-                        background: "rgba(15, 23, 42, 0.9)",
-                        backdropFilter: "blur(12px)",
-                        WebkitBackdropFilter: "blur(12px)",
-                        border: `1px solid ${b.color}60`,
-                        padding: "5px 12px",
-                        borderRadius: 8,
-                        fontSize: 11,
-                        fontWeight: 700,
-                        color: b.color,
-                        fontFamily: "'JetBrains Mono', monospace",
-                        boxShadow: `0 8px 20px -4px rgba(0,0,0,0.7), 0 0 12px ${b.color}25`,
-                        zIndex: 20,
-                        whiteSpace: "nowrap",
-                      }}
-                    >
-                      {b.label}
-                    </div>
-                  ))}
-
+            <div
+              style={{
+                position: "relative",
+                width: 330,
+                height: 330,
+                borderRadius: "50%",
+                padding: 4,
+                border: "1px solid rgba(56, 189, 248, 0.4)",
+                boxShadow:
+                  "0 0 35px rgba(56, 189, 248, 0.18), inset 0 0 20px rgba(56, 189, 248, 0.1), 0 20px 40px rgba(0, 0, 0, 0.6)",
+                background: "linear-gradient(145deg, rgba(56, 189, 248, 0.15), rgba(15, 23, 42, 0.8))",
+              }}
+            >
+              <div
+                style={{
+                  position: "relative",
+                  width: "100%",
+                  height: "100%",
+                  borderRadius: "50%",
+                  overflow: "hidden",
+                  backgroundColor: "#0f172a",
+                }}
+              >
+                {!imgError ? (
+                  <Image
+                    src="/images/profile.jpg"
+                    alt="Rupesh Kumar"
+                    fill
+                    priority
+                    sizes="330px"
+                    style={{
+                      objectFit: "cover",
+                      objectPosition: "center top",
+                    }}
+                    onError={() => setImgError(true)}
+                  />
+                ) : (
                   <div
                     style={{
-                      position: "relative",
                       width: "100%",
                       height: "100%",
-                      borderRadius: 14,
-                      overflow: "hidden",
-                      background: "var(--c-raised)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
+                      fontFamily: "'JetBrains Mono', monospace",
+                      fontWeight: 800,
+                      fontSize: "1.8rem",
+                      color: "#38bdf8",
                     }}
                   >
-                    {!imgError ? (
-                      <Image
-                        src="/images/profile.png"
-                        alt="Rupesh Kumar"
-                        fill
-                        priority
-                        sizes="280px"
-                        style={{
-                          objectFit: "cover",
-                          objectPosition: "center top",
-                          filter: "contrast(1.06) brightness(1.02)",
-                          transition: "filter 0.3s ease, transform 0.3s ease",
-                        }}
-                        onError={() => setImgError(true)}
-                      />
-                    ) : (
-                      <div
-                        style={{
-                          width: "100%",
-                          height: "100%",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          fontFamily: "'JetBrains Mono', monospace",
-                          fontWeight: 800,
-                          fontSize: "1.8rem",
-                          color: "var(--c-accent)",
-                        }}
-                      >
-                        RUPESH
-                      </div>
-                    )}
+                    RUPESH
                   </div>
-                </div>
-
-                {/* Sleek Terminal Box cleanly separated below floating badges */}
-                <div
-                  style={{
-                    width: "100%",
-                    maxWidth: 310,
-                    padding: "16px 20px",
-                    borderRadius: 14,
-                    border: "1px solid var(--c-border-hi)",
-                    background: "rgba(15, 23, 42, 0.85)",
-                    backdropFilter: "blur(16px)",
-                    WebkitBackdropFilter: "blur(16px)",
-                    fontFamily: "'JetBrains Mono', monospace",
-                    fontSize: 12,
-                    lineHeight: 1.6,
-                    color: "var(--c-subtle)",
-                    boxShadow: "0 15px 35px -10px rgba(0,0,0,0.6)",
-                    transform: "translateZ(40px)",
-                  }}
-                >
-                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 10 }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: 6, color: "var(--c-muted)" }}>
-                      <Terminal size={14} color="var(--c-accent)" />
-                      <span style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.05em", fontWeight: 600 }}>Developer Profile</span>
-                    </div>
-                    <span style={{ fontSize: 10, background: "rgba(34,197,94,0.15)", color: "#22c55e", padding: "2px 8px", borderRadius: 4 }}>Active</span>
-                  </div>
-                  <div style={{ color: "var(--c-text)" }}>
-                    <span style={{ color: "var(--c-accent)" }}>const</span> engineer = &#123;
-                  </div>
-                  <div style={{ paddingLeft: 12 }}>
-                    focus: <span style={{ color: "#22c55e" }}>"Full-Stack & ML"</span>,<br />
-                    stack: <span style={{ color: "#22c55e" }}>["Next.js", "Spring Boot", "FastAPI"]</span>,<br />
-                    status: <span style={{ color: "#22c55e" }}>"Open to Internships"</span>
-                  </div>
-                  <div style={{ color: "var(--c-text)" }}>&#125;;</div>
-                </div>
+                )}
               </div>
-            </Tilt3DCard>
+            </div>
           </motion.div>
         </div>
       </div>
@@ -391,18 +296,17 @@ export default function Hero() {
         @media (max-width: 900px) {
           .hero-grid {
             grid-template-columns: 1fr !important;
-            gap: 40px !important;
+            gap: 48px !important;
             text-align: center;
           }
-          .hero-grid > div:last-child { order: -1; }
-          .hero-social, .hero-buttons, .hero-badge { justify-content: center; }
-          .hero-grid > div:first-child > div { margin-left: auto; margin-right: auto; }
-        }
-        @media (max-width: 480px) {
-          .hero-metrics {
-            flex-direction: column !important;
-            gap: 12px !important;
-            align-items: flex-start !important;
+          .hero-grid > div:last-child {
+            order: -1;
+          }
+          .hero-grid > div:first-child {
+            margin: 0 auto;
+          }
+          .hero-grid > div:first-child > div {
+            justify-content: center;
           }
         }
       `}</style>

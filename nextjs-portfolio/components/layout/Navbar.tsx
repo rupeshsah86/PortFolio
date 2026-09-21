@@ -5,7 +5,7 @@ import { Menu, X, Download, Sun, Moon } from "lucide-react";
 import { useTheme } from "next-themes";
 import { personal } from "@/lib/data";
 
-const links = ["About", "Projects", "Skills", "Experience", "Contact"];
+const links = ["About", "Skills", "Projects", "Experience", "Contact"];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -51,7 +51,7 @@ export default function Navbar() {
           left: 0,
           right: 0,
           zIndex: 50,
-          background: scrolled ? "var(--c-card)" : "transparent",
+          background: scrolled ? "rgba(9, 13, 22, 0.85)" : "transparent",
           backdropFilter: scrolled ? "blur(16px)" : "none",
           WebkitBackdropFilter: scrolled ? "blur(16px)" : "none",
           borderBottom: scrolled ? "1px solid var(--c-border)" : "1px solid transparent",
@@ -74,16 +74,17 @@ export default function Navbar() {
               fontFamily: "'JetBrains Mono', monospace",
               fontWeight: 800,
               fontSize: 18,
-              color: "var(--c-text)",
+              color: "#ffffff",
               cursor: "pointer",
               border: "none",
               background: "none",
               display: "flex",
               alignItems: "center",
-              gap: 4,
+              gap: 6,
+              letterSpacing: "-0.02em",
             }}
           >
-            <span style={{ color: "var(--c-accent)" }}>//</span> RUPESH
+            <span style={{ color: "#38bdf8" }}>//</span> RUPESH
           </button>
 
           {/* Desktop Nav */}
@@ -94,8 +95,8 @@ export default function Navbar() {
               gap: 4,
               padding: "4px 6px",
               borderRadius: 30,
-              background: scrolled ? "var(--c-raised)" : "rgba(15, 23, 42, 0.4)",
-              border: "1px solid var(--c-border)",
+              background: scrolled ? "rgba(15, 23, 42, 0.6)" : "rgba(15, 23, 42, 0.4)",
+              border: "1px solid rgba(255, 255, 255, 0.08)",
             }}
             className="hidden md:flex"
           >
@@ -109,21 +110,21 @@ export default function Navbar() {
                     padding: "6px 16px",
                     borderRadius: 20,
                     fontSize: 13,
-                    fontWeight: 600,
+                    fontWeight: 500,
                     cursor: "pointer",
                     border: "none",
-                    background: isActive ? "var(--c-accent)" : "transparent",
-                    color: isActive ? "#090d16" : "var(--c-muted)",
+                    background: isActive ? "rgba(56, 189, 248, 0.15)" : "transparent",
+                    color: isActive ? "#38bdf8" : "#94a3b8",
                     transition: "all 0.2s ease",
                   }}
                   onMouseEnter={(e) => {
                     if (!isActive) {
-                      (e.currentTarget as HTMLElement).style.color = "var(--c-text)";
+                      (e.currentTarget as HTMLElement).style.color = "#f8fafc";
                     }
                   }}
                   onMouseLeave={(e) => {
                     if (!isActive) {
-                      (e.currentTarget as HTMLElement).style.color = "var(--c-muted)";
+                      (e.currentTarget as HTMLElement).style.color = "#94a3b8";
                     }
                   }}
                 >
@@ -143,9 +144,9 @@ export default function Navbar() {
                   width: 38,
                   height: 38,
                   borderRadius: 10,
-                  border: "1px solid var(--c-border)",
-                  background: "var(--c-raised)",
-                  color: "var(--c-text)",
+                  border: "1px solid rgba(255, 255, 255, 0.1)",
+                  background: "rgba(15, 23, 42, 0.5)",
+                  color: "#f8fafc",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -162,10 +163,19 @@ export default function Navbar() {
               download
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary"
-              style={{ padding: "8px 16px", fontSize: 13, borderRadius: 8 }}
+              className="btn-ghost"
+              style={{
+                padding: "8px 18px",
+                fontSize: 13,
+                borderRadius: 8,
+                border: "1px solid rgba(255, 255, 255, 0.15)",
+                background: "rgba(255, 255, 255, 0.03)",
+                color: "#f8fafc",
+                fontWeight: 600,
+                textDecoration: "none",
+              }}
             >
-              <Download size={13} /> Resume
+              View Resume
             </a>
           </div>
 
@@ -175,9 +185,9 @@ export default function Navbar() {
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
             style={{
-              background: "var(--c-raised)",
-              border: "1px solid var(--c-border)",
-              color: "var(--c-text)",
+              background: "rgba(15, 23, 42, 0.7)",
+              border: "1px solid rgba(255, 255, 255, 0.1)",
+              color: "#f8fafc",
               cursor: "pointer",
               padding: 8,
               borderRadius: 8,
@@ -202,8 +212,8 @@ export default function Navbar() {
               left: 0,
               right: 0,
               zIndex: 40,
-              background: "var(--c-bg)",
-              borderBottom: "1px solid var(--c-border)",
+              background: "#090d16",
+              borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
               padding: "16px 0",
             }}
           >
@@ -221,8 +231,8 @@ export default function Navbar() {
                     borderRadius: 8,
                     fontSize: 15,
                     fontWeight: 600,
-                    color: active === l.toLowerCase() ? "var(--c-accent)" : "var(--c-text)",
-                    background: active === l.toLowerCase() ? "var(--c-raised)" : "none",
+                    color: active === l.toLowerCase() ? "#38bdf8" : "#f8fafc",
+                    background: active === l.toLowerCase() ? "rgba(56, 189, 248, 0.1)" : "none",
                     border: "none",
                     cursor: "pointer",
                   }}
@@ -236,10 +246,20 @@ export default function Navbar() {
                   download
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-primary"
-                  style={{ width: "100%", justifyContent: "center" }}
+                  className="btn-ghost"
+                  style={{
+                    width: "100%",
+                    justifyContent: "center",
+                    border: "1px solid rgba(255, 255, 255, 0.15)",
+                    background: "rgba(255, 255, 255, 0.03)",
+                    color: "#f8fafc",
+                    padding: "10px 16px",
+                    borderRadius: 8,
+                    display: "inline-flex",
+                    textAlign: "center",
+                  }}
                 >
-                  <Download size={14} /> Download Resume
+                  View Resume
                 </a>
               </div>
             </div>
