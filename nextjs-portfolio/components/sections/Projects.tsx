@@ -112,7 +112,7 @@ export default function Projects() {
                         style={{
                           position: "absolute",
                           inset: 0,
-                          background: "linear-gradient(135deg, #090d16 0%, #0f172a 100%)",
+                          background: "linear-gradient(135deg, var(--c-card) 0%, var(--c-raised) 100%)",
                           padding: "20px",
                           display: "flex",
                           flexDirection: "column",
@@ -122,22 +122,22 @@ export default function Projects() {
                       >
                         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                            <ShieldCheck size={18} color="#38bdf8" />
-                            <span style={{ fontSize: 13, fontWeight: 800, color: "#f8fafc", fontFamily: "'JetBrains Mono', monospace" }}>DataPulse</span>
+                            <ShieldCheck size={18} color="var(--c-accent)" />
+                            <span style={{ fontSize: 13, fontWeight: 800, color: "var(--c-text)", fontFamily: "'JetBrains Mono', monospace" }}>DataPulse</span>
                           </div>
-                          <span style={{ fontSize: 10, background: "rgba(56,189,248,0.15)", color: "#38bdf8", padding: "3px 10px", borderRadius: 12, border: "1px solid rgba(56,189,248,0.3)", fontFamily: "'JetBrains Mono', monospace", fontWeight: 700 }}>
+                          <span style={{ fontSize: 10, background: "var(--c-glow)", color: "var(--c-accent)", padding: "3px 10px", borderRadius: 12, border: "1px solid var(--c-border-md)", fontFamily: "'JetBrains Mono', monospace", fontWeight: 700 }}>
                             Groq LLM RAG + Three.js
                           </span>
                         </div>
 
                         <div>
-                          <div style={{ fontSize: 16, fontWeight: 800, color: "#f8fafc", lineHeight: 1.25, marginBottom: 8, letterSpacing: "-0.02em" }}>
-                            Transform Crime Data Into <span style={{ color: "#38bdf8" }}>Actionable Intelligence</span>
+                          <div style={{ fontSize: 16, fontWeight: 800, color: "var(--c-text)", lineHeight: 1.25, marginBottom: 8, letterSpacing: "-0.02em" }}>
+                            Transform Crime Data Into <span style={{ color: "var(--c-accent)" }}>Actionable Intelligence</span>
                           </div>
-                          <div style={{ display: "flex", gap: 10, flexWrap: "wrap", fontSize: 11, color: "#94a3b8", fontFamily: "'JetBrains Mono', monospace" }}>
-                            <span style={{ background: "rgba(255,255,255,0.06)", padding: "2px 8px", borderRadius: 4 }}>15+ Categories</span>
-                            <span style={{ background: "rgba(255,255,255,0.06)", padding: "2px 8px", borderRadius: 4 }}>1000+ Analyzed</span>
-                            <span style={{ background: "rgba(34,197,94,0.15)", color: "#22c55e", padding: "2px 8px", borderRadius: 4 }}>Live Deployed</span>
+                          <div style={{ display: "flex", gap: 10, flexWrap: "wrap", fontSize: 11, color: "var(--c-muted)", fontFamily: "'JetBrains Mono', monospace" }}>
+                            <span style={{ background: "var(--c-border)", padding: "2px 8px", borderRadius: 4 }}>15+ Categories</span>
+                            <span style={{ background: "var(--c-border)", padding: "2px 8px", borderRadius: 4 }}>1000+ Analyzed</span>
+                            <span style={{ background: "rgba(34,197,94,0.15)", color: "var(--c-green)", padding: "2px 8px", borderRadius: 4 }}>Live Deployed</span>
                           </div>
                         </div>
                       </div>
@@ -179,7 +179,7 @@ export default function Projects() {
                         left: 12,
                         padding: "4px 10px",
                         borderRadius: 6,
-                        background: "rgba(15, 23, 42, 0.85)",
+                        background: "var(--c-card)",
                         backdropFilter: "blur(6px)",
                         border: "1px solid var(--c-border-md)",
                         color: "var(--c-text)",
@@ -196,7 +196,7 @@ export default function Projects() {
                       style={{
                         position: "absolute",
                         inset: 0,
-                        background: "rgba(9, 13, 22, 0.85)",
+                        background: "var(--c-nav-bg)",
                         backdropFilter: "blur(4px)",
                         display: "flex",
                         alignItems: "center",
@@ -213,7 +213,7 @@ export default function Projects() {
                           padding: "8px 18px",
                           borderRadius: 20,
                           background: "var(--c-accent)",
-                          color: "#090d16",
+                          color: "#ffffff",
                           display: "inline-flex",
                           alignItems: "center",
                           gap: 6,

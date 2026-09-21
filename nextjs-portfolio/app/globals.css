@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 :root,
+html.dark,
 .dark {
   --c-bg:                  #07080b;
   --c-card:                rgba(15, 23, 42, 0.7);
@@ -26,13 +27,14 @@
   --c-button-ghost-text:   #e5e7eb;
 }
 
+html.light,
 .light {
-  --c-bg:                  #f8fafc;
-  --c-card:                rgba(255, 255, 255, 0.9);
+  --c-bg:                  #ffffff;
+  --c-card:                #f8fafc;
   --c-raised:              #f1f5f9;
-  --c-border:              rgba(15, 23, 42, 0.08);
-  --c-border-md:           rgba(2, 132, 199, 0.2);
-  --c-border-hi:           rgba(2, 132, 199, 0.4);
+  --c-border:              rgba(15, 23, 42, 0.1);
+  --c-border-md:           rgba(2, 132, 199, 0.25);
+  --c-border-hi:           rgba(2, 132, 199, 0.5);
   --c-text:                #0f172a;
   --c-muted:               #475569;
   --c-subtle:              #64748b;
@@ -41,13 +43,13 @@
   --c-purple:              #4f46e5;
   --c-green:               #16a34a;
   --c-glow:                rgba(2, 132, 199, 0.12);
-  --c-grid:                rgba(15, 23, 42, 0.06);
-  --c-nav-bg:              rgba(248, 250, 252, 0.85);
-  --c-pill-bg:             rgba(22, 163, 74, 0.1);
-  --c-pill-border:         rgba(22, 163, 74, 0.25);
+  --c-grid:                rgba(15, 23, 42, 0.08);
+  --c-nav-bg:              rgba(255, 255, 255, 0.9);
+  --c-pill-bg:             rgba(22, 163, 74, 0.08);
+  --c-pill-border:         rgba(22, 163, 74, 0.3);
   --c-pill-text:           #15803d;
-  --c-button-ghost-bg:     rgba(15, 23, 42, 0.03);
-  --c-button-ghost-border: rgba(15, 23, 42, 0.16);
+  --c-button-ghost-bg:     rgba(15, 23, 42, 0.04);
+  --c-button-ghost-border: rgba(15, 23, 42, 0.18);
   --c-button-ghost-text:   #1e293b;
 }
 
@@ -59,10 +61,13 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: var(--c-bg);
+  color: var(--c-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body {
-  background: var(--c-bg);
+  background-color: var(--c-bg);
   color: var(--c-text);
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.6;
@@ -85,7 +90,7 @@ body::before {
 
 ::selection {
   background: var(--c-accent);
-  color: #090d16;
+  color: #ffffff;
 }
 
 ::-webkit-scrollbar {
@@ -115,6 +120,8 @@ body::before {
   padding: 96px 0;
   position: relative;
   z-index: 1;
+  background-color: var(--c-bg);
+  transition: background-color 0.3s ease;
 }
 
 /* Typography */
@@ -138,6 +145,7 @@ body::before {
   letter-spacing: -0.03em;
   line-height: 1.15;
   margin-bottom: 14px;
+  transition: color 0.3s ease;
 }
 
 .subtext {
@@ -145,6 +153,7 @@ body::before {
   color: var(--c-muted);
   line-height: 1.7;
   max-width: 560px;
+  transition: color 0.3s ease;
 }
 
 .gradient-text {
@@ -166,7 +175,7 @@ body::before {
 .card:hover {
   transform: translateY(-3px);
   border-color: var(--c-border-md);
-  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.2), 0 0 20px var(--c-glow);
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.15), 0 0 20px var(--c-glow);
 }
 
 /* Buttons */
@@ -234,7 +243,7 @@ body::before {
 }
 
 .badge-accent {
-  background: rgba(56, 189, 248, 0.12);
+  background: var(--c-glow);
   color: var(--c-accent);
   border-color: var(--c-border-md);
 }
