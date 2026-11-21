@@ -36,16 +36,6 @@ export interface SkillCategory {
   skills: { name: string; primary: boolean }[];
 }
 
-export interface BlogPost {
-  slug: string;
-  title: string;
-  excerpt: string;
-  date: string;
-  readTime: string;
-  tags: string[];
-  published: boolean;
-}
-
 export interface Certification {
   name: string;
   issuer: string;

@@ -40,7 +40,7 @@ export default function Achievements() {
                 display: "flex",
                 alignItems: "center",
                 gap: 8,
-                marginBottom: 20,
+                marginBottom: 16,
                 color: "var(--c-accent)",
               }}
             >
@@ -48,6 +48,23 @@ export default function Achievements() {
               <h3 style={{ fontSize: 18, fontWeight: 700, color: "var(--c-text)", margin: 0 }}>
                 Hackathons & Competitions
               </h3>
+            </div>
+
+            {/* Judging Panel Presentation Banner */}
+            <div
+              style={{
+                padding: "12px 16px",
+                borderRadius: 10,
+                background: "var(--c-raised)",
+                border: "1px solid var(--c-border-md)",
+                marginBottom: 14,
+                fontSize: 13,
+                color: "var(--c-muted)",
+                lineHeight: 1.5,
+              }}
+            >
+              <span style={{ color: "var(--c-accent)", fontWeight: 700 }}>Judging Panel Presentations:</span>{" "}
+              Presented project architectures and live prototypes to panels at Hack Spark, SDG Challenge, LLM Forge (Sri Eshwar College), and KSP Hackathon.
             </div>
 
             <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>

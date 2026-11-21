@@ -3,7 +3,6 @@ import type {
   Project,
   ProfessionalExperience,
   SkillCategory,
-  BlogPost,
   Certification,
   Achievement,
   CodingProfile,
@@ -176,7 +175,7 @@ export const skills: SkillCategory[] = [
       { name: "Git", primary: true },
       { name: "GitHub", primary: true },
       { name: "Docker", primary: true },
-      { name: "AWS", primary: false },
+      { name: "AWS (CLF-C02)", primary: true },
       { name: "Postman", primary: true },
       { name: "VS Code", primary: false },
       { name: "IntelliJ IDEA", primary: false },
@@ -510,15 +509,33 @@ export const codingProfiles: CodingProfile[] = [
 export const achievements: Achievement[] = [
   {
     title: "First Prize Winner",
-    event: "Freshathon 2025",
+    event: "Freshathon",
     year: "2025",
     badge: "1st Place",
   },
   {
-    title: "First Prize Winner",
-    event: "Creatathon 2025",
+    title: "Second Prize Winner",
+    event: "Creatathon",
+    year: "2024",
+    badge: "2nd Place",
+  },
+  {
+    title: "Top 10 Finalist",
+    event: "Hack Spark National-Level Hackathon",
     year: "2025",
-    badge: "1st Place",
+    badge: "Top 10",
+  },
+  {
+    title: "Top 5 Finalist",
+    event: "SDG Challenge — Sathyabama University",
+    year: "2025",
+    badge: "Top 5",
+  },
+  {
+    title: "Hackathon Finalist & Presenter",
+    event: "LLM Forge Hackathon — Sri Eshwar College of Engineering",
+    year: "2026",
+    badge: "Finalist",
   },
   {
     title: "Hackathon Participant & Presenter",
@@ -526,15 +543,14 @@ export const achievements: Achievement[] = [
     year: "2026",
     badge: "KSP Hackathon",
   },
-  {
-    title: "Second Prize Winner",
-    event: "Creatathon 2024 & Freshathon 2024",
-    year: "2024",
-    badge: "2nd Place",
-  },
 ];
 
 export const certifications: Certification[] = [
+  {
+    name: "AWS Certified Cloud Practitioner (CLF-C02)",
+    issuer: "Amazon Web Services (AWS)",
+    year: "2026",
+  },
   {
     name: "Software Engineering Job Simulation",
     issuer: "JP-Morgan Chase & Co",
@@ -564,42 +580,5 @@ export const certifications: Certification[] = [
     name: "CTF Certificate in Cyber Security",
     issuer: "Cyber Security CTF",
     year: "2024",
-  },
-];
-
-// ============================================================================
-// TECHNICAL WRITING / PLANNED ARTICLES
-// Clearly marked as planned / coming soon
-// ============================================================================
-export const blogPosts: BlogPost[] = [
-  {
-    slug: "mysql-query-optimization",
-    title: "How I optimized MySQL joins and indexed relational queries",
-    excerpt:
-      "A practical exploration of index design, JOIN execution plans, and query optimization lessons from building relational database systems.",
-    date: "Planned / Coming Soon",
-    readTime: "6 min read",
-    tags: ["MySQL", "Query Optimization", "Backend"],
-    published: false,
-  },
-  {
-    slug: "state-machines-backend",
-    title: "State machines in backend systems: lessons from a refund workflow",
-    excerpt:
-      "Why modeling business logic and request lifecycles as explicit state machines makes backend services reliable, transactional, and auditable.",
-    date: "Planned / Coming Soon",
-    readTime: "8 min read",
-    tags: ["System Design", "State Machine", "Backend"],
-    published: false,
-  },
-  {
-    slug: "why-i-practice-dsa",
-    title: "Why I practice DSA daily as a CS student",
-    excerpt:
-      "Building core algorithmic intuition, time-space complexity awareness, and systematic problem decomposition across 2,800+ solved problems.",
-    date: "Planned / Coming Soon",
-    readTime: "5 min read",
-    tags: ["DSA", "Problem Solving", "Computer Science"],
-    published: false,
   },
 ];
