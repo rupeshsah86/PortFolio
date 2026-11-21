@@ -95,9 +95,14 @@ export default function Achievements() {
                       >
                         <span>{item.title}</span>
                       </div>
-                      <div style={{ fontSize: 13, color: "var(--c-muted)", lineHeight: 1.5 }}>
+                      <div style={{ fontSize: 13, color: "var(--c-muted)", lineHeight: 1.5, marginBottom: item.highlight ? 4 : 0 }}>
                         {item.event}
                       </div>
+                      {item.highlight && (
+                        <div style={{ fontSize: 12, color: "var(--c-subtle)", lineHeight: 1.4 }}>
+                          {item.highlight}
+                        </div>
+                      )}
                     </div>
 
                     <div style={{ textAlign: "right", flexShrink: 0 }}>
@@ -145,58 +150,86 @@ export default function Achievements() {
             </div>
 
             <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-              {certifications.map((cert, i) => (
-                <motion.div key={cert.name} {...inView(0.1 + i * 0.06)}>
-                  <div
-                    className="card"
-                    style={{
-                      padding: "16px 20px",
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                      gap: 12,
-                    }}
-                  >
-                    <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                      <div
+              {certifications.map((cert, i) => {
+                const isAws = cert.name.includes("AWS");
+                const iconColor = isAws ? "#f59e0b" : "var(--c-purple)";
+                const cardBorder = isAws ? "1px solid rgba(245, 158, 11, 0.4)" : "1px solid var(--c-border)";
+                const cardBg = isAws ? "linear-gradient(135deg, rgba(245, 158, 11, 0.05) 0%, var(--c-card) 100%)" : "var(--c-card)";
+
+                return (
+                  <motion.div key={cert.name} {...inView(0.1 + i * 0.06)}>
+                    <div
+                      className="card"
+                      style={{
+                        padding: "16px 20px",
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        gap: 12,
+                        border: cardBorder,
+                        background: cardBg,
+                      }}
+                    >
+                      <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                        <div
+                          style={{
+                            width: 34,
+                            height: 34,
+                            borderRadius: 8,
+                            background: isAws ? "rgba(245, 158, 11, 0.12)" : "var(--c-raised)",
+                            border: `1px solid ${isAws ? "rgba(245, 158, 11, 0.3)" : "var(--c-border)"}`,
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            color: iconColor,
+                            flexShrink: 0,
+                          }}
+                        >
+                          <Award size={18} />
+                        </div>
+                        <div>
+                          <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+                            <span style={{ fontSize: 14, fontWeight: 700, color: "var(--c-text)", lineHeight: 1.3 }}>
+                              {cert.name}
+                            </span>
+                            {isAws && (
+                              <span
+                                style={{
+                                  fontSize: 10,
+                                  fontWeight: 700,
+                                  padding: "2px 8px",
+                                  borderRadius: 4,
+                                  background: "rgba(245, 158, 11, 0.15)",
+                                  color: "#f59e0b",
+                                  border: "1px solid rgba(245, 158, 11, 0.35)",
+                                  fontFamily: "'JetBrains Mono', monospace",
+                                }}
+                              >
+                                AWS CERTIFIED
+                              </span>
+                            )}
+                          </div>
+                          <div style={{ fontSize: 12, color: "var(--c-subtle)", marginTop: 2 }}>
+                            {cert.issuer}
+                          </div>
+                        </div>
+                      </div>
+
+                      <span
                         style={{
-                          width: 32,
-                          height: 32,
-                          borderRadius: 8,
-                          background: "var(--c-raised)",
-                          border: "1px solid var(--c-border)",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          color: "var(--c-purple)",
+                          fontSize: 11,
+                          color: isAws ? "#f59e0b" : "var(--c-subtle)",
+                          fontWeight: isAws ? 700 : 400,
+                          fontFamily: "'JetBrains Mono', monospace",
                           flexShrink: 0,
                         }}
                       >
-                        <Award size={16} />
-                      </div>
-                      <div>
-                        <div style={{ fontSize: 14, fontWeight: 600, color: "var(--c-text)", lineHeight: 1.3 }}>
-                          {cert.name}
-                        </div>
-                        <div style={{ fontSize: 12, color: "var(--c-subtle)", marginTop: 2 }}>
-                          {cert.issuer}
-                        </div>
-                      </div>
+                        {cert.year}
+                      </span>
                     </div>
-
-                    <span
-                      style={{
-                        fontSize: 11,
-                        color: "var(--c-subtle)",
-                        fontFamily: "'JetBrains Mono', monospace",
-                        flexShrink: 0,
-                      }}
-                    >
-                      {cert.year}
-                    </span>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </div>

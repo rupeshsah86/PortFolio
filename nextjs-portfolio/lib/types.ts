@@ -47,6 +47,7 @@ export interface Achievement {
   event: string;
   year: string;
   badge: string;
+  highlight?: string;
 }
 
 export interface CodingProfile {

@@ -509,39 +509,45 @@ export const codingProfiles: CodingProfile[] = [
 export const achievements: Achievement[] = [
   {
     title: "First Prize Winner",
-    event: "Freshathon",
+    event: "Freshathon (2025)",
     year: "2025",
     badge: "1st Place",
+    highlight: "Awarded 1st Prize for software engineering and technical prototype execution.",
   },
   {
     title: "Second Prize Winner",
-    event: "Creatathon",
+    event: "Creatathon (2024)",
     year: "2024",
     badge: "2nd Place",
+    highlight: "Awarded 2nd Prize for rapid product design and prototype implementation.",
   },
   {
     title: "Top 10 Finalist",
     event: "Hack Spark National-Level Hackathon",
     year: "2025",
     badge: "Top 10",
+    highlight: "Qualified among top 10 national teams and presented technical solution to judges.",
   },
   {
     title: "Top 5 Finalist",
     event: "SDG Challenge — Sathyabama University",
     year: "2025",
     badge: "Top 5",
+    highlight: "Selected as Top 5 finalist and pitched sustainable technology project to panel.",
   },
   {
-    title: "Hackathon Finalist & Presenter",
+    title: "Finalist & Presenter",
     event: "LLM Forge Hackathon — Sri Eshwar College of Engineering",
     year: "2026",
     badge: "Finalist",
+    highlight: "Engineered and presented domain LLM RAG workflow to faculty evaluation panel.",
   },
   {
     title: "Hackathon Participant & Presenter",
     event: "Karnataka State Police Hackathon 2026 (DataPulse Platform)",
     year: "2026",
     badge: "KSP Hackathon",
+    highlight: "Demonstrated AI crime analytics and shortest-path patrol routing prototype.",
   },
 ];
 
