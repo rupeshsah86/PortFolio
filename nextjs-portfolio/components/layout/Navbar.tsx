@@ -78,19 +78,18 @@ export default function Navbar() {
             style={{
               fontFamily: "'JetBrains Mono', monospace",
               fontWeight: 800,
-              fontSize: 18,
+              fontSize: 19,
               color: "var(--c-text)",
               cursor: "pointer",
               border: "none",
               background: "none",
               display: "flex",
               alignItems: "center",
-              gap: 6,
-              letterSpacing: "-0.02em",
+              letterSpacing: "-0.01em",
               transition: "color 0.3s ease",
             }}
           >
-            <span style={{ color: "var(--c-accent)" }}>{"//"}</span> RUPESH
+            <span style={{ color: "var(--c-accent)" }}>R</span>UPESH
           </button>
 
           {/* Desktop Nav */}

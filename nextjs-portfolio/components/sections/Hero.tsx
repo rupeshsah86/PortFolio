@@ -88,43 +88,11 @@ export default function Hero() {
         >
           {/* Left Side Content */}
           <div style={{ maxWidth: 660 }}>
-            {/* Availability Pill Badge */}
-            <motion.div
-              {...up(0.08)}
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 8,
-                padding: "6px 14px",
-                borderRadius: 9999,
-                border: "1px solid var(--c-pill-border)",
-                background: "var(--c-pill-bg)",
-                color: "var(--c-pill-text)",
-                fontSize: 13,
-                fontWeight: 600,
-                letterSpacing: "0.01em",
-                marginBottom: 20,
-                transition: "all 0.3s ease",
-              }}
-            >
-              <span
-                style={{
-                  width: 7,
-                  height: 7,
-                  borderRadius: "50%",
-                  background: "var(--c-green)",
-                  display: "inline-block",
-                  boxShadow: "0 0 10px var(--c-green)",
-                }}
-              />
-              Available for 2026 Internships · Sri Eshwar College of Engineering
-            </motion.div>
-
             {/* Main Headline */}
             <motion.h1
-              {...up(0.16)}
+              {...up(0.08)}
               style={{
-                fontSize: "clamp(2.4rem, 4.4vw, 3.8rem)",
+                fontSize: "clamp(2.5rem, 4.6vw, 4rem)",
                 fontWeight: 800,
                 lineHeight: 1.15,
                 letterSpacing: "-0.03em",
