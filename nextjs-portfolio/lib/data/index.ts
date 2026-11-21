@@ -50,7 +50,7 @@ export const personal: PersonalInfo = {
 // ============================================================================
 export const stats = [
   { n: "2,000+", l: "DSA Problems Solved" },
-  { n: "6+", l: "Engineering Projects" },
+  { n: "7+", l: "Engineering Projects" },
   { n: "Open Source", l: "Merged PRs & Contributions" },
   { n: "Full-Stack & Backend", l: "Systems Development" },
   { n: "AI/ML", l: "Data-Driven Applications" },
@@ -244,6 +244,42 @@ export const projects: Project[] = [
     image: "/images/projects/datapulse.jpg",
     category: "Machine Learning",
     categoryBadge: "AI/ML | Full-Stack | Backend Engineering",
+  },
+  {
+    id: "aerollm",
+    initials: "AL",
+    title: "AeroLLM — Domain-Specific Aviation Maintenance & Safety Intelligence",
+    shortDesc:
+      "Domain-specific RAG engine and intelligence platform for commercial aviation maintenance engineering, ATA 100 fault classification, and NASA ASRS safety intelligence.",
+    problem:
+      "Aviation maintenance technicians and safety analysts must parse thousands of unstructured NASA ASRS incident reports, maintenance logs, and multi-chapter ATA 100 manuals to identify component failure patterns.",
+    approach:
+      "Engineered a domain-specific dataset and retrieval pipeline: structured aviation incident safety data, implemented domain RAG embeddings for aircraft maintenance intelligence, and built fault classification pipelines aligned with ATA 100 chapter standards.",
+    keyFeatures: [
+      "NASA ASRS aviation safety report parsing and dataset structuring.",
+      "Domain-specific RAG pipeline for aircraft maintenance intelligence.",
+      "ATA 100 fault classification and incident taxonomy mapping.",
+      "Component failure pattern analysis across safety logs.",
+    ],
+    challenges:
+      "Handling technical terminology, acronym density, and varied reporting styles across unstructured aviation safety reports while ensuring accurate retrieval.",
+    results:
+      "Created a structured aviation safety dataset and specialized RAG retrieval pipeline for maintenance diagnostic exploration.",
+    learnings:
+      "Domain-specific RAG requires specialized taxonomy mapping (such as ATA 100 standards) to outperform generic foundation model retrieval on technical documentation.",
+    tech: [
+      "Python",
+      "RAG & LLM Integration",
+      "Dataset Engineering",
+      "NLP",
+      "Pandas",
+      "Scikit-learn",
+    ],
+    primaryTech: ["Python", "RAG & LLM Integration", "Dataset Engineering"],
+    github: "https://github.com/rupeshsah86/aerollm_rev2.git",
+    accentColor: "#0ea5e9",
+    category: "Machine Learning",
+    categoryBadge: "Applied AI / RAG & Dataset Engineering",
   },
   {
     id: "return-refund",
