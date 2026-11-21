@@ -7,7 +7,6 @@ import type {
   Certification,
   Achievement,
   CodingProfile,
-  Testimonial,
 } from "@/lib/types";
 
 export const personal: PersonalInfo = {
@@ -30,7 +29,7 @@ export const personal: PersonalInfo = {
   about: [
     "I'm Rupesh Kumar, a Computer Science and Engineering student at Sri Eshwar College of Engineering, graduating in 2028.",
     "I build full-stack applications and backend systems using Java, Spring Boot, React, Next.js, and relational databases. My work also includes AI/ML pipelines, RAG-based applications, and data-driven problem solving.",
-    "With 2,000+ coding problems solved and hands-on experience contributing to open-source projects and building applications across backend engineering, databases, and AI, I enjoy turning complex problems into practical software.",
+    "With 2,800+ coding problems solved and hands-on experience contributing to open-source projects and building applications across backend engineering, databases, and AI, I enjoy turning complex problems into practical software.",
   ],
   email: "rupeshshah.86@gmail.com",
   github: "https://github.com/rupeshsah86",
@@ -49,7 +48,7 @@ export const personal: PersonalInfo = {
 // Strictly verified metrics only (no invented metrics or user counts)
 // ============================================================================
 export const stats = [
-  { n: "2,000+", l: "DSA Problems Solved" },
+  { n: "2,800+", l: "DSA Problems Solved" },
   { n: "7+", l: "Engineering Projects" },
   { n: "Open Source", l: "Merged PRs & Contributions" },
   { n: "Full-Stack & Backend", l: "Systems Development" },
@@ -278,6 +277,7 @@ export const projects: Project[] = [
     primaryTech: ["Python", "RAG & LLM Integration", "Dataset Engineering"],
     github: "https://github.com/rupeshsah86/aerollm_rev2.git",
     accentColor: "#0ea5e9",
+    image: "/images/projects/aerollm.jpg",
     category: "Machine Learning",
     categoryBadge: "Applied AI / RAG & Dataset Engineering",
   },
@@ -468,7 +468,7 @@ export const projects: Project[] = [
 
 // ============================================================================
 // COMPETITIVE PROGRAMMING PROFILES
-// 2,000+ problems solved across verified coding platforms
+// 2,800+ problems solved across verified coding platforms
 // ============================================================================
 export const codingProfiles: CodingProfile[] = [
   {
@@ -485,13 +485,13 @@ export const codingProfiles: CodingProfile[] = [
   },
   {
     platform: "LeetCode",
-    solved: "240+ Problems",
+    solved: "485 Problems",
     url: "https://leetcode.com/u/Rupeshkumarsah/",
     highlight: "Data Structures & Algorithms",
   },
   {
     platform: "CodeForces",
-    solved: "35+ Problems",
+    solved: "200 Problems",
     url: "https://codeforces.com/profile/rupeshkumarsah.2024cse",
     highlight: "Contest Problem Solving",
   },
@@ -596,34 +596,10 @@ export const blogPosts: BlogPost[] = [
     slug: "why-i-practice-dsa",
     title: "Why I practice DSA daily as a CS student",
     excerpt:
-      "Building core algorithmic intuition, time-space complexity awareness, and systematic problem decomposition across 2,000+ solved problems.",
+      "Building core algorithmic intuition, time-space complexity awareness, and systematic problem decomposition across 2,800+ solved problems.",
     date: "Planned / Coming Soon",
     readTime: "5 min read",
     tags: ["DSA", "Problem Solving", "Computer Science"],
     published: false,
-  },
-];
-
-export const testimonials: Testimonial[] = [
-  {
-    quote:
-      "Rupesh demonstrates strong analytical thinking and structured problem-solving. His ability to model complex workflows and reason about edge cases makes him a standout CS student.",
-    name: "Faculty Review",
-    title: "Department of CSE · Sri Eshwar College of Engineering",
-    initials: "FR",
-  },
-  {
-    quote:
-      "Rupesh takes real ownership of his projects. He goes beyond basic functionality to think through schema normalization, state management, and practical execution.",
-    name: "Project Feedback",
-    title: "Academic Project Mentor",
-    initials: "PM",
-  },
-  {
-    quote:
-      "Solid engineering fundamentals, consistent DSA practice, and continuous learning mindset. Rupesh works effectively in team settings and builds reliable software.",
-    name: "Peer Endorsement",
-    title: "CS Peer & Hackathon Collaborator",
-    initials: "PE",
   },
 ];

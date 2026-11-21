@@ -130,7 +130,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           </div>
 
           {/* Tech Badges */}
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 24 }}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 20 }}>
             {project.tech.map((t) => (
               <span
                 key={t}
@@ -150,6 +150,28 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               </span>
             ))}
           </div>
+
+          {/* Project Image Banner */}
+          {project.image && (
+            <div
+              style={{
+                position: "relative",
+                width: "100%",
+                height: 220,
+                borderRadius: 12,
+                overflow: "hidden",
+                marginBottom: 24,
+                border: "1px solid var(--c-border-md)",
+              }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={project.image}
+                alt={project.title}
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
+            </div>
+          )}
 
           {/* Case Study Sections */}
           <div style={{ display: "flex", flexDirection: "column", gap: 18, marginBottom: 28 }}>

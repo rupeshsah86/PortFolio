@@ -96,7 +96,6 @@ export default function Navbar() {
           {/* Desktop Nav */}
           <nav
             style={{
-              display: "flex",
               alignItems: "center",
               gap: 4,
               padding: "4px 6px",
@@ -105,7 +104,7 @@ export default function Navbar() {
               border: "1px solid var(--c-border)",
               transition: "all 0.3s ease",
             }}
-            className="hidden md:flex"
+            className="nav-desktop-only"
           >
             {links.map((l) => {
               const isActive = active === l.toLowerCase();
@@ -141,8 +140,8 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* Right Section */}
-          <div style={{ display: "flex", alignItems: "center", gap: 12 }} className="hidden md:flex">
+          {/* Controls: Single Theme Toggle & Mobile Menu */}
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
             {mounted && (
               <button
                 onClick={() => setTheme(isDark ? "light" : "dark")}
@@ -161,39 +160,24 @@ export default function Navbar() {
                   transition: "all 0.2s ease",
                 }}
               >
-                {isDark ? <Sun size={16} /> : <Moon size={16} />}
+                {isDark ? <Sun size={17} /> : <Moon size={17} />}
               </button>
             )}
-          </div>
 
-          {/* Mobile Hamburger & Theme Toggle */}
-          <div style={{ display: "flex", alignItems: "center", gap: 8 }} className="md:hidden">
-            {mounted && (
-              <button
-                onClick={() => setTheme(isDark ? "light" : "dark")}
-                aria-label="Toggle theme"
-                style={{
-                  background: "var(--c-card)",
-                  border: "1px solid var(--c-border)",
-                  color: "var(--c-text)",
-                  cursor: "pointer",
-                  padding: 8,
-                  borderRadius: 8,
-                }}
-              >
-                {isDark ? <Sun size={18} /> : <Moon size={18} />}
-              </button>
-            )}
             <button
               onClick={() => setOpen(!open)}
               aria-label="Toggle menu"
+              className="nav-mobile-only"
               style={{
-                background: "var(--c-card)",
+                width: 38,
+                height: 38,
+                borderRadius: 10,
                 border: "1px solid var(--c-border)",
+                background: "var(--c-card)",
                 color: "var(--c-text)",
                 cursor: "pointer",
-                padding: 8,
-                borderRadius: 8,
+                alignItems: "center",
+                justifyContent: "center",
               }}
             >
               {open ? <X size={20} /> : <Menu size={20} />}

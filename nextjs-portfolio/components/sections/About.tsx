@@ -277,7 +277,7 @@ export default function About() {
                       border: "1px solid var(--c-border-md)",
                     }}
                   >
-                    2,000+ Problems Solved
+                    2,800+ Problems Solved
                   </span>
                 </div>
 

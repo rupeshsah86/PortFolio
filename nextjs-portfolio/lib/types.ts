@@ -36,13 +36,6 @@ export interface SkillCategory {
   skills: { name: string; primary: boolean }[];
 }
 
-export interface Testimonial {
-  quote: string;
-  name: string;
-  title: string;
-  initials: string;
-}
-
 export interface BlogPost {
   slug: string;
   title: string;

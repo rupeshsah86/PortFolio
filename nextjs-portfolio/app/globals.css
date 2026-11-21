@@ -257,3 +257,21 @@ body::before {
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
+
+/* Responsive Navbar Display Utilities */
+.nav-desktop-only {
+  display: flex !important;
+}
+.nav-mobile-only {
+  display: none !important;
+}
+
+@media (max-width: 767px) {
+  .nav-desktop-only {
+    display: none !important;
+  }
+  .nav-mobile-only {
+    display: flex !important;
+  }
+}
+
