@@ -38,7 +38,7 @@ export const personal: PersonalInfo = {
   degree: "B.E. Computer Science and Engineering",
   educationPeriod: "2024–2028",
   expectedGraduation: "2028",
-  cgpa: "7.93",
+  cgpa: "8.20 (upto 4th sem)",
   resumeUrl: "/files/Rupesh_Kumar_Resume.pdf",
 };
 
