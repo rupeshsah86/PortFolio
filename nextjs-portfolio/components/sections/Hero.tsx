@@ -137,64 +137,21 @@ export default function Hero() {
               <span style={{ color: "var(--c-accent)" }}>Backend Systems</span> · AI/ML
             </motion.h1>
 
-            {/* Concise Value Statement */}
+            {/* Clean Tagline */}
             <motion.p
               {...up(0.22)}
               style={{
-                fontSize: 16,
+                fontSize: 18,
                 color: "var(--c-muted)",
-                lineHeight: 1.7,
-                marginBottom: 26,
-                maxWidth: 600,
+                lineHeight: 1.6,
+                marginBottom: 32,
+                maxWidth: 580,
                 fontWeight: 400,
                 transition: "color 0.3s ease",
               }}
             >
-              Building reliable web applications and scalable backend architectures. Experienced in relational database engineering, enterprise open-source contributions, and practical AI/ML solutions.
+              {personal.tagline}
             </motion.p>
-
-            {/* Target Role Tags */}
-            <motion.div
-              {...up(0.28)}
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                alignItems: "center",
-                gap: 8,
-                marginBottom: 32,
-              }}
-            >
-              <span
-                style={{
-                  fontSize: 11,
-                  fontWeight: 700,
-                  color: "var(--c-subtle)",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.06em",
-                  fontFamily: "'JetBrains Mono', monospace",
-                  marginRight: 4,
-                }}
-              >
-                Focus Tracks:
-              </span>
-              {personal.targetRoles.map((role) => (
-                <span
-                  key={role}
-                  style={{
-                    fontSize: 12,
-                    padding: "4px 10px",
-                    borderRadius: 6,
-                    background: "var(--c-raised)",
-                    color: "var(--c-text)",
-                    border: "1px solid var(--c-border)",
-                    fontFamily: "'JetBrains Mono', monospace",
-                    fontWeight: 500,
-                  }}
-                >
-                  {role}
-                </span>
-              ))}
-            </motion.div>
 
             {/* Action Buttons */}
             <motion.div
