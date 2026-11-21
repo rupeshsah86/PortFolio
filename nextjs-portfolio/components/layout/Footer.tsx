@@ -24,7 +24,10 @@ export default function Footer() {
     <>
       <footer style={{ background:"var(--c-card)", borderTop:"1px solid var(--c-border)", padding:"28px 0" }}>
         <div className="wrap" style={{ display:"flex", alignItems:"center", justifyContent:"space-between", flexWrap:"wrap", gap:16 }}>
-          <span style={{ fontFamily:"'JetBrains Mono',monospace", fontWeight:800, fontSize:18, color:"var(--c-text)", letterSpacing:"-0.01em" }}><span style={{ color:"var(--c-accent)" }}>R</span>UPESH</span>
+          <span style={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 800, fontSize: 18, letterSpacing: "0.02em" }}>
+            <span style={{ color: "var(--c-accent)", fontWeight: 900 }}>R</span>
+            <span style={{ color: "var(--c-text)", fontWeight: 800 }}>UPESH</span>
+          </span>
           <p style={{ fontSize:12, color:"var(--c-subtle)", textAlign:"center" }}>© {new Date().getFullYear()} Rupesh Kumar · Built with Next.js & Tailwind</p>
           <div style={{ display:"flex", gap:8 }}>
             {socials.map(s => (

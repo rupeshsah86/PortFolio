@@ -266,7 +266,7 @@ body::before {
   display: none !important;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 860px) {
   .nav-desktop-only {
     display: none !important;
   }
