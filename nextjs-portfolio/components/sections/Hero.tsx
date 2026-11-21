@@ -88,7 +88,7 @@ export default function Hero() {
         >
           {/* Left Side Content */}
           <div style={{ maxWidth: 660 }}>
-            {/* Seeking Roles Pill Badge */}
+            {/* Availability Pill Badge */}
             <motion.div
               {...up(0.08)}
               style={{
@@ -117,7 +117,7 @@ export default function Hero() {
                   boxShadow: "0 0 10px var(--c-green)",
                 }}
               />
-              Seeking Software Engineering & Full-Stack Internships
+              Available for 2026 Internships · Sri Eshwar College of Engineering
             </motion.div>
 
             {/* Main Headline */}
@@ -137,46 +137,46 @@ export default function Hero() {
               <span style={{ color: "var(--c-accent)" }}>Backend Systems</span> · AI/ML
             </motion.h1>
 
-            {/* Supporting Headline & Tagline */}
+            {/* Concise Value Statement */}
             <motion.p
               {...up(0.22)}
               style={{
-                fontSize: 18,
-                color: "var(--c-text)",
-                lineHeight: 1.5,
-                marginBottom: 12,
-                fontWeight: 600,
-                letterSpacing: "-0.01em",
-              }}
-            >
-              {personal.subheadline}
-            </motion.p>
-
-            <motion.p
-              {...up(0.26)}
-              style={{
-                fontSize: 15,
+                fontSize: 16,
                 color: "var(--c-muted)",
                 lineHeight: 1.7,
                 marginBottom: 26,
-                maxWidth: 580,
+                maxWidth: 600,
                 fontWeight: 400,
                 transition: "color 0.3s ease",
               }}
             >
-              {personal.positioning}
+              Building reliable web applications and scalable backend architectures. Experienced in relational database engineering, enterprise open-source contributions, and practical AI/ML solutions.
             </motion.p>
 
             {/* Target Role Tags */}
             <motion.div
-              {...up(0.3)}
+              {...up(0.28)}
               style={{
                 display: "flex",
                 flexWrap: "wrap",
+                alignItems: "center",
                 gap: 8,
                 marginBottom: 32,
               }}
             >
+              <span
+                style={{
+                  fontSize: 11,
+                  fontWeight: 700,
+                  color: "var(--c-subtle)",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.06em",
+                  fontFamily: "'JetBrains Mono', monospace",
+                  marginRight: 4,
+                }}
+              >
+                Focus Tracks:
+              </span>
               {personal.targetRoles.map((role) => (
                 <span
                   key={role}
