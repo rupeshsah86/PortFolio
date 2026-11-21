@@ -2,9 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Sun, Moon, Download } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import { useTheme } from "next-themes";
-import { personal } from "@/lib/data";
 
 const links = ["About", "Experience", "Skills", "Projects", "Achievements", "Contact"];
 
@@ -165,24 +164,6 @@ export default function Navbar() {
                 {isDark ? <Sun size={16} /> : <Moon size={16} />}
               </button>
             )}
-
-            <a
-              href={personal.resumeUrl}
-              download="Rupesh_Kumar_Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-ghost"
-              style={{
-                padding: "8px 16px",
-                fontSize: 13,
-                borderRadius: 8,
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 6,
-              }}
-            >
-              <Download size={14} /> Resume
-            </a>
           </div>
 
           {/* Mobile Hamburger & Theme Toggle */}
@@ -263,27 +244,6 @@ export default function Navbar() {
                   {l}
                 </motion.button>
               ))}
-              <div style={{ padding: "8px 16px" }}>
-                <a
-                  href={personal.resumeUrl}
-                  download="Rupesh_Kumar_Resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-ghost"
-                  style={{
-                    width: "100%",
-                    justifyContent: "center",
-                    padding: "10px 16px",
-                    borderRadius: 8,
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: 6,
-                    textAlign: "center",
-                  }}
-                >
-                  <Download size={14} /> Download Resume
-                </a>
-              </div>
             </div>
           </motion.div>
         )}
