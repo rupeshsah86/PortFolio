@@ -1,4 +1,4 @@
-import type { Variants, Transition } from "framer-motion";
+import type { Transition } from "framer-motion";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 

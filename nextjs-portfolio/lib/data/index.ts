@@ -1,273 +1,124 @@
 import type {
   PersonalInfo,
   Project,
-  Experience,
+  ProfessionalExperience,
   SkillCategory,
-  Testimonial,
   BlogPost,
+  Certification,
+  Achievement,
+  CodingProfile,
+  Testimonial,
 } from "@/lib/types";
 
 export const personal: PersonalInfo = {
   name: "Rupesh Kumar",
   firstName: "Rupesh",
   initials: "RK",
-  title: "Full-Stack Engineer & CS Student",
-  headline: "Building software that scales and solves real problems.",
+  title: "Full-Stack Engineer & Computer Science Student",
+  headline: "Full-Stack Engineer | Backend Systems | AI/ML",
   subheadline:
-    "3rd-year CS student at Sri Eshwar College of Engineering. Focused on full-stack web development, backend architecture, relational database design, and machine learning pipelines.",
+    "Building reliable web applications, scalable backend systems, and practical AI-powered solutions.",
+  tagline: "Building software that scales and solves real problems.",
+  positioning:
+    "Full-Stack Engineer with hands-on experience in backend systems, database engineering, open-source contributions, and applied AI/ML.",
+  targetRoles: [
+    "Software Engineering Intern",
+    "Full-Stack Developer Intern",
+    "Backend Developer Intern",
+    "AI/ML Engineering Intern",
+  ],
   about: [
-    "I'm Rupesh — a CS student who loves building software from the ground up. I focus on clean architecture, practical tradeoffs, and building user experiences that feel intuitive and reliable.",
-    "My work spans full-stack web applications, database-driven services, and machine learning pipelines. I enjoy designing normalized schemas, building workflow engines with explicit business logic, and applying ML models to practical problems.",
-    "I practice DSA daily to strengthen core problem-solving fundamentals. I'm constantly learning and currently building deeper expertise in distributed systems, web architectures, and full-stack development.",
-    "I'm looking for an engineering internship where I can contribute meaningfully, learn from experienced developers, and grow rapidly as a software engineer.",
+    "I'm Rupesh Kumar, a Computer Science and Engineering student at Sri Eshwar College of Engineering, graduating in 2028.",
+    "I build full-stack applications and backend systems using Java, Spring Boot, React, Next.js, and relational databases. My work also includes AI/ML pipelines, RAG-based applications, and data-driven problem solving.",
+    "With 2,000+ coding problems solved and hands-on experience contributing to open-source projects and building applications across backend engineering, databases, and AI, I enjoy turning complex problems into practical software.",
   ],
   email: "rupeshshah.86@gmail.com",
   github: "https://github.com/rupeshsah86",
   linkedin: "https://www.linkedin.com/in/rupesh-shah-a480b8324/",
   twitter: "https://x.com/RupeshshahB86",
   college: "Sri Eshwar College of Engineering",
-  year: "3rd Year · B.Tech CSE",
+  degree: "B.E. Computer Science and Engineering",
+  educationPeriod: "2024–2028",
+  expectedGraduation: "2028",
+  cgpa: "7.93",
   resumeUrl: "/files/Rupesh_Kumar_Resume.pdf",
 };
 
 // ============================================================================
-// PROJECTS DATA
-// Live demo projects are listed first for maximum visibility.
+// VERIFIED STATISTICS
+// Strictly verified metrics only (no invented metrics or user counts)
 // ============================================================================
-export const projects: Project[] = [
-  {
-    id: "datapulse",
-    initials: "DP",
-    title: "DataPulse — AI Crime Analytics & Spatial Intelligence Platform",
-    shortDesc:
-      "AI crime analytics and spatial intelligence platform built for the Karnataka State Police Hackathon 2026, integrating Groq LLM RAG, Three.js 3D spatial maps, NetworkX routing, and React Native mobile telematics.",
-    problem:
-      "Law enforcement agencies operate with fragmented incident data, manual paper FIR scans, and multi-state registries. Officers lack real-time spatial intelligence, automated case briefings, and optimal risk-weighted patrol routing.",
-    approach:
-      "Built a multi-service architecture: Spring Boot 3.5 REST API with PostgreSQL 17 for relational crime data persistence & JWT security; Python 3.12 FastAPI AI Engine leveraging Groq LLM (Llama-3.3-70b) for RAG case briefs and Tesseract OCR for FIR extraction; NetworkX for Dijkstra shortest-path patrol routing; Next.js frontend featuring Three.js WebGL elevation maps; and a React Native Expo field app.",
-    challenges:
-      "Serving sub-second Groq LLM RAG responses while parsing multi-page scanned FIR PDFs required async FastAPI background pipelines. Synchronizing real-time React Native mobile officer GPS locations with interactive 3D WebGL elevation maps demanded low-latency state management via Zustand.",
-    results:
-      "Built a functional spatial intelligence platform prototype featuring automated FIR text extraction, fast Groq RAG case summaries, 3D WebGL severity visualization, and NetworkX risk-weighted patrol optimization.",
-    learnings:
-      "Combining high-speed LLMs (Groq Llama-3.3-70b) with spatial graph algorithms (NetworkX) unlocks domain-specific actionable intelligence. Decoupling enterprise REST services (Spring Boot) from AI engines (FastAPI) enables clean microservice separation.",
-    tech: [
-      "Next.js 16",
-      "Spring Boot 3.5",
-      "Python 3.12",
-      "FastAPI",
-      "Groq LLM (Llama 3.3)",
-      "Three.js WebGL",
-      "React Native Expo",
-      "PostgreSQL 17",
-      "NetworkX",
-      "Leaflet GIS",
-      "Vis Network",
-      "Tesseract OCR",
-      "Web Speech API",
-    ],
-    primaryTech: ["Next.js 16", "Spring Boot 3.5", "Groq LLM", "Python", "Three.js"],
-    github: "https://github.com/rupeshsah86/DataPulse-KSP-Crime-Analytics.git",
-    demo: "https://frontend-deploy-ejcwfbbz.onslate.in",
-    accentColor: "#38bdf8",
-    image: "/images/projects/datapulse.jpg",
-    category: "Machine Learning",
-  },
-  {
-    id: "hamro-food",
-    initials: "HF",
-    title: "Hamro Food — Food Ordering Web App",
-    shortDesc:
-      "Responsive food ordering interface built with vanilla HTML5, CSS3, and JavaScript — demonstrating core web platform fundamentals.",
-    problem:
-      "Build a clean, responsive frontend from scratch without external UI frameworks while maintaining mobile responsiveness, accessibility, and visual polish.",
-    approach:
-      "Implemented a mobile-first responsive layout using CSS Grid and Flexbox. Used semantic HTML5 for accessibility. Built interactive components (cart state, menu filtering, smooth scrolling) in vanilla JavaScript.",
-    challenges:
-      "Achieving visual polish and smooth interactions without component libraries required writing modular CSS utility classes from scratch and handling DOM updates efficiently.",
-    results:
-      "Fully responsive, accessible UI with clean visual hierarchy, fast load time, zero framework overhead, and live deployment on GitHub Pages.",
-    learnings:
-      "Building without frameworks builds deep understanding of DOM manipulation, CSS layout models, and browser rendering primitives.",
-    tech: ["HTML5", "CSS3", "JavaScript", "CSS Grid", "Flexbox", "Responsive Design", "Accessibility"],
-    primaryTech: ["HTML5", "CSS3", "JavaScript"],
-    github: "https://github.com/rupeshsah86/Hamro_Food.git",
-    demo: "https://rupeshsah86.github.io/Hamro_Food/",
-    accentColor: "#f59e0b",
-    image: "/images/projects/hamro-food.png",
-    category: "Full Stack",
-  },
-  {
-    id: "smart-campus",
-    initials: "SC",
-    title: "Smart Campus Service Request System",
-    shortDesc:
-      "Backend platform digitizing campus service operations with role-based workflow management and state machine design.",
-    problem:
-      "Campus service requests were handled manually via paper forms, causing delays, lost tickets, and zero visibility into resolution status. Students had no way to track requests; admins had no structured assignment system.",
-    approach:
-      "Designed a normalized relational schema modeling the request lifecycle — submission, assignment, status transitions, and resolution. Built a REST API with role-based access control separating student, staff, and admin permissions. Designed the workflow engine as a state machine to ensure valid status transitions.",
-    challenges:
-      "Modeling concurrent request assignments without race conditions required careful transaction design. Ensuring the state machine rejected invalid transitions (e.g., re-opening a resolved request) without complex client-side logic meant encoding business rules directly in backend services.",
-    results:
-      "Digitized request lifecycles with structured state transitions, eliminating ambiguity and lost tickets in testing scenarios.",
-    learnings:
-      "Encoding business rules at the API layer rather than the client makes backend applications significantly more reliable.",
-    tech: ["Node.js", "Express.js", "MySQL", "REST API", "Role-Based Access Control", "State Machine Design"],
-    primaryTech: ["Node.js", "MySQL", "REST API"],
-    github: "https://github.com/rupeshsah86",
-    accentColor: "#5b5bd6",
-    image: "/images/projects/smart-campus.png",
-    category: "Backend & Systems",
-  },
-  {
-    id: "return-refund",
-    initials: "RR",
-    title: "Return & Refund Management System",
-    shortDesc:
-      "Backend workflow system with multi-stage approval workflows and ACID-compliant refund transaction logic.",
-    problem:
-      "E-commerce return flows involve complex multi-stage decisions — submission, validation, approval/rejection, and refund issuance — requiring accurate database transactions and audit logging.",
-    approach:
-      "Implemented a multi-stage approval workflow with explicit state transitions and append-only audit logging at every step. Used ACID-compliant transactions to ensure data integrity during status updates.",
-    challenges:
-      "Handling concurrent refund operations without double-processing required transaction locking at the database level. Designing the audit trail to be append-only while remaining queryable was a structured schema design exercise.",
-    results:
-      "Correctly modeled multi-stage business logic with complete audit logs and clean data separation across customer and admin roles.",
-    learnings:
-      "ACID compliance requires deliberate schema and transaction design. Audit trails are far easier when designed into data models from day one.",
-    tech: ["MySQL", "DBMS", "Transaction Management", "Role-Based Access", "Audit Logging", "Backend Architecture"],
-    primaryTech: ["MySQL", "Transaction Management"],
-    github: "https://github.com/rupeshsah86/ReturnRefundManager.git",
-    accentColor: "#7b7bf0",
-    image: "/images/projects/return-refund.png",
-    category: "Backend & Systems",
-  },
-  {
-    id: "blood-bank",
-    initials: "BB",
-    title: "Blood Bank Management System",
-    shortDesc:
-      "Donor and inventory management system focused on relational database indexing and query optimization.",
-    problem:
-      "Blood banks require fast inventory lookups and accurate donor record matching across blood types and urgency levels.",
-    approach:
-      "Designed a normalized relational schema supporting donor registration, inventory tracking, and matching queries. Applied database indexing and structured JOIN queries to optimize lookup performance.",
-    challenges:
-      "Designing indexes to speed up read-heavy availability lookups without imposing heavy write overhead during donor registrations required benchmarking index choices.",
-    results:
-      "Efficient inventory tracking schema with fast query execution and clear donor record management.",
-    learnings:
-      "Index selection has a direct impact on query execution plans. Proper normalization and query optimization complement each other.",
-    tech: ["MySQL", "Database Design", "Query Optimization", "Indexing", "DBMS"],
-    primaryTech: ["MySQL", "Query Optimization"],
-    github: "https://github.com/rupeshsah86/blood-bank-system.git",
-    accentColor: "#e05c5c",
-    image: "/images/projects/blood-bank.png",
-    category: "Backend & Systems",
-  },
-  {
-    id: "predictive-maintenance",
-    initials: "ML",
-    title: "Military Vehicle Predictive Maintenance",
-    shortDesc:
-      "Supervised machine learning pipeline predicting vehicle component failure to prevent operational downtime.",
-    problem:
-      "Reactive vehicle maintenance leads to costly unplanned downtime. The project objective was to evaluate failure risk using sensor measurements.",
-    approach:
-      "Built an end-to-end ML pipeline: data cleaning, feature engineering from raw sensor readings, training classification models, and evaluating precision/recall trade-offs to minimize false negatives.",
-    challenges:
-      "Class imbalance in failure events required SMOTE oversampling and threshold tuning. Choosing the appropriate metric (recall vs precision) depended on the high cost of false negatives.",
-    results:
-      "Evaluated model performance under imbalanced data conditions, showing that domain feature engineering yielded significant performance gains.",
-    learnings:
-      "In risk-sensitive ML applications, error cost asymmetry dictates metric evaluation rather than default accuracy.",
-    tech: ["Python", "Scikit-learn", "Pandas", "NumPy", "Supervised Learning", "Feature Engineering", "SMOTE"],
-    primaryTech: ["Python", "Scikit-learn", "Feature Engineering"],
-    github: "https://github.com/rupeshsah86/predictivemaintainancemilitarryvehicle-Aiml.git",
-    accentColor: "#22c55e",
-    image: "/images/projects/predictive-maintenance.png",
-    category: "Machine Learning",
-  },
+export const stats = [
+  { n: "2,000+", l: "DSA Problems Solved" },
+  { n: "6+", l: "Engineering Projects" },
+  { n: "Open Source", l: "Merged PRs & Contributions" },
+  { n: "Full-Stack & Backend", l: "Systems Development" },
+  { n: "AI/ML", l: "Data-Driven Applications" },
 ];
 
-export const experiences: Experience[] = [
+// ============================================================================
+// PROFESSIONAL EXPERIENCE & OPEN SOURCE CONTRIBUTIONS
+// Dedicated section highlighting real engineering work beyond coursework
+// ============================================================================
+export const professionalExperiences: ProfessionalExperience[] = [
   {
-    role: "DataPulse — AI Crime Analytics Platform",
-    company: "Karnataka State Police Hackathon 2026",
+    role: "Open Source Contributor",
+    organization: "Eclipse SW360 — Eclipse Foundation",
     period: "2026",
-    type: "project",
-    bullets: [
-      "Built multi-service AI crime analytics platform integrating Groq LLM (Llama-3.3-70b) RAG for incident summarization",
-      "Engineered 3D WebGL spatial height elevation maps with Three.js and 2D GIS hotspot maps with Leaflet",
-      "Implemented NetworkX shortest path graph algorithms for patrol route optimization",
-      "Designed Spring Boot 3.5 REST backend with PostgreSQL 17 and FastAPI Python AI services",
+    type: "opensource",
+    description:
+      "Delivered 2 merged pull requests to an enterprise license-compliance platform: added unit tests for LicenseInfoController, tightened ArchUnit architecture rules, and refactored test naming while removing an ArchUnit ratio exclusion.",
+    highlights: [
+      "Delivered 2 merged pull requests to an enterprise license-compliance platform.",
+      "Added comprehensive unit tests for LicenseInfoController ensuring controller reliability.",
+      "Tightened ArchUnit architecture rules to enforce clean architectural boundaries.",
+      "Refactored test naming conventions and removed legacy ArchUnit ratio exclusion.",
     ],
+    keyTags: ["Java", "Spring Boot", "ArchUnit", "JUnit", "Architecture Rules"],
+    repoUrl: "https://github.com/eclipse/sw360",
+    pullRequests: ["2 Merged PRs"],
   },
   {
-    role: "B.Tech Computer Science & Engineering",
-    company: "Sri Eshwar College of Engineering",
-    period: "2024 – Present",
-    type: "education",
-    bullets: [
-      "Maintaining strong academic performance across core CS subjects: DSA, OOP, DBMS, Operating Systems, and Computer Networks",
-      "Built 5+ full-stack web and ML projects applying engineering principles beyond coursework requirements",
-      "Solved 2000+ algorithmic problems on LeetCode, CodeChef, and HackerRank with focus on time/space complexity",
-      "Actively preparing for full-stack software engineering roles with deep focus on clean code and system design",
+    role: "Open Source Contributor",
+    organization: "BossConsole — Risa Labs",
+    period: "September 2026",
+    type: "opensource",
+    description:
+      "Merged 3 pull requests (#704, #793, #777), including a coroutine-scope memory-leak fix for a production issue and UI-state persistence improvements.",
+    highlights: [
+      "Merged 3 pull requests (#704, #793, #777) in the official repository.",
+      "Diagnosed and resolved a coroutine-scope memory leak addressing an active production issue.",
+      "Engineered UI-state persistence improvements to maintain state integrity across lifecycle changes.",
+      "Collaborated with project maintainers on code reviews and asynchronous dispatch best practices.",
     ],
+    keyTags: ["Open Source", "Coroutines", "Memory Leak Fix", "UI State", "Production Issue"],
+    repoUrl: "https://github.com/risa-labs-inc/BossConsole",
+    pullRequests: ["PR #704", "PR #793", "PR #777"],
   },
   {
-    role: "Smart Campus Service Request System",
-    company: "Academic Project",
-    period: "2024",
-    type: "project",
-    bullets: [
-      "Designed end-to-end service request platform handling multi-role workflows for students, staff, and administrators",
-      "Designed normalized relational schema modeling full request lifecycles with state machine constraints",
-      "Implemented role-based access control and RESTful API endpoints in Node.js & Express",
-      "Applied backend architecture principles: modular separation, REST design, and data integrity constraints",
+    role: "Full Stack Development Intern",
+    organization: "Campus Aacharya",
+    period: "December 2025",
+    type: "internship",
+    description:
+      "Built a full-stack Blood Bank Management System using React.js, Node.js, Express.js, and MongoDB, with JWT authentication and REST APIs for donor registration, inventory tracking, and requests.",
+    highlights: [
+      "Built full-stack Blood Bank Management System applying MERN stack architecture.",
+      "Engineered RESTful API endpoints for donor registration, blood inventory tracking, and request handling.",
+      "Implemented secure JWT authentication and role-based access for system users.",
+      "Designed MongoDB data models for real-time inventory management and request workflows.",
     ],
-  },
-  {
-    role: "Return & Refund Management System",
-    company: "Academic Project",
-    period: "2024",
-    type: "project",
-    bullets: [
-      "Modeled complex e-commerce return workflows with explicit state transitions and permission boundaries",
-      "Implemented ACID-compliant transaction handling in MySQL to maintain data integrity during approval stages",
-      "Designed append-only audit logging system capturing status changes with actor timestamps",
-      "Enforced role-based access separating customer, reviewer, and administrator actions",
-    ],
-  },
-  {
-    role: "Military Vehicle Predictive Maintenance (ML)",
-    company: "Academic Project",
-    period: "2024",
-    type: "project",
-    bullets: [
-      "Built supervised learning pipeline: data preprocessing, feature engineering, model training, and evaluation",
-      "Applied SMOTE oversampling to address class imbalance in failure event data",
-      "Evaluated model trade-offs with explicit focus on minimizing false negatives",
-      "Demonstrated how feature engineering improves classification metrics over baseline algorithms",
-    ],
-  },
-  {
-    role: "Competitive Programming & DSA Practice",
-    company: "LeetCode · CodeChef · HackerRank · SkillRack",
-    period: "2024 – Present",
-    type: "practice",
-    bullets: [
-      "Solved 2000+ problems spanning arrays, strings, recursion, hashing, stacks, queues, and trees",
-      "Consistent daily practice with focus on optimal time/space complexity analysis",
-      "Building the algorithmic foundation required for technical interviews and software engineering roles",
-    ],
+    keyTags: ["React.js", "Node.js", "Express.js", "MongoDB", "JWT Authentication", "REST APIs"],
   },
 ];
 
+// ============================================================================
+// TECHNICAL SKILLS
+// Organized strictly into the 7 requested categories with clear prioritization
+// ============================================================================
 export const skills: SkillCategory[] = [
   {
-    title: "Languages",
+    title: "Programming Languages",
     skills: [
       { name: "Java", primary: true },
       { name: "Python", primary: true },
@@ -275,16 +126,6 @@ export const skills: SkillCategory[] = [
       { name: "TypeScript", primary: true },
       { name: "C", primary: false },
       { name: "C++", primary: false },
-    ],
-  },
-  {
-    title: "Web Technologies",
-    skills: [
-      { name: "HTML5", primary: true },
-      { name: "CSS3", primary: true },
-      { name: "JavaScript", primary: true },
-      { name: "React.js", primary: true },
-      { name: "Next.js", primary: true },
     ],
   },
   {
@@ -298,44 +139,431 @@ export const skills: SkillCategory[] = [
     ],
   },
   {
-    title: "Machine Learning & Data Analysis",
+    title: "Frontend",
     skills: [
-      { name: "Pandas", primary: true },
-      { name: "NumPy", primary: true },
-      { name: "Scikit-learn", primary: true },
-      { name: "Matplotlib", primary: false },
-      { name: "Groq LLM RAG", primary: true },
+      { name: "React.js", primary: true },
+      { name: "Next.js", primary: true },
+      { name: "HTML5", primary: true },
+      { name: "CSS3", primary: true },
+      { name: "Tailwind CSS", primary: true },
     ],
   },
   {
     title: "Databases",
     skills: [
       { name: "MySQL", primary: true },
-      { name: "MongoDB", primary: true },
       { name: "PostgreSQL", primary: true },
-      { name: "Schema Design", primary: false },
+      { name: "MongoDB", primary: true },
+      { name: "SQL", primary: true },
+      { name: "Relational Schema Design", primary: true },
+      { name: "Indexing", primary: true },
+      { name: "Query Optimization", primary: true },
     ],
   },
   {
-    title: "Tools & Cloud",
+    title: "AI / ML",
     skills: [
-      { name: "GitHub & Git", primary: true },
+      { name: "RAG & LLM Integration", primary: true },
+      { name: "Scikit-learn", primary: true },
+      { name: "Pandas", primary: true },
+      { name: "NumPy", primary: true },
+      { name: "Feature Engineering", primary: true },
+      { name: "SMOTE", primary: false },
+    ],
+  },
+  {
+    title: "Tools & Platforms",
+    skills: [
+      { name: "Git", primary: true },
+      { name: "GitHub", primary: true },
       { name: "Docker", primary: true },
       { name: "AWS", primary: false },
+      { name: "Postman", primary: true },
       { name: "VS Code", primary: false },
       { name: "IntelliJ IDEA", primary: false },
-      { name: "Postman", primary: false },
     ],
   },
   {
-    title: "Core Concepts",
+    title: "Specialized Technologies",
     skills: [
-      { name: "Data Structures", primary: true },
-      { name: "Algorithms & OOP", primary: true },
-      { name: "DBMS", primary: true },
-      { name: "Computer Networks", primary: false },
-      { name: "Operating Systems", primary: false },
+      { name: "Three.js (WebGL)", primary: true },
+      { name: "Leaflet GIS", primary: false },
+      { name: "NetworkX", primary: false },
+      { name: "Tesseract OCR", primary: false },
     ],
+  },
+];
+
+// ============================================================================
+// FEATURED PROJECTS
+// Prioritizing engineering depth, real problems, and working code
+// ============================================================================
+export const projects: Project[] = [
+  {
+    id: "datapulse",
+    initials: "DP",
+    title: "DataPulse — AI Crime Analytics & Spatial Intelligence Platform",
+    shortDesc:
+      "An AI-powered crime analytics platform designed to help organize crime records, extract information from FIR documents, analyze geographic patterns, and support patrol route planning.",
+    problem:
+      "Law enforcement operations struggle with fragmented crime records, manual paper FIR scans, lack of real-time spatial intelligence, and unoptimized patrol routing across jurisdictions.",
+    approach:
+      "Built a multi-service architecture: Spring Boot REST API with PostgreSQL backend for crime data persistence and security; FastAPI AI service leveraging Groq LLM (Llama-3.3-70b) for RAG-based case briefs; Tesseract OCR for automated FIR document text extraction; Three.js for 3D geographic elevation visualization; NetworkX for Dijkstra shortest-path patrol routing; Leaflet GIS for spatial mapping; and a React Native mobile field app.",
+    keyFeatures: [
+      "Spring Boot REST API and PostgreSQL backend.",
+      "FastAPI-based AI service integrating Groq LLM for RAG-based case briefs.",
+      "Tesseract OCR for FIR document text extraction.",
+      "Three.js-based 3D geographic visualization.",
+      "NetworkX-based Dijkstra shortest-path patrol routing.",
+      "Leaflet GIS-based spatial visualization.",
+      "React Native field application.",
+    ],
+    challenges:
+      "Extracting text from scanned multi-page FIR documents asynchronously while maintaining low-latency Groq LLM RAG responses; synchronizing mobile GPS coordinates with interactive 3D WebGL elevation heatmaps.",
+    results:
+      "Built and demonstrated a functional prototype at the Karnataka State Police Hackathon 2026, automating incident text extraction and computing risk-weighted patrol routes.",
+    learnings:
+      "Decoupling enterprise persistence (Spring Boot) from AI inference microservices (FastAPI) enables clean separation of concerns and independent service scaling.",
+    tech: [
+      "Next.js",
+      "Spring Boot",
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "Groq LLM",
+      "Three.js",
+      "React Native Expo",
+      "NetworkX",
+      "Leaflet GIS",
+      "Tesseract OCR",
+    ],
+    primaryTech: ["Spring Boot", "FastAPI", "Groq LLM", "Next.js", "Three.js"],
+    github: "https://github.com/rupeshsah86/DataPulse-KSP-Crime-Analytics.git",
+    demo: "https://frontend-deploy-ejcwfbbz.onslate.in",
+    accentColor: "#38bdf8",
+    image: "/images/projects/datapulse.jpg",
+    category: "Machine Learning",
+    categoryBadge: "AI/ML | Full-Stack | Backend Engineering",
+  },
+  {
+    id: "return-refund",
+    initials: "RR",
+    title: "Return & Refund Management System",
+    shortDesc:
+      "A backend workflow system designed to manage e-commerce return and refund processes through structured approval stages and transaction-safe database operations.",
+    problem:
+      "E-commerce return flows involve complex multi-stage approvals across customers and administrators requiring transactional safety to prevent double-refunds and inconsistent inventory records.",
+    approach:
+      "Implemented a structured multi-stage approval workflow with ACID-compliant MySQL transactions and append-only audit logging for every state transition across customer, reviewer, and admin roles.",
+    keyFeatures: [
+      "Multi-stage approval workflow.",
+      "Role-Based Access Control.",
+      "MySQL transaction management.",
+      "Audit logging for workflow transitions.",
+      "Database consistency and duplicate-refund prevention design.",
+    ],
+    challenges:
+      "Handling concurrent return requests without race conditions and designing an append-only audit trail that remains fast to query across high transaction volumes.",
+    results:
+      "Modeled complete multi-stage approval logic with transaction locking and verified data separation across role boundaries.",
+    learnings:
+      "Designing ACID compliance and audit trails into database schemas from day one makes backend systems significantly more robust and auditable.",
+    tech: [
+      "MySQL",
+      "Node.js",
+      "Transaction Management",
+      "RBAC",
+      "Audit Logging",
+      "Backend Architecture",
+    ],
+    primaryTech: ["MySQL", "Transaction Management", "RBAC"],
+    github: "https://github.com/rupeshsah86/ReturnRefundManager.git",
+    accentColor: "#818cf8",
+    image: "/images/projects/return-refund.png",
+    category: "Backend & Systems",
+    categoryBadge: "Backend & Systems",
+  },
+  {
+    id: "smart-campus",
+    initials: "SC",
+    title: "Smart Campus Service Request System",
+    shortDesc:
+      "A campus service request backend designed to manage ticket submission, assignment, review, and resolution through a structured workflow.",
+    problem:
+      "Manual campus service ticketing led to lost requests, lack of resolution visibility for students, and unstructured ticket assignment workflows for facility administrators.",
+    approach:
+      "Designed a normalized relational schema modeling the ticket lifecycle. Built RESTful API endpoints with role-based access control and designed the workflow engine as a state machine to enforce valid transitions.",
+    keyFeatures: [
+      "Normalized relational schema.",
+      "Ticket lifecycle management.",
+      "Role-based access control.",
+      "State machine-based workflow design.",
+      "REST API architecture.",
+    ],
+    challenges:
+      "Enforcing valid state transitions (preventing premature closures or invalid re-openings) at the backend API layer without relying on client-side validation.",
+    results:
+      "Digitized request lifecycles with structured state transitions, eliminating ambiguity across student, staff, and admin interactions.",
+    learnings:
+      "Encoding state transition constraints directly in backend service logic ensures data integrity regardless of client behavior.",
+    tech: [
+      "Node.js",
+      "Express.js",
+      "MySQL",
+      "REST APIs",
+      "RBAC",
+      "State Machine Design",
+    ],
+    primaryTech: ["Node.js", "Express.js", "MySQL", "REST APIs"],
+    accentColor: "#5b5bd6",
+    image: "/images/projects/smart-campus.png",
+    category: "Backend & Systems",
+    categoryBadge: "Backend & Systems",
+  },
+  {
+    id: "predictive-maintenance",
+    initials: "ML",
+    title: "Military Vehicle Predictive Maintenance",
+    shortDesc:
+      "An ML pipeline for predictive maintenance that analyzes sensor-related features to identify potential equipment failures and support preventive maintenance decisions.",
+    problem:
+      "Reactive maintenance on operational vehicles leads to costly equipment downtime and safety risks. The objective was to evaluate failure risk using sensor telemetry.",
+    approach:
+      "Built an end-to-end supervised machine learning pipeline: sensor data preprocessing, domain-specific feature engineering, class imbalance mitigation using SMOTE, and model evaluation focusing on precision and recall trade-offs.",
+    keyFeatures: [
+      "Data preprocessing and feature engineering.",
+      "Supervised classification.",
+      "Class imbalance handling using SMOTE.",
+      "Model evaluation using precision and recall.",
+    ],
+    challenges:
+      "Severe class imbalance in failure event data required careful SMOTE oversampling and threshold tuning to avoid false negatives.",
+    results:
+      "Demonstrated that domain feature engineering combined with SMOTE yielded substantial improvements in identifying rare failure events over baseline algorithms.",
+    learnings:
+      "In risk-sensitive engineering applications, the asymmetric cost of false negatives requires optimizing for recall rather than relying on standard accuracy.",
+    tech: [
+      "Python",
+      "Scikit-learn",
+      "Pandas",
+      "NumPy",
+      "Supervised Classification",
+      "SMOTE",
+      "Feature Engineering",
+    ],
+    primaryTech: ["Python", "Scikit-learn", "SMOTE", "Pandas"],
+    github:
+      "https://github.com/rupeshsah86/predictivemaintainancemilitarryvehicle-Aiml.git",
+    accentColor: "#22c55e",
+    image: "/images/projects/predictive-maintenance.png",
+    category: "Machine Learning",
+    categoryBadge: "Applied AI / ML",
+  },
+  {
+    id: "blood-bank",
+    initials: "BB",
+    title: "Blood Bank Management System",
+    shortDesc:
+      "A database-focused blood bank management system designed to organize donor information and blood inventory through structured relational data.",
+    problem:
+      "Blood centers require fast inventory lookups and accurate donor record matching across blood types and urgency levels without database contention.",
+    approach:
+      "Designed a normalized relational schema supporting donor registration, inventory tracking, and matching queries. Applied database indexing and structured JOIN queries to optimize lookup performance.",
+    keyFeatures: [
+      "Normalized relational schema.",
+      "Donor and inventory management.",
+      "Composite indexing where implemented.",
+      "SQL joins and query optimization.",
+    ],
+    challenges:
+      "Selecting appropriate composite index structures to accelerate read-heavy inventory matching queries without imposing excessive overhead during donor record writes.",
+    results:
+      "Efficient inventory tracking schema with optimized query execution plans and clean relational data organization.",
+    learnings:
+      "Index design must be guided by execution plans and actual query patterns; normalization and indexing work together to ensure relational data efficiency.",
+    tech: [
+      "MySQL",
+      "DBMS",
+      "Relational Schema Design",
+      "Indexing",
+      "SQL Query Optimization",
+    ],
+    primaryTech: ["MySQL", "Relational Schema Design", "Query Optimization"],
+    github: "https://github.com/rupeshsah86/blood-bank-system.git",
+    accentColor: "#e05c5c",
+    image: "/images/projects/blood-bank.png",
+    category: "Backend & Systems",
+    categoryBadge: "Database & Backend",
+  },
+  {
+    id: "hamro-food",
+    initials: "HF",
+    title: "Hamro Food — Food Ordering Web App",
+    shortDesc:
+      "A responsive food ordering interface built using vanilla web technologies, focusing on accessibility, responsive layouts, and interactive cart functionality.",
+    problem:
+      "Build a complete, accessible food ordering frontend from scratch without external UI frameworks while maintaining mobile responsiveness and smooth interactions.",
+    approach:
+      "Implemented a mobile-first responsive layout with semantic HTML5, CSS Grid, and Flexbox. Built interactive components, cart state management, and menu category filtering using vanilla JavaScript.",
+    keyFeatures: [
+      "Mobile-first responsive layout.",
+      "Interactive cart state.",
+      "Menu filtering.",
+      "Semantic HTML.",
+      "CSS Grid and Flexbox.",
+    ],
+    challenges:
+      "Structuring modular, maintainable CSS utility classes and efficient DOM state updates without third-party libraries.",
+    results:
+      "Fully responsive, accessible UI with zero framework overhead, fast initial load time, and live deployment on GitHub Pages.",
+    learnings:
+      "Building directly on browser primitives deepens understanding of DOM manipulation, CSS layout algorithms, and browser rendering lifecycles.",
+    tech: ["HTML5", "CSS3", "JavaScript", "CSS Grid", "Flexbox"],
+    primaryTech: ["HTML5", "CSS3", "JavaScript"],
+    github: "https://github.com/rupeshsah86/Hamro_Food.git",
+    demo: "https://rupeshsah86.github.io/Hamro_Food/",
+    accentColor: "#f59e0b",
+    image: "/images/projects/hamro-food.png",
+    category: "Full Stack",
+    categoryBadge: "Frontend & Web Fundamentals",
+  },
+];
+
+// ============================================================================
+// COMPETITIVE PROGRAMMING PROFILES
+// 2,000+ problems solved across verified coding platforms
+// ============================================================================
+export const codingProfiles: CodingProfile[] = [
+  {
+    platform: "SkillRack",
+    solved: "1,500+ Problems",
+    url: "https://www.skillrack.com/faces/resume.xhtml?id=515052&key=f24de1adc9fe16fffdcba8ac076d17c239e67d84",
+    highlight: "Daily DSA & Logic Practice",
+  },
+  {
+    platform: "CodeChef",
+    solved: "650+ Problems",
+    url: "https://www.codechef.com/users/rupeshsah_1",
+    highlight: "Competitive Problem Solving",
+  },
+  {
+    platform: "LeetCode",
+    solved: "240+ Problems",
+    url: "https://leetcode.com/u/Rupeshkumarsah/",
+    highlight: "Data Structures & Algorithms",
+  },
+  {
+    platform: "CodeForces",
+    solved: "35+ Problems",
+    url: "https://codeforces.com/profile/rupeshkumarsah.2024cse",
+    highlight: "Contest Problem Solving",
+  },
+  {
+    platform: "HackerRank",
+    solved: "Secured Bronze in Java",
+    url: "https://www.hackerrank.com/profile/rupeshkumarsah_1",
+    highlight: "Java Problem Solving",
+  },
+];
+
+// ============================================================================
+// ACHIEVEMENTS & CERTIFICATIONS
+// Verified awards, hackathons, and certifications
+// ============================================================================
+export const achievements: Achievement[] = [
+  {
+    title: "First Prize Winner",
+    event: "Freshathon 2025",
+    year: "2025",
+    badge: "1st Place",
+  },
+  {
+    title: "First Prize Winner",
+    event: "Creatathon 2025",
+    year: "2025",
+    badge: "1st Place",
+  },
+  {
+    title: "Hackathon Participant & Presenter",
+    event: "Karnataka State Police Hackathon 2026 (DataPulse Platform)",
+    year: "2026",
+    badge: "KSP Hackathon",
+  },
+  {
+    title: "Second Prize Winner",
+    event: "Creatathon 2024 & Freshathon 2024",
+    year: "2024",
+    badge: "2nd Place",
+  },
+];
+
+export const certifications: Certification[] = [
+  {
+    name: "Software Engineering Job Simulation",
+    issuer: "JP-Morgan Chase & Co",
+    year: "2026",
+  },
+  {
+    name: "Mastering Data Structures & Algorithms using C & C++",
+    issuer: "Udemy",
+    year: "2025",
+  },
+  {
+    name: "DSA using Java",
+    issuer: "Guvi",
+    year: "2025",
+  },
+  {
+    name: "C and C++ Certificate",
+    issuer: "Spoken Tutorial by IIT Bombay",
+    year: "2024",
+  },
+  {
+    name: "Java from Zero to First Job",
+    issuer: "Udemy",
+    year: "2025",
+  },
+  {
+    name: "CTF Certificate in Cyber Security",
+    issuer: "Cyber Security CTF",
+    year: "2024",
+  },
+];
+
+// ============================================================================
+// TECHNICAL WRITING / PLANNED ARTICLES
+// Clearly marked as planned / coming soon
+// ============================================================================
+export const blogPosts: BlogPost[] = [
+  {
+    slug: "mysql-query-optimization",
+    title: "How I optimized MySQL joins and indexed relational queries",
+    excerpt:
+      "A practical exploration of index design, JOIN execution plans, and query optimization lessons from building relational database systems.",
+    date: "Planned / Coming Soon",
+    readTime: "6 min read",
+    tags: ["MySQL", "Query Optimization", "Backend"],
+    published: false,
+  },
+  {
+    slug: "state-machines-backend",
+    title: "State machines in backend systems: lessons from a refund workflow",
+    excerpt:
+      "Why modeling business logic and request lifecycles as explicit state machines makes backend services reliable, transactional, and auditable.",
+    date: "Planned / Coming Soon",
+    readTime: "8 min read",
+    tags: ["System Design", "State Machine", "Backend"],
+    published: false,
+  },
+  {
+    slug: "why-i-practice-dsa",
+    title: "Why I practice DSA daily as a CS student",
+    excerpt:
+      "Building core algorithmic intuition, time-space complexity awareness, and systematic problem decomposition across 2,000+ solved problems.",
+    date: "Planned / Coming Soon",
+    readTime: "5 min read",
+    tags: ["DSA", "Problem Solving", "Computer Science"],
+    published: false,
   },
 ];
 
@@ -362,37 +590,3 @@ export const testimonials: Testimonial[] = [
     initials: "PE",
   },
 ];
-
-export const blogPosts: BlogPost[] = [
-  {
-    slug: "mysql-query-optimization",
-    title: "How I optimized MySQL joins and indexed relational queries",
-    excerpt:
-      "A deep dive into index design, JOIN strategies, and query execution plans — lessons learned building database projects.",
-    date: "Coming Soon",
-    readTime: "6 min read",
-    tags: ["MySQL", "Performance", "Backend"],
-    published: false,
-  },
-  {
-    slug: "state-machines-backend",
-    title: "State machines in backend systems: lessons from a refund workflow",
-    excerpt:
-      "Why modeling business logic as explicit state machines makes backend applications reliable and auditable.",
-    date: "Coming Soon",
-    readTime: "8 min read",
-    tags: ["Architecture", "Backend", "System Design"],
-    published: false,
-  },
-  {
-    slug: "why-i-practice-dsa",
-    title: "Why I practice DSA daily as a CS student",
-    excerpt:
-      "Building the core mental models and algorithmic intuition that make software engineers adaptable across tech stacks.",
-    date: "Coming Soon",
-    readTime: "5 min read",
-    tags: ["DSA", "Career", "Engineering"],
-    published: false,
-  },
-];
-

@@ -50,8 +50,8 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             position: "relative",
             zIndex: 101,
             width: "100%",
-            maxWidth: 720,
-            maxHeight: "85vh",
+            maxWidth: 740,
+            maxHeight: "88vh",
             overflowY: "auto",
             background: "var(--c-bg)",
             border: "1px solid var(--c-border-hi)",
@@ -104,10 +104,26 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               {project.initials}
             </div>
             <div>
-              <h3 style={{ fontSize: 24, fontWeight: 700, color: "var(--c-text)", margin: 0 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
+                <span
+                  style={{
+                    fontSize: 11,
+                    fontWeight: 600,
+                    padding: "2px 8px",
+                    borderRadius: 4,
+                    background: "var(--c-raised)",
+                    color: "var(--c-accent)",
+                    border: "1px solid var(--c-border-md)",
+                    fontFamily: "'JetBrains Mono', monospace",
+                  }}
+                >
+                  {project.categoryBadge || project.category}
+                </span>
+              </div>
+              <h3 style={{ fontSize: 22, fontWeight: 700, color: "var(--c-text)", margin: 0, lineHeight: 1.25 }}>
                 {project.title}
               </h3>
-              <p style={{ fontSize: 14, color: "var(--c-muted)", margin: 0, marginTop: 4 }}>
+              <p style={{ fontSize: 13, color: "var(--c-muted)", margin: 0, marginTop: 4, lineHeight: 1.6 }}>
                 {project.shortDesc}
               </p>
             </div>
@@ -136,37 +152,54 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           </div>
 
           {/* Case Study Sections */}
-          <div style={{ display: "flex", flexDirection: "column", gap: 20, marginBottom: 28 }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 18, marginBottom: 28 }}>
             {/* Problem */}
             <div className="card" style={{ padding: 18 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 8, color: "#f87171", fontWeight: 600, fontSize: 14, marginBottom: 6 }}>
-                <AlertTriangle size={16} /> The Problem
+                <AlertTriangle size={16} /> Problem Statement
               </div>
-              <p style={{ fontSize: 14, color: "var(--c-text)", lineHeight: 1.6 }}>{project.problem}</p>
+              <p style={{ fontSize: 14, color: "var(--c-text)", lineHeight: 1.65 }}>{project.problem}</p>
             </div>
 
             {/* Approach */}
             <div className="card" style={{ padding: 18 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 8, color: project.accentColor, fontWeight: 600, fontSize: 14, marginBottom: 6 }}>
-                <Wrench size={16} /> Architectural Approach
+                <Wrench size={16} /> Technical Solution & Architecture
               </div>
-              <p style={{ fontSize: 14, color: "var(--c-text)", lineHeight: 1.6 }}>{project.approach}</p>
+              <p style={{ fontSize: 14, color: "var(--c-text)", lineHeight: 1.65 }}>{project.approach}</p>
             </div>
+
+            {/* Key Features */}
+            {project.keyFeatures && project.keyFeatures.length > 0 && (
+              <div className="card" style={{ padding: 18 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 8, color: "var(--c-accent)", fontWeight: 600, fontSize: 14, marginBottom: 8 }}>
+                  <CheckCircle2 size={16} /> Key Features
+                </div>
+                <ul style={{ display: "flex", flexDirection: "column", gap: 8, paddingLeft: 0, listStyle: "none" }}>
+                  {project.keyFeatures.map((f, idx) => (
+                    <li key={idx} style={{ display: "flex", alignItems: "flex-start", gap: 8, fontSize: 13, color: "var(--c-text)", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--c-accent)", fontWeight: 700 }}>▹</span>
+                      <span>{f}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
             {/* Key Challenges */}
             <div className="card" style={{ padding: 18 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 8, color: "#fbbf24", fontWeight: 600, fontSize: 14, marginBottom: 6 }}>
                 <Cpu size={16} /> Key Challenges Solved
               </div>
-              <p style={{ fontSize: 14, color: "var(--c-text)", lineHeight: 1.6 }}>{project.challenges}</p>
+              <p style={{ fontSize: 14, color: "var(--c-text)", lineHeight: 1.65 }}>{project.challenges}</p>
             </div>
 
             {/* Results & Impact */}
             <div className="card" style={{ padding: 18 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 8, color: "var(--c-green)", fontWeight: 600, fontSize: 14, marginBottom: 6 }}>
-                <Trophy size={16} /> Results & Impact
+                <Trophy size={16} /> Results & Verification
               </div>
-              <p style={{ fontSize: 14, color: "var(--c-text)", lineHeight: 1.6 }}>{project.results}</p>
+              <p style={{ fontSize: 14, color: "var(--c-text)", lineHeight: 1.65 }}>{project.results}</p>
             </div>
 
             {/* Key Learnings */}
@@ -174,28 +207,30 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               <div style={{ display: "flex", alignItems: "center", gap: 8, color: "var(--c-purple)", fontWeight: 600, fontSize: 14, marginBottom: 6 }}>
                 <Lightbulb size={16} /> Key Engineering Takeaways
               </div>
-              <p style={{ fontSize: 14, color: "var(--c-text)", lineHeight: 1.6 }}>{project.learnings}</p>
+              <p style={{ fontSize: 14, color: "var(--c-text)", lineHeight: 1.65 }}>{project.learnings}</p>
             </div>
           </div>
 
           {/* Action Links */}
-          <div style={{ display: "flex", gap: 12 }}>
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-ghost"
-              style={{ flex: 1, justifyContent: "center" }}
-            >
-              <GithubIcon size={16} /> View Source Code
-            </a>
+          <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+            {project.github && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-ghost"
+                style={{ flex: 1, minWidth: 200, justifyContent: "center" }}
+              >
+                <GithubIcon size={16} /> View Source Code
+              </a>
+            )}
             {project.demo && (
               <a
                 href={project.demo}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary"
-                style={{ flex: 1, justifyContent: "center" }}
+                style={{ flex: 1, minWidth: 200, justifyContent: "center" }}
               >
                 <ExternalLink size={16} /> Live Application
               </a>

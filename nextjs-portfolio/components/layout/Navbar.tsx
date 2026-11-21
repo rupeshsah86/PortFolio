@@ -2,11 +2,11 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Sun, Moon } from "lucide-react";
+import { Menu, X, Sun, Moon, Download } from "lucide-react";
 import { useTheme } from "next-themes";
 import { personal } from "@/lib/data";
 
-const links = ["About", "Skills", "Projects", "Experience", "Contact"];
+const links = ["About", "Experience", "Skills", "Projects", "Achievements", "Contact"];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -16,10 +16,13 @@ export default function Navbar() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    const t = setTimeout(() => setMounted(true), 0);
     const fn = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", fn);
-    return () => window.removeEventListener("scroll", fn);
+    return () => {
+      clearTimeout(t);
+      window.removeEventListener("scroll", fn);
+    };
   }, []);
 
   useEffect(() => {
@@ -88,7 +91,7 @@ export default function Navbar() {
               transition: "color 0.3s ease",
             }}
           >
-            <span style={{ color: "var(--c-accent)" }}>//</span> RUPESH
+            <span style={{ color: "var(--c-accent)" }}>{"//"}</span> RUPESH
           </button>
 
           {/* Desktop Nav */}
@@ -112,7 +115,7 @@ export default function Navbar() {
                   key={l}
                   onClick={() => go(l.toLowerCase())}
                   style={{
-                    padding: "6px 16px",
+                    padding: "6px 14px",
                     borderRadius: 20,
                     fontSize: 13,
                     fontWeight: 500,
@@ -165,17 +168,20 @@ export default function Navbar() {
 
             <a
               href={personal.resumeUrl}
-              download
+              download="Rupesh_Kumar_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-ghost"
               style={{
-                padding: "8px 18px",
+                padding: "8px 16px",
                 fontSize: 13,
                 borderRadius: 8,
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 6,
               }}
             >
-              View Resume
+              <Download size={14} /> Resume
             </a>
           </div>
 
@@ -260,7 +266,7 @@ export default function Navbar() {
               <div style={{ padding: "8px 16px" }}>
                 <a
                   href={personal.resumeUrl}
-                  download
+                  download="Rupesh_Kumar_Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-ghost"
@@ -270,10 +276,12 @@ export default function Navbar() {
                     padding: "10px 16px",
                     borderRadius: 8,
                     display: "inline-flex",
+                    alignItems: "center",
+                    gap: 6,
                     textAlign: "center",
                   }}
                 >
-                  View Resume
+                  <Download size={14} /> Download Resume
                 </a>
               </div>
             </div>

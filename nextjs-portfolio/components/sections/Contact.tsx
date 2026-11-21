@@ -56,7 +56,7 @@ export default function Contact() {
           {/* Left Column */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
             <div className="label">Get in Touch</div>
-            <h2 className="heading">Let's discuss engineering & opportunity.</h2>
+            <h2 className="heading">Let&apos;s discuss engineering &amp; opportunity.</h2>
             <p style={{ fontSize: 16, color: "var(--c-muted)", lineHeight: 1.75, marginBottom: 32 }}>
               I am actively open to internship and full-stack engineering roles. Whether you have a position, an open-source project, or want to talk system architecture, send me a message!
             </p>

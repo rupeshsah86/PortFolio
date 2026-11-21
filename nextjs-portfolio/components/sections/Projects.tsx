@@ -1,8 +1,9 @@
 "use client";
+
 import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ExternalLink, Layers, ArrowUpRight, ShieldCheck } from "lucide-react";
+import { ExternalLink, Layers, ArrowUpRight, ShieldCheck, CheckCircle2 } from "lucide-react";
 import { GithubIcon } from "@/components/ui/SocialIcons";
 import { projects } from "@/lib/data";
 import type { Project } from "@/lib/types";
@@ -33,10 +34,10 @@ export default function Projects() {
     <section id="projects" className="section" style={{ background: "var(--c-bg)" }}>
       <div className="wrap">
         <motion.div {...inView(0)} style={{ marginBottom: 36 }}>
-          <div className="label">Featured Projects</div>
-          <h2 className="heading">Projects & Engineering Systems</h2>
+          <div className="label">Engineering Systems & Software</div>
+          <h2 className="heading">Featured Projects</h2>
           <p className="subtext">
-            Full-stack web applications, database architectures, and machine learning pipelines built with clear engineering principles.
+            Demonstrated engineering ability across backend architecture, database systems, applied AI/ML pipelines, and full-stack applications.
           </p>
         </motion.div>
 
@@ -68,7 +69,7 @@ export default function Projects() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 28 }} className="proj-grid">
           {filteredProjects.map((p, i) => (
             <motion.div key={p.id} {...inView(i * 0.08)} layout style={{ height: "100%" }}>
-              <Tilt3DCard onClick={() => setSelected(p)} maxRotation={8} scaleOnHover={1.02}>
+              <Tilt3DCard onClick={() => setSelected(p)} maxRotation={7} scaleOnHover={1.02}>
                 <div
                   className="card project-card"
                   style={{
@@ -83,7 +84,7 @@ export default function Projects() {
                     transition: "all 0.25s ease",
                   }}
                 >
-                  {/* Thumbnail */}
+                  {/* Thumbnail Banner */}
                   <div
                     style={{
                       height: 200,
@@ -107,7 +108,7 @@ export default function Projects() {
                         onError={() => setImgErrors((prev) => ({ ...prev, [p.id]: true }))}
                       />
                     ) : p.id === "datapulse" ? (
-                      /* High-End DataPulse Dashboard UI Card Preview */
+                      /* High-End DataPulse Preview */
                       <div
                         style={{
                           position: "absolute",
@@ -123,21 +124,34 @@ export default function Projects() {
                         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                             <ShieldCheck size={18} color="var(--c-accent)" />
-                            <span style={{ fontSize: 13, fontWeight: 800, color: "var(--c-text)", fontFamily: "'JetBrains Mono', monospace" }}>DataPulse</span>
+                            <span style={{ fontSize: 13, fontWeight: 800, color: "var(--c-text)", fontFamily: "'JetBrains Mono', monospace" }}>
+                              DataPulse
+                            </span>
                           </div>
-                          <span style={{ fontSize: 10, background: "var(--c-glow)", color: "var(--c-accent)", padding: "3px 10px", borderRadius: 12, border: "1px solid var(--c-border-md)", fontFamily: "'JetBrains Mono', monospace", fontWeight: 700 }}>
+                          <span
+                            style={{
+                              fontSize: 10,
+                              background: "var(--c-glow)",
+                              color: "var(--c-accent)",
+                              padding: "3px 10px",
+                              borderRadius: 12,
+                              border: "1px solid var(--c-border-md)",
+                              fontFamily: "'JetBrains Mono', monospace",
+                              fontWeight: 700,
+                            }}
+                          >
                             Groq LLM RAG + Three.js
                           </span>
                         </div>
 
                         <div>
-                          <div style={{ fontSize: 16, fontWeight: 800, color: "var(--c-text)", lineHeight: 1.25, marginBottom: 8, letterSpacing: "-0.02em" }}>
-                            Transform Crime Data Into <span style={{ color: "var(--c-accent)" }}>Actionable Intelligence</span>
+                          <div style={{ fontSize: 15, fontWeight: 800, color: "var(--c-text)", lineHeight: 1.25, marginBottom: 8, letterSpacing: "-0.02em" }}>
+                            AI Crime Analytics & <span style={{ color: "var(--c-accent)" }}>Spatial Intelligence</span>
                           </div>
-                          <div style={{ display: "flex", gap: 10, flexWrap: "wrap", fontSize: 11, color: "var(--c-muted)", fontFamily: "'JetBrains Mono', monospace" }}>
-                            <span style={{ background: "var(--c-border)", padding: "2px 8px", borderRadius: 4 }}>15+ Categories</span>
-                            <span style={{ background: "var(--c-border)", padding: "2px 8px", borderRadius: 4 }}>1000+ Analyzed</span>
-                            <span style={{ background: "rgba(34,197,94,0.15)", color: "var(--c-green)", padding: "2px 8px", borderRadius: 4 }}>Live Deployed</span>
+                          <div style={{ display: "flex", gap: 8, flexWrap: "wrap", fontSize: 11, color: "var(--c-muted)", fontFamily: "'JetBrains Mono', monospace" }}>
+                            <span style={{ background: "var(--c-border)", padding: "2px 8px", borderRadius: 4 }}>Spring Boot</span>
+                            <span style={{ background: "var(--c-border)", padding: "2px 8px", borderRadius: 4 }}>FastAPI AI</span>
+                            <span style={{ background: "rgba(34,197,94,0.15)", color: "var(--c-green)", padding: "2px 8px", borderRadius: 4 }}>Live Demo</span>
                           </div>
                         </div>
                       </div>
@@ -157,11 +171,11 @@ export default function Projects() {
                           style={{
                             position: "relative",
                             zIndex: 1,
-                            fontSize: "4rem",
+                            fontSize: "3.5rem",
                             fontWeight: 800,
                             fontFamily: "'JetBrains Mono', monospace",
                             color: p.accentColor || "var(--c-accent)",
-                            opacity: 0.3,
+                            opacity: 0.25,
                             letterSpacing: "-0.06em",
                             userSelect: "none",
                           }}
@@ -186,12 +200,13 @@ export default function Projects() {
                         fontSize: 11,
                         fontFamily: "'JetBrains Mono', monospace",
                         fontWeight: 600,
+                        zIndex: 2,
                       }}
                     >
-                      {p.category || "Engineering"}
+                      {p.categoryBadge || p.category}
                     </div>
 
-                    {/* Overlay on hover */}
+                    {/* Hover Overlay */}
                     <div
                       style={{
                         position: "absolute",
@@ -203,6 +218,7 @@ export default function Projects() {
                         justifyContent: "center",
                         opacity: 0,
                         transition: "opacity 0.25s ease",
+                        zIndex: 3,
                       }}
                       className="proj-overlay"
                     >
@@ -219,7 +235,7 @@ export default function Projects() {
                           gap: 6,
                         }}
                       >
-                        <Layers size={14} /> Read Overview
+                        <Layers size={14} /> View Case Study
                       </span>
                     </div>
                   </div>
@@ -240,11 +256,25 @@ export default function Projects() {
                       </h3>
                       <ArrowUpRight size={18} color="var(--c-subtle)" className="proj-arrow" />
                     </div>
-                    <p style={{ fontSize: 14, color: "var(--c-muted)", lineHeight: 1.65, marginBottom: 20, flex: 1 }}>
+
+                    <p style={{ fontSize: 14, color: "var(--c-muted)", lineHeight: 1.65, marginBottom: 16 }}>
                       {p.shortDesc}
                     </p>
 
-                    <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 20 }}>
+                    {/* Key Feature Bullets */}
+                    {p.keyFeatures && (
+                      <div style={{ marginBottom: 16, display: "flex", flexDirection: "column", gap: 6 }}>
+                        {p.keyFeatures.slice(0, 3).map((f, idx) => (
+                          <div key={idx} style={{ display: "flex", alignItems: "flex-start", gap: 6, fontSize: 12, color: "var(--c-muted)" }}>
+                            <CheckCircle2 size={13} color="var(--c-accent)" style={{ flexShrink: 0, marginTop: 2 }} />
+                            <span>{f}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Tech Badges */}
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 20, marginTop: "auto" }}>
                       {p.primaryTech.map((t) => (
                         <span key={t} className="badge badge-accent">
                           {t}
@@ -260,17 +290,40 @@ export default function Projects() {
                         ))}
                     </div>
 
+                    {/* Action Links */}
                     <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }} onClick={(e) => e.stopPropagation()}>
-                      <a
-                        href={p.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-ghost"
-                        style={{ fontSize: 13, padding: "8px 14px", flex: 1, justifyContent: "center" }}
-                      >
-                        <GithubIcon size={14} /> Repository
-                      </a>
-                      {p.demo ? (
+                      {p.github ? (
+                        <a
+                          href={p.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn-ghost"
+                          style={{ fontSize: 13, padding: "8px 14px", flex: 1, justifyContent: "center" }}
+                        >
+                          <GithubIcon size={14} /> Repository
+                        </a>
+                      ) : (
+                        <span
+                          style={{
+                            fontSize: 12,
+                            color: "var(--c-subtle)",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            padding: "8px 12px",
+                            background: "var(--c-raised)",
+                            borderRadius: 8,
+                            border: "1px solid var(--c-border)",
+                            fontFamily: "'JetBrains Mono', monospace",
+                            flex: 1,
+                            textAlign: "center",
+                          }}
+                        >
+                          Backend System Architecture
+                        </span>
+                      )}
+
+                      {p.demo && (
                         <a
                           href={p.demo}
                           target="_blank"
@@ -280,25 +333,6 @@ export default function Projects() {
                         >
                           <ExternalLink size={14} /> Live Demo
                         </a>
-                      ) : (
-                        <span
-                          style={{
-                            fontSize: 11,
-                            color: "var(--c-subtle)",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            padding: "8px 12px",
-                            background: "var(--c-raised)",
-                            borderRadius: 10,
-                            border: "1px solid var(--c-border)",
-                            fontFamily: "'JetBrains Mono', monospace",
-                            flex: 1,
-                            textAlign: "center",
-                          }}
-                        >
-                          Backend service — code repository
-                        </span>
                       )}
                     </div>
                   </div>
@@ -319,7 +353,7 @@ export default function Projects() {
         }
         .project-card:hover .proj-overlay { opacity: 1 !important; }
         .project-card:hover .proj-arrow { color: var(--c-accent) !important; }
-        @media (max-width: 768px) { .proj-grid { grid-template-columns: 1fr !important; } }
+        @media (max-width: 900px) { .proj-grid { grid-template-columns: 1fr !important; } }
       `}</style>
     </section>
   );

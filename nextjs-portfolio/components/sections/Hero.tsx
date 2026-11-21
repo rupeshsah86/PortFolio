@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Download, Briefcase } from "lucide-react";
 import { personal } from "@/lib/data";
 
 const E = [0.22, 1, 0.36, 1] as const;
@@ -80,17 +80,17 @@ export default function Hero() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "1.2fr 0.8fr",
-            gap: 64,
+            gridTemplateColumns: "1.25fr 0.75fr",
+            gap: 56,
             alignItems: "center",
           }}
           className="hero-grid"
         >
           {/* Left Side Content */}
-          <div style={{ maxWidth: 640 }}>
-            {/* Soft Green Pill Badge */}
+          <div style={{ maxWidth: 660 }}>
+            {/* Seeking Roles Pill Badge */}
             <motion.div
-              {...up(0.1)}
+              {...up(0.08)}
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -101,9 +101,9 @@ export default function Hero() {
                 background: "var(--c-pill-bg)",
                 color: "var(--c-pill-text)",
                 fontSize: 13,
-                fontWeight: 500,
+                fontWeight: 600,
                 letterSpacing: "0.01em",
-                marginBottom: 28,
+                marginBottom: 20,
                 transition: "all 0.3s ease",
               }}
             >
@@ -117,67 +117,117 @@ export default function Hero() {
                   boxShadow: "0 0 10px var(--c-green)",
                 }}
               />
-              Available for new opportunities
+              Seeking Software Engineering & Full-Stack Internships
             </motion.div>
 
-            {/* Large Elegant White Heading */}
+            {/* Main Headline */}
             <motion.h1
-              {...up(0.18)}
+              {...up(0.16)}
               style={{
-                fontSize: "clamp(2.5rem, 4.8vw, 4rem)",
+                fontSize: "clamp(2.4rem, 4.4vw, 3.8rem)",
                 fontWeight: 800,
-                lineHeight: 1.12,
+                lineHeight: 1.15,
                 letterSpacing: "-0.03em",
                 color: "var(--c-text)",
-                marginBottom: 24,
+                marginBottom: 18,
                 transition: "color 0.3s ease",
               }}
             >
-              Building scalable <br />
-              <span style={{ color: "var(--c-accent)" }}>full-stack</span> applications.
+              Full-Stack Engineer <br />
+              <span style={{ color: "var(--c-accent)" }}>Backend Systems</span> · AI/ML
             </motion.h1>
 
-            {/* Short Clean Bio Paragraph */}
+            {/* Supporting Headline & Tagline */}
             <motion.p
-              {...up(0.24)}
+              {...up(0.22)}
               style={{
-                fontSize: 17,
+                fontSize: 18,
+                color: "var(--c-text)",
+                lineHeight: 1.5,
+                marginBottom: 12,
+                fontWeight: 600,
+                letterSpacing: "-0.01em",
+              }}
+            >
+              {personal.subheadline}
+            </motion.p>
+
+            <motion.p
+              {...up(0.26)}
+              style={{
+                fontSize: 15,
                 color: "var(--c-muted)",
                 lineHeight: 1.7,
-                marginBottom: 36,
-                maxWidth: 540,
+                marginBottom: 26,
+                maxWidth: 580,
                 fontWeight: 400,
                 transition: "color 0.3s ease",
               }}
             >
-              I build robust, scalable web applications with modern technologies. Focused on clean code, performance, and exceptional user experiences.
+              {personal.positioning}
             </motion.p>
 
-            {/* Two Buttons Only */}
+            {/* Target Role Tags */}
             <motion.div
               {...up(0.3)}
-              style={{ display: "flex", gap: 16, alignItems: "center", flexWrap: "wrap" }}
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: 8,
+                marginBottom: 32,
+              }}
+            >
+              {personal.targetRoles.map((role) => (
+                <span
+                  key={role}
+                  style={{
+                    fontSize: 12,
+                    padding: "4px 10px",
+                    borderRadius: 6,
+                    background: "var(--c-raised)",
+                    color: "var(--c-text)",
+                    border: "1px solid var(--c-border)",
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontWeight: 500,
+                  }}
+                >
+                  {role}
+                </span>
+              ))}
+            </motion.div>
+
+            {/* Action Buttons */}
+            <motion.div
+              {...up(0.34)}
+              style={{ display: "flex", gap: 14, alignItems: "center", flexWrap: "wrap" }}
             >
               <button
                 onClick={() => go("projects")}
                 className="btn-primary"
               >
-                View My Work <ArrowRight size={16} />
+                Featured Projects <ArrowRight size={16} />
+              </button>
+
+              <button
+                onClick={() => go("experience")}
+                className="btn-ghost"
+              >
+                <Briefcase size={15} /> Experience
               </button>
 
               <a
                 href={personal.resumeUrl}
-                download
+                download="Rupesh_Kumar_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-ghost"
               >
-                View Resume
+                <Download size={15} /> Download Resume
               </a>
             </motion.div>
           </div>
 
-          {/* Right Side Content — Clean Perfect Circular Frame */}
+          {/* Right Side Content — Circular Frame */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -253,7 +303,7 @@ export default function Hero() {
         @media (max-width: 900px) {
           .hero-grid {
             grid-template-columns: 1fr !important;
-            gap: 48px !important;
+            gap: 40px !important;
             text-align: center;
           }
           .hero-grid > div:last-child {
