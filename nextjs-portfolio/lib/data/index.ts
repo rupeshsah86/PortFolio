@@ -315,6 +315,7 @@ export const projects: Project[] = [
       "State Machine Design",
     ],
     primaryTech: ["Node.js", "Express.js", "MySQL", "REST APIs"],
+    github: "https://github.com/rupeshsah86/SmartCampusServiceRequestSystem.git",
     accentColor: "#5b5bd6",
     image: "/images/projects/smart-campus.png",
     category: "Backend & Systems",
